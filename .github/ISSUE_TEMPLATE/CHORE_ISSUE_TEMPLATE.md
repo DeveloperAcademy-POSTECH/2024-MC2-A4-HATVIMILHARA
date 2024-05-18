@@ -1,6 +1,6 @@
 ---
 name: "🐼 Chore Issue Template"
-about: "~~ 이슈 템플릿입니다."
+about: "Chore 이슈 템플릿입니다."
 title: "[Chore] 어쩌고-저쩌고"
 labels: ''
 assignees: ''
