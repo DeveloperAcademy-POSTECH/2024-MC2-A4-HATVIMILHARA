@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
+		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */; };
 		E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */; };
 		E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DC2BF86CB300A1E749 /* Item.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
+		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		E7B5F6D52BF86CB300A1E749 /* Dorae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoraeApp.swift; sourceTree = "<group>"; };
 		E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B50F27102BFB665500BB96F5 /* KnotList */ = {
+			isa = PBXGroup;
+			children = (
+				B50F27112BFB666C00BB96F5 /* BasicKnot.swift */,
+				B50F27132BFB668400BB96F5 /* AppliedKnot.swift */,
+			);
+			path = KnotList;
+			sourceTree = "<group>";
+		};
 		E7B5F6CC2BF86CB300A1E749 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 		E7B5F7072BFB3B2A00A1E749 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B50F27102BFB665500BB96F5 /* KnotList */,
 				E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -240,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */,
+				B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */,
 				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
 				E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */,
 				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
@@ -249,6 +264,7 @@
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
+				B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */,
 				E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */,
 				E7B5F7092BFB3B5C00A1E749 /* KnotDataManager.swift in Sources */,
 			);
