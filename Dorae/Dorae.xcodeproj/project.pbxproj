@@ -20,6 +20,7 @@
 		E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */; };
 		E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */; };
 		E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7122BFB3CC900A1E749 /* KnotView.swift */; };
+		E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7182BFB3F5A00A1E749 /* Color+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternView.swift; sourceTree = "<group>"; };
 		E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPatternView.swift; sourceTree = "<group>"; };
 		E7B5F7122BFB3CC900A1E749 /* KnotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotView.swift; sourceTree = "<group>"; };
+		E7B5F7182BFB3F5A00A1E749 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */,
+				E7B5F6FF2BFB385500A1E749 /* Model */,
+				E7B5F7002BFB387800A1E749 /* Views */,
 				E7B5F7022BFB388900A1E749 /* ViewModel */,
 				E7B5F7012BFB388100A1E749 /* Extensions */,
-				E7B5F7002BFB387800A1E749 /* Views */,
-				E7B5F6FF2BFB385500A1E749 /* Model */,
 				E7B5F7072BFB3B2A00A1E749 /* Resources */,
 				E7B5F6E02BF86CB400A1E749 /* Preview Content */,
 			);
@@ -102,10 +104,10 @@
 			children = (
 				E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */,
 				E7B5F70C2BFB3CAA00A1E749 /* PatternView.swift */,
+				E7B5F7142BFB3CDB00A1E749 /* Home */,
 				E7B5F7172BFB3D0900A1E749 /* KnotList */,
 				E7B5F7162BFB3CFA00A1E749 /* TextPattern */,
 				E7B5F7152BFB3CE400A1E749 /* ImagePattern */,
-				E7B5F7142BFB3CDB00A1E749 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,6 +115,7 @@
 		E7B5F7012BFB388100A1E749 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E7B5F7182BFB3F5A00A1E749 /* Color+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */,
+				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
 				E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */,
 				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
