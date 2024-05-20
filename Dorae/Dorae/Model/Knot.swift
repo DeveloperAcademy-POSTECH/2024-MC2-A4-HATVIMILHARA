@@ -22,8 +22,7 @@ struct 기본 {
 struct 응용 {
     let 매듭이름: String
     let 매듭이미지: String
-    var 귀: [String] = []
-    var 하위매듭리스트: [기본] = []
+    var 하위매듭리스트: [String] = []
 }
 
 struct 길이 {
