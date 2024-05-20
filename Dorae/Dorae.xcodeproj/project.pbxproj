@@ -12,6 +12,8 @@
 		E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DC2BF86CB300A1E749 /* Item.swift */; };
 		E7B5F6DF2BF86CB400A1E749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */; };
 		E7B5F6E22BF86CB400A1E749 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */; };
+		E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7032BFB391500A1E749 /* Pattern.swift */; };
+		E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7052BFB393A00A1E749 /* Knot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		E7B5F6DC2BF86CB300A1E749 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7B5F7032BFB391500A1E749 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
+		E7B5F7052BFB393A00A1E749 /* Knot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,10 @@
 		E7B5F6D72BF86CB300A1E749 /* Dorae */ = {
 			isa = PBXGroup;
 			children = (
+				E7B5F7022BFB388900A1E749 /* ViewModel */,
+				E7B5F7012BFB388100A1E749 /* Extensions */,
+				E7B5F7002BFB387800A1E749 /* Views */,
+				E7B5F6FF2BFB385500A1E749 /* Model */,
 				E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */,
 				E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */,
 				E7B5F6DC2BF86CB300A1E749 /* Item.swift */,
@@ -68,6 +76,36 @@
 				E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7B5F6FF2BFB385500A1E749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7B5F7032BFB391500A1E749 /* Pattern.swift */,
+				E7B5F7052BFB393A00A1E749 /* Knot.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7B5F7002BFB387800A1E749 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E7B5F7012BFB388100A1E749 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E7B5F7022BFB388900A1E749 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +180,8 @@
 			files = (
 				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
 				E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */,
+				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
+				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
