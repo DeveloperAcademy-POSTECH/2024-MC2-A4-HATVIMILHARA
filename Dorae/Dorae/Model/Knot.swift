@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 enum 매듭 {
     case 기본(매듭: 기본매듭), 응용(매듭: 응용매듭), 길이(매듭: 길이), 끈목(매듭: 끈목), 술(매듭: 술)
 }
@@ -16,13 +14,13 @@ enum 매듭 {
 struct 기본 {
     let 매듭이름: 기본매듭
     let 매듭이미지: 기본매듭
-    var 귀: [String] = []
+    var 귀: [String]?
 }
 
 struct 응용 {
     let 매듭이름: 응용매듭
-    let 매듭이미지: String
-    var 하위매듭리스트: [String] = []
+    let 매듭이미지: 응용매듭
+    var 하위매듭리스트: [(기본매듭, Int?, [String]?)] 
 }
 
 struct 길이 {
@@ -41,12 +39,17 @@ enum 술 {
 enum 기본매듭: String {
     case 도래매듭
     case 귀도래매듭
-    case 연봉단추매듭
+    case 단추매듭
     case 가락지매듭
     case 생쪽매듭
     case 나비매듭
-    case 매화매듭
-    case 국화매듭
+    case 거꾸로나비매듭    // 응용매듭에만 쓰임
+    case 두벌매화
+    case 세벌매화
+    case 두벌국화
+    case 세벌국화
+    case 네벌국화
+    case 다섯벌국화
     case 병아리매듭
     case 잠자리매듭
     case 동심결매듭
