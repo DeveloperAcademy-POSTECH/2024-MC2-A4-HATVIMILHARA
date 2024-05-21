@@ -7,20 +7,38 @@
 
 import Foundation
 
+// enum 네이밍 방법이 더 적절하지 않을까요?
 enum 매듭 {
-    case 기본(매듭: 기본매듭), 응용(매듭: 응용매듭), 길이(매듭: 길이), 끈목(매듭: 끈목), 술(매듭: 술)
+    case 기본(매듭: 기본매듭)
+    case 응용(매듭: 응용매듭)
+    case 길이(매듭: 길이)
+    case 끈목(매듭: 끈목)
+    case 술(매듭: 술)
 }
 
-struct 기본 {
+struct 기본: Identifiable, Hashable {
+    var id = UUID()
     let 매듭이름: 기본매듭
-    let 매듭이미지: 기본매듭
+    let 매듭이미지: 기본매듭?
     var 귀: [String]?
+    var 개수: Int
+    
+    init(매듭이름: 기본매듭,
+         매듭이미지: 기본매듭? = nil,
+         귀: [String]? = nil,
+         개수: Int = 1) {
+        self.매듭이름 = 매듭이름
+        self.매듭이미지 = 매듭이미지
+        self.귀 = 귀
+        self.개수 = 개수
+    }
 }
 
-struct 응용 {
+struct 응용: Identifiable, Hashable {
+    var id = UUID()
     let 매듭이름: 응용매듭
     let 매듭이미지: 응용매듭
-    var 하위매듭리스트: [(기본매듭, Int?, [String]?)] 
+    var 하위매듭리스트: [기본] = []
 }
 
 struct 길이 {
