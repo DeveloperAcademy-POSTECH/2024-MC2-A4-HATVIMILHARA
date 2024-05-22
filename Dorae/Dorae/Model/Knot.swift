@@ -9,9 +9,9 @@ import Foundation
 
 // enum 네이밍 방법이 더 적절하지 않을까요?
 enum 매듭 {
-    case 기본(매듭: 기본매듭)
-    case 응용(매듭: 응용매듭)
-    case 길이(매듭: 길이)
+    case 기본(매듭: 기본)
+    case 응용(매듭: 응용)
+    case 간격(매듭: 길이)
     case 끈목(매듭: 끈목)
     case 술(매듭: 술)
 }
@@ -34,7 +34,7 @@ struct 기본: Identifiable, Hashable {
     }
 }
 
-struct 응용: Identifiable, Hashable {
+struct 응용: Identifiable {
     var id = UUID()
     let 매듭이름: 응용매듭
     let 매듭이미지: 응용매듭
