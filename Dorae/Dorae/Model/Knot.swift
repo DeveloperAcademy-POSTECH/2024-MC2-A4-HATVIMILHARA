@@ -11,7 +11,7 @@ import Foundation
 enum 매듭 {
     case 기본(매듭: 기본)
     case 응용(매듭: 응용)
-    case 길이(매듭: 길이)
+    case 간격(매듭: 길이)
     case 끈목(매듭: 끈목)
     case 술(매듭: 술)
 }
