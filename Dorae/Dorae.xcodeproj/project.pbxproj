@@ -11,6 +11,7 @@
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
+		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
 		E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */; };
 		E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */; };
 		E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DC2BF86CB300A1E749 /* Item.swift */; };
@@ -32,6 +33,7 @@
 		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatternItem.swift; sourceTree = "<group>"; };
+		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E7B5F6D52BF86CB300A1E749 /* Dorae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoraeApp.swift; sourceTree = "<group>"; };
 		E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F7182BFB3F5A00A1E749 /* Color+.swift */,
+				B55EE5A42BFDCBBA005A43BC /* View+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
+				B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */,
 				B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */,
 				E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */,
 				E7B5F7092BFB3B5C00A1E749 /* KnotDataManager.swift in Sources */,
