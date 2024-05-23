@@ -8,60 +8,45 @@
 import SwiftUI
 
 struct PatternView: View {
-    @State private var isEditButton: Bool = true
-    
     var body: some View {
-        ZStack {
-            Color.black
-            
-            HStack {
-                ZStack {
-                    // 도안에 표시되는 라운드 사각형
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.white)
-                        .frame(width: 900)
-                    
-                    HStack {
-                        // 그림 도안 뷰
-                        TextPatternView()
-                        
-                        Divider()
-                            .background(Color.black)
-                            .frame(height: 900)
-                            .rotationEffect(.degrees(180))
-                        
-                        // 글 도안 뷰
-                        TextPatternView()
-                    }
-                    .padding(20)
-                    
+        HStack(spacing: 0) {
+            VStack(alignment: .leading) {
+                Text("도안")
+                    .padding(.leading, 16)
+                    .padding(.top, 22)
+                    .padding(.bottom, 8)
+                    .font(.title2.bold())
+                    .foregroundStyle(.white)
+                HStack {
+                    Text("그림도안")
+                    Divider()
+                        .rotationEffect(.zero)
+                    Text("글도안")
                 }
-                .padding(20)
-                
-                
-                ZStack {
-                    // 도안에 표시되는 라운드 사각형
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.white)
-                        .frame(width: 350)
-                    
-                    // 매듭 리스트 뷰
-                    ZStack {
-                        TextPatternView()
-                        
-                        if isEditButton {
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.gray)
-                                .opacity(0.8)
-                                .frame(width: 350)
-                        }
-                    }
-                    .padding(20)
-                }
-                .padding(20)
+                .frame(maxWidth: .infinity)
+//                .frame(width: 840 )
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 24))
             }
+            .padding(.horizontal, 24)
+
+            VStack(alignment: .leading) {
+                Text("매듭")
+                    .padding(.leading, 16)
+                    .padding(.top, 22)
+                    .padding(.bottom, 8)
+                    .font(.title2.bold())
+                    .foregroundStyle(.white)
+                KnotView()
+                //TODO: 프레임 크기 뗀석기
+                    .frame(width: 306)
+            }
+            
         }
+        
+        .background(Color.background)
     }
+        
 }
 
 #Preview {
