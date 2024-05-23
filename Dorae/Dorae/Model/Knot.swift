@@ -35,6 +35,7 @@ struct EtcKnot: Identifiable {
     var braid: String?
     var interval: String?
     var tassel: TasselKnot?
+    var lasso: String?
 }
 
 enum TasselKnot {
