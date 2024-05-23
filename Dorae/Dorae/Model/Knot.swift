@@ -40,6 +40,7 @@ struct AppliedKnot: Identifiable, Hashable {
 
 struct EtcKnot: Identifiable {
     let id = UUID()
+    var braid: String?
     var interval: String?
     var tassel: TasselKnot?
 }
