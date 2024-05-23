@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     let patterns = [
-        nil,
         "화려한 곡선",
         "기하학적 패턴",
         "심플한 점선",
@@ -32,20 +31,16 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
+                    NavigationLink(destination: PatternView()) {
+                        HomeNewPatternItem()
+                            .padding()
+                    }
                     ForEach(patterns, id: \.self) { pattern in
-                        if pattern == nil {
-                            HomeNewPatternItem()
+                        NavigationLink(destination: PatternView()) {
+                            HomePatternItem(title: pattern)
                                 .padding()
-                                .onTapGesture {
-                                    print("새 도안 생성")
-                                }
-                        } else {
-                            HomePatternItem()
-                                .padding()
-                                .onTapGesture {
-                                    print("각 도안으로 이동")
-                                }
                         }
+
                     }
                 }
                 .padding(68)
@@ -54,16 +49,9 @@ struct HomeView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .navigationTitle("갤러리")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("공유") {
-                        print("헤이즐화이링")
-                    }
-                    .tint(Color.red)
-                }
-            }
-            .background(Color(hex: "2B2B2B"))
+            .background(Color.background)
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
