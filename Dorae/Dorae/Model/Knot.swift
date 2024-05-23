@@ -16,25 +16,17 @@ enum Knot {
 struct BasicKnot: Identifiable, Hashable {
     var id = UUID()
     let knotName: BasicKnotName
-    let knotImageName: BasicKnotName?
-    var loop: [String]?
-    var knotCount: Int
-    
-    init(knotName: BasicKnotName,
-         knotImageName: BasicKnotName? = nil,
-         loop: [String]? = nil,
-         knotCount: Int = 1) {
-        self.knotName = knotName
-        self.knotImageName = knotImageName
-        self.loop = loop
-        self.knotCount = knotCount
-    }
+    var loop: [String]? = nil
+    var knotCount: Int = 1
+    var topHeightRatio: CGFloat = 0
+    var topWidthRatio: CGFloat = 0
+    var bottomHeightRatio: CGFloat = 0
+    var bottomWidthRatio: CGFloat = 0
 }
 
 struct AppliedKnot: Identifiable, Hashable {
     var id = UUID()
     let knotName: AppliedKnotName
-    let knotImageName: AppliedKnotName
     var subKnotList: [BasicKnot] = []
 }
 
@@ -43,6 +35,7 @@ struct EtcKnot: Identifiable {
     var braid: String?
     var interval: String?
     var tassel: TasselKnot?
+    var lasso: String?
 }
 
 enum TasselKnot {
@@ -70,21 +63,16 @@ enum BasicKnotName: String {
     case 안경매듭
     case 장구매듭
     case 가지방석매듭
-    case 귀달린가지방석매듭
     case 딸기매듭
     case 석씨매듭
-    case 꼰디기매듭
     case 매미매듭
-    case 사색판매듭
 }
 
 enum AppliedKnotName: String {
     case 항아리매듭
     case 지게매듭
-    case 왕비국화매듭
     case 육립매듭
     case 꽃육립매듭
     case 공작매듭
-    case 쌍공작매듭
     case 스타매듭
 }

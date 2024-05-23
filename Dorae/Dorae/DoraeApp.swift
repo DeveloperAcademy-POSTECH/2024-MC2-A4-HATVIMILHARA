@@ -22,11 +22,14 @@ struct DoraeApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @State private var knotDataManager = KnotDataManager()
 
     var body: some Scene {
         WindowGroup {
             HomeView()
         }
+        .environment(knotDataManager)
         .modelContainer(sharedModelContainer)
     }
 }
