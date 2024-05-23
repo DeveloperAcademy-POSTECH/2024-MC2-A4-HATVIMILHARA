@@ -7,10 +7,18 @@
 
 import Foundation
 
-enum Knot {
+enum Knot: Identifiable {
     case basic(knot: BasicKnot)
     case applied(knot: AppliedKnot)
     case etc(knot: EtcKnot)
+    
+    var id: UUID {
+        switch self {
+        case .basic(let knot): return knot.id
+        case .applied(let knot): return knot.id
+        case .etc(let knot): return knot.id
+        }
+    }
 }
 
 struct BasicKnot: Identifiable, Hashable {
