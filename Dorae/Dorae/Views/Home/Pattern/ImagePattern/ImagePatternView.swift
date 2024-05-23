@@ -6,10 +6,24 @@
 //
 
 import SwiftUI
+import CoreGraphics
+
 
 struct ImagePatternView: View {
+    @Environment(KnotDataManager.self) var knotDataManager
+    @State private var imagePatternVM = ImagePatternViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                ForEach(Array(knotDataManager.knotList.enumerated()), id: \.offset) { idx, knot in
+                    KnotImageView(imagePatternViewModel: imagePatternVM, knot: knot, index: idx)
+                        .offset(y: imagePatternVM.offsetYDict[idx] ?? 0)
+                }
+                
+            }
+            .padding()
+        }
     }
 }
 
