@@ -7,10 +7,8 @@
 
 import Foundation
 
-
-
-struct 도안 {
-    var 매듭리스트: [매듭]
-    let 생성일자: String
-    let 제목: String
+struct Pattern {
+    var knotList: [Knot]
+    let createdAt: String
+    let title: String
 }
