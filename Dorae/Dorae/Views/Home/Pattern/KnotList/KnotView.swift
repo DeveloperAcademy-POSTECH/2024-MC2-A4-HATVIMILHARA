@@ -21,11 +21,11 @@ struct KnotView: View {
             switch selectedTab {
             case .basic:
                 // TODO: 카테고리 따라 다르게 뷰 그려주기
-                KnotButtonView()
+                KnotButtonListView()
             case .applied:
-                KnotButtonView()
+                KnotButtonListView()
             case .etc:
-                KnotButtonView()
+                KnotButtonListView()
             }
             
             VStack(spacing: 0) {
@@ -44,30 +44,31 @@ struct KnotView: View {
                 Spacer()
             }
             .padding(.top, 50)
-            .background(Color(hex: "505050"))
+            .background(Color.knotMenuBar)
         }
-        .background(Color(hex: "E9E9E9"))
+        .background(Color.knotMenuBG)
         .roundedCorner(24, corners: [.bottomLeft, .topLeft])
     }
 }
 
 
-struct KnotButtonView: View {
+struct KnotButtonListView: View {
     let columns = [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)]
     let knots = ["도래매듭", "귀도래매듭", "단추매듭", "가락지매듭", "생쪽매듭", "나비매듭", "거꾸로나비매듭", "두벌매화", "세벌매화", "두벌국화", "세벌국화", "네벌국화", "도래매듭", "귀도래매듭", "단추매듭", "가락지매듭", "생쪽매듭", "나비매듭", "거꾸로나비매듭", "두벌매화", "세벌매화", "두벌국화", "세벌국화", "네벌국화"]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: columns, spacing: 16) {
+            LazyVGrid(columns: columns, spacing: 16) { //상하간격
                 ForEach(knots, id: \.self) { knot in
-                    KnotButton()
+                    KnotButton(knotName: knot)
                         .onTapGesture {
                             // TODO: 줄글 도안, 이미지 도안 띄우기
                         }
                 }
             }
-            .padding(24)
+            .padding(24) // 좌측라운드판 안에 그리드 패딩값
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
@@ -81,16 +82,17 @@ struct TabButton: View {
         Button(action: action) {
             Text(title)
                 .font(.title2.bold())
-                .foregroundColor(isSelected ? Color(hex: "505050"): .white)
+                .foregroundColor(isSelected ? Color.knotMenuBar: .white)
         }
-        .frame(height: 50)
-        .padding()
-        .background(isSelected ? Color(hex: "E9E9E9"): Color(hex: "505050"))
+        .padding(20)
+        .background(isSelected ? Color.knotMenuBG: Color.knotMenuBar)
     }
 }
 
 
 struct KnotButton: View {
+    var knotName: String
+    
     var body: some View {
         VStack {
             Image(systemName: "tornado")
@@ -99,9 +101,8 @@ struct KnotButton: View {
                 .frame(width: 84, height: 84)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-            Text("도래매듭")
+            Text("\(knotName)")
                 .font(.caption)
-                .tint(Color(hex: "545454"))
         }
     }
 }
