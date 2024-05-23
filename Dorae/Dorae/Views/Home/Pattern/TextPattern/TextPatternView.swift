@@ -11,7 +11,8 @@ struct TextPatternView: View {
     // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
     @State var knotList = PatternDummy.patternList[0].knotList
     @State private var braid = "" //끈목
-
+    @State private var textfiled = ""
+    
     
     var body: some View {
         NavigationStack {
@@ -28,17 +29,11 @@ struct TextPatternView: View {
                 // 배열에 들어가있는 데이터 뽑는 리스트
                 List {
                     ForEach(knotList) { knot in
-                        switch knot {
-                        case .basic(let knot):
-                            Text("\(knot.knotName)")
-                        case .applied(let knot):
-                            Text("\(knot.knotName)")
-                        case .etc(let knot):
-                            Text("\(knot.braid ?? "")")
-                        }
+                        plainView(for: knot)
                     }
                     .onDelete(perform: deleteItems)
                     .onMove(perform: moveItems)
+                    
                 }
                 .listStyle(.plain)
             }
@@ -64,7 +59,34 @@ struct TextPatternView: View {
     private func moveItems(from source: IndexSet, to destination: Int) {
         knotList.move(fromOffsets: source, toOffset: destination)
     }
+    
+    @ViewBuilder
+    func plainView(for knot: Knot) -> some View {
+        switch knot {
+        case .basic(let knot):
+            if let loop = knot.loop, !loop.isEmpty {
+                DisclosureGroup("\(knot.knotName.rawValue)") {
+                    //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
+                    ForEach(0..<loop.count, id: \.self) { index in
+                        HStack {
+                            Text("귀")
+                            Image(systemName: "\(index+1).circle")
+                            TextField("cm", text: $textfiled)
+                        }
+                    }
+                }
+            } else {
+                Text(knot.knotName.rawValue)
+            }
+            
+        case .applied(let knot):
+            Text("응용용")
+        case .etc(let knot):
+            Text("기타용가리")
+        }
+    }
 }
+
 
 #Preview {
     TextPatternView()
