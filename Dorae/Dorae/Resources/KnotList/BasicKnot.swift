@@ -27,12 +27,9 @@ let 동심결매듭 = BasicKnot(knotName: .동심결매듭, loop: Array(repeatin
 let 안경매듭 = BasicKnot(knotName: .안경매듭)
 let 장구매듭 = BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1), topHeightRatio: 0.13, topWidthRatio: 0.33, bottomHeightRatio: 0.13, bottomWidthRatio: 0.33)
 let 가지방석매듭 = BasicKnot(knotName: .가지방석매듭)
-let 귀달린가지방석매듭 = BasicKnot(knotName: .귀달린가지방석매듭)
 let 딸기매듭 = BasicKnot(knotName: .딸기매듭)
 let 석씨매듭 = BasicKnot(knotName: .석씨매듭)
-let 꼰디기매듭 = BasicKnot(knotName: .꼰디기매듭)
 let 매미매듭 = BasicKnot(knotName: .매미매듭)
-let 사색판매듭 = BasicKnot(knotName: .사색판매듭)
 
 let basicKnotCollection: [BasicKnot] = [
     도래매듭,
@@ -54,10 +51,7 @@ let basicKnotCollection: [BasicKnot] = [
     안경매듭,
     장구매듭,
     가지방석매듭,
-    귀달린가지방석매듭,
     딸기매듭,
     석씨매듭,
-    꼰디기매듭,
     매미매듭,
-    사색판매듭
 ]

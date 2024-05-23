@@ -63,21 +63,16 @@ enum BasicKnotName: String {
     case 안경매듭
     case 장구매듭
     case 가지방석매듭
-    case 귀달린가지방석매듭
     case 딸기매듭
     case 석씨매듭
-    case 꼰디기매듭
     case 매미매듭
-    case 사색판매듭
 }
 
 enum AppliedKnotName: String {
     case 항아리매듭
     case 지게매듭
-    case 왕비국화매듭
     case 육립매듭
     case 꽃육립매듭
     case 공작매듭
-    case 쌍공작매듭
     case 스타매듭
 }
