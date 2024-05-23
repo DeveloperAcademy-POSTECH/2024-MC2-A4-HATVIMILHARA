@@ -8,79 +8,85 @@
 import SwiftUI
 
 struct TextPatternView: View {
-    struct ListItem: Identifiable, Hashable {
-        var id = UUID()
-        var name: String
-        var imgName: String
-        var ear: [String]?
-    }
+    // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
+    @State var knotList = PatternDummy.patternList[0].knotList
+    @State private var braid = "" //끈목
+    @State private var textfiled = ""
     
-    @State var sharedData: [ListItem] = [
-        ListItem(name: 도래매듭.knotName.rawValue, imgName: 도래매듭.knotName.rawValue, ear: nil),
-        ListItem(name: 귀도래매듭.knotName.rawValue, imgName: 귀도래매듭.knotName.rawValue, ear: [""]),
-        ListItem(name: 단추매듭.knotName.rawValue, imgName: 단추매듭.knotName.rawValue, ear: nil),
-        ListItem(name: 가락지매듭.knotName.rawValue, imgName: 가락지매듭.knotName.rawValue, ear: nil)
-    ]
     
     var body: some View {
-        VStack {
-            NavigationStack {
+        NavigationStack {
+            VStack {
+                // 끈목, 끈목 텍스트필드 스택
+                HStack {
+                    Text("끈목")
+                        .padding(.trailing, 40)
+                    TextField("끈목을 입력해주세요.", text: $braid)
+                }
+                
+                Divider()
+                
+                // 배열에 들어가있는 데이터 뽑는 리스트
                 List {
-                    Section(content: {
-                        ForEach(sharedData) { item in
-                            HStack {
-                                Image(systemName: "mic.fill")
-                                Text(item.name)
-                            }
-                        }
-                        .onDelete(perform: removeList)
-                        .onMove(perform: moveList)
-                    }, header: {
-                        HStack {
-                            Text("글 도안")
-                                .font(.title)
-                                .bold()
-                                .foregroundStyle(.black)
-                            
-                            Spacer()
-                            
-                            Text("이동/삭제")
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundStyle(.red)
-                        }
-                        .padding(.bottom, 23)
-                        
-                    })
+                    ForEach(knotList) { knot in
+                        plainView(for: knot)
+                    }
+                    .onDelete(perform: deleteItems)
+                    .onMove(perform: moveItems)
+                    
                 }
                 .listStyle(.plain)
             }
-            
-            Button {
-                Text("영차영차..")
-            } label: {
-                Text("Add Button")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("글 도안")
+                        .font(.title)
+                        .bold()
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    EditButton()
+                        .font(.title2)
+                        .foregroundStyle(.red)
+                }
             }
-
         }
     }
     
-    func removeList(at offsets: IndexSet) {
-        sharedData.remove(atOffsets: offsets)
+    private func deleteItems(at offsets: IndexSet) {
+        knotList.remove(atOffsets: offsets)
+    }
+    private func moveItems(from source: IndexSet, to destination: Int) {
+        knotList.move(fromOffsets: source, toOffset: destination)
     }
     
-    func moveList(from source: IndexSet, to destination: Int) {
-        sharedData.move(fromOffsets: source, toOffset: destination)
-    }
-    
-    func addPlainItem() {
-        //TODO: - 토글x, 기본매듭 추가시
-    }
-    
-    func addDisclosureGroupItem() {
-        //TODO: - 토글 버튼있는 응용매듭 추가시
+    @ViewBuilder
+    func plainView(for knot: Knot) -> some View {
+        switch knot {
+        case .basic(let knot):
+            if let loop = knot.loop, !loop.isEmpty {
+                DisclosureGroup("\(knot.knotName.rawValue)") {
+                    //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
+                    ForEach(0..<loop.count, id: \.self) { index in
+                        HStack {
+                            Text("귀")
+                            Image(systemName: "\(index+1).circle")
+                            TextField("cm", text: $textfiled)
+                        }
+                    }
+                }
+            } else {
+                Text(knot.knotName.rawValue)
+            }
+            
+        case .applied(let knot):
+            Text("응용용")
+        case .etc(let knot):
+            Text("기타용가리")
+        }
     }
 }
+
 
 #Preview {
     TextPatternView()
