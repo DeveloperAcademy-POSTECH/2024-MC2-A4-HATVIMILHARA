@@ -7,50 +7,7 @@
 
 import Foundation
 
-let 항아리매듭 = AppliedKnot(knotName: .항아리매듭, knotImageName: .항아리매듭, subKnotList: [
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1)),
-    BasicKnot(knotName: .도래매듭, knotCount: 3),
-    BasicKnot(knotName: .생쪽매듭, loop: Array(repeating: "", count: 1)),
-    BasicKnot(knotName: .가락지매듭, knotCount: 3),
-    BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5)),
-    BasicKnot(knotName: .도래매듭)
-])
-
-let 지게매듭 = AppliedKnot(knotName: .지게매듭, knotImageName: .지게매듭, subKnotList: [
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1)),
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5)),
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1)),
-    BasicKnot(knotName: .도래매듭)
-])
-
-let 왕비국화매듭 = AppliedKnot(knotName: .왕비국화매듭, knotImageName: .왕비국화매듭, subKnotList: [
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .생쪽매듭),
-    BasicKnot(knotName: .장구매듭),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .생쪽매듭, knotCount: 3),
-    BasicKnot(knotName: .생쪽매듭, knotCount: 3),
-    BasicKnot(knotName: .장구매듭),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .네벌국화),
-    BasicKnot(knotName: .가락지매듭, knotCount: 2),
-    BasicKnot(knotName: .장구매듭),
-    BasicKnot(knotName: .생쪽매듭),
-    BasicKnot(knotName: .도래매듭)
-])
-
-let 육립매듭 = AppliedKnot(knotName: .육립매듭, knotImageName: .육립매듭, subKnotList: [
+let 육립매듭 = AppliedKnot(knotName: .육립매듭, subKnotList: [
     BasicKnot(knotName: .도래매듭),
     BasicKnot(knotName: .거꾸로나비매듭),
     BasicKnot(knotName: .도래매듭),
@@ -62,7 +19,17 @@ let 육립매듭 = AppliedKnot(knotName: .육립매듭, knotImageName: .육립�
     BasicKnot(knotName: .도래매듭)
 ])
 
-let 꽃육립매듭 = AppliedKnot(knotName: .꽃육립매듭, knotImageName: .꽃육립매듭, subKnotList: [
+let 항아리매듭 = AppliedKnot(knotName: .항아리매듭, subKnotList: [
+    BasicKnot(knotName: .도래매듭),
+    BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1)),
+    BasicKnot(knotName: .도래매듭, knotCount: 3),
+    BasicKnot(knotName: .생쪽매듭, loop: Array(repeating: "", count: 1)),
+    BasicKnot(knotName: .가락지매듭, knotCount: 3),
+    BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5)),
+    BasicKnot(knotName: .도래매듭)
+])
+
+let 꽃육립매듭 = AppliedKnot(knotName: .꽃육립매듭, subKnotList: [
     BasicKnot(knotName: .도래매듭),
     BasicKnot(knotName: .생쪽매듭),
     BasicKnot(knotName: .장구매듭),
@@ -74,32 +41,21 @@ let 꽃육립매듭 = AppliedKnot(knotName: .꽃육립매듭, knotImageName: .�
     BasicKnot(knotName: .도래매듭)
 ])
 
-let 공작매듭 = AppliedKnot(knotName: .공작매듭, knotImageName: .공작매듭, subKnotList: [
-    BasicKnot(knotName: .나비매듭),
-    BasicKnot(knotName: .도래매듭, knotCount: 2),
-    BasicKnot(knotName: .생쪽매듭, loop: Array(repeating: "", count: 5), knotCount: 9),
-    BasicKnot(knotName: .생쪽매듭, loop: Array(repeating: "", count: 5), knotCount: 9),
-    BasicKnot(knotName: .장구매듭),
+let 지게매듭 = AppliedKnot(knotName: .지게매듭, subKnotList: [
     BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .장구매듭),
-    BasicKnot(knotName: .도래매듭)
-])
-
-let 쌍공작매듭 = AppliedKnot(knotName: .쌍공작매듭, knotImageName: .쌍공작매듭, subKnotList: [
-    BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 1)),
+    BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1)),
     BasicKnot(knotName: .도래매듭),
     BasicKnot(knotName: .가락지매듭, knotCount: 2),
     BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .네벌국화, loop: Array(repeating: "", count: 1)),
+    BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5)),
     BasicKnot(knotName: .도래매듭),
     BasicKnot(knotName: .가락지매듭, knotCount: 2),
     BasicKnot(knotName: .도래매듭),
-    BasicKnot(knotName: .세벌국화),
+    BasicKnot(knotName: .장구매듭, loop: Array(repeating: "", count: 1)),
     BasicKnot(knotName: .도래매듭)
 ])
 
-let 스타매듭 = AppliedKnot(knotName: .스타매듭, knotImageName: .스타매듭, subKnotList: [
+let 스타매듭 = AppliedKnot(knotName: .스타매듭, subKnotList: [
     BasicKnot(knotName: .도래매듭),
     BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5)),
     BasicKnot(knotName: .도래매듭, knotCount: 2),
@@ -111,14 +67,22 @@ let 스타매듭 = AppliedKnot(knotName: .스타매듭, knotImageName: .스타�
     BasicKnot(knotName: .도래매듭)
 ])
 
+let 공작매듭 = AppliedKnot(knotName: .공작매듭, subKnotList: [
+    BasicKnot(knotName: .나비매듭),
+    BasicKnot(knotName: .도래매듭, knotCount: 2),
+    BasicKnot(knotName: .생쪽매듭, loop: Array(repeating: "", count: 5), knotCount: 9),
+    BasicKnot(knotName: .생쪽매듭, loop: Array(repeating: "", count: 5), knotCount: 9),
+    BasicKnot(knotName: .장구매듭),
+    BasicKnot(knotName: .도래매듭),
+    BasicKnot(knotName: .장구매듭),
+    BasicKnot(knotName: .도래매듭)
+])
 
 let appliedKnotCollection: [AppliedKnot] = [
-    항아리매듭,
-    지게매듭,
-    왕비국화매듭,
     육립매듭,
+    항아리매듭,
     꽃육립매듭,
-    공작매듭,
-    쌍공작매듭,
-    스타매듭
+    지게매듭,
+    스타매듭,
+    공작매듭
 ]

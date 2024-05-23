@@ -16,25 +16,17 @@ enum Knot {
 struct BasicKnot: Identifiable, Hashable {
     var id = UUID()
     let knotName: BasicKnotName
-    let knotImageName: BasicKnotName?
-    var loop: [String]?
-    var knotCount: Int
-    
-    init(knotName: BasicKnotName,
-         knotImageName: BasicKnotName? = nil,
-         loop: [String]? = nil,
-         knotCount: Int = 1) {
-        self.knotName = knotName
-        self.knotImageName = knotImageName
-        self.loop = loop
-        self.knotCount = knotCount
-    }
+    var loop: [String]? = nil
+    var knotCount: Int = 1
+    var topHeightRatio: CGFloat = 0
+    var topWidthRatio: CGFloat = 0
+    var bottomHeightRatio: CGFloat = 0
+    var bottomWidthRatio: CGFloat = 0
 }
 
 struct AppliedKnot: Identifiable, Hashable {
     var id = UUID()
     let knotName: AppliedKnotName
-    let knotImageName: AppliedKnotName
     var subKnotList: [BasicKnot] = []
 }
 
