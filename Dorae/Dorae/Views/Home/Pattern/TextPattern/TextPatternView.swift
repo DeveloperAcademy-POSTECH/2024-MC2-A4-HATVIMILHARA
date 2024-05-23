@@ -8,77 +8,61 @@
 import SwiftUI
 
 struct TextPatternView: View {
-    struct ListItem: Identifiable, Hashable {
-        var id = UUID()
-        var name: String
-        var imgName: String
-        var ear: [String]?
-    }
-    
-    @State var sharedData: [ListItem] = [
-        ListItem(name: 도래매듭.knotName.rawValue, imgName: 도래매듭.knotName.rawValue, ear: nil),
-        ListItem(name: 귀도래매듭.knotName.rawValue, imgName: 귀도래매듭.knotName.rawValue, ear: [""]),
-        ListItem(name: 단추매듭.knotName.rawValue, imgName: 단추매듭.knotName.rawValue, ear: nil),
-        ListItem(name: 가락지매듭.knotName.rawValue, imgName: 가락지매듭.knotName.rawValue, ear: nil)
-    ]
+    // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
+    @State var knotList = PatternDummy.patternList[0].knotList
+    @State private var braid = "" //끈목
+
     
     var body: some View {
-        VStack {
-            NavigationStack {
+        NavigationStack {
+            VStack {
+                // 끈목, 끈목 텍스트필드 스택
+                HStack {
+                    Text("끈목")
+                        .padding(.trailing, 40)
+                    TextField("끈목을 입력해주세요.", text: $braid)
+                }
+                
+                Divider()
+                
+                // 배열에 들어가있는 데이터 뽑는 리스트
                 List {
-                    Section(content: {
-                        ForEach(sharedData) { item in
-                            HStack {
-                                Image(systemName: "mic.fill")
-                                Text(item.name)
-                            }
+                    ForEach(knotList) { knot in
+                        switch knot {
+                        case .basic(let knot):
+                            Text("\(knot.knotName)")
+                        case .applied(let knot):
+                            Text("\(knot.knotName)")
+                        case .etc(let knot):
+                            Text("\(knot.braid ?? "")")
                         }
-                        .onDelete(perform: removeList)
-                        .onMove(perform: moveList)
-                    }, header: {
-                        HStack {
-                            Text("글 도안")
-                                .font(.title)
-                                .bold()
-                                .foregroundStyle(.black)
-                            
-                            Spacer()
-                            
-                            Text("이동/삭제")
-                                .font(.subheadline)
-                                .bold()
-                                .foregroundStyle(.red)
-                        }
-                        .padding(.bottom, 23)
-                        
-                    })
+                    }
+                    .onDelete(perform: deleteItems)
+                    .onMove(perform: moveItems)
                 }
                 .listStyle(.plain)
             }
-            
-            Button {
-                Text("영차영차..")
-            } label: {
-                Text("Add Button")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("글 도안")
+                        .font(.title)
+                        .bold()
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    EditButton()
+                        .font(.title2)
+                        .foregroundStyle(.red)
+                }
             }
-
         }
     }
     
-    func removeList(at offsets: IndexSet) {
-        sharedData.remove(atOffsets: offsets)
+    private func deleteItems(at offsets: IndexSet) {
+        knotList.remove(atOffsets: offsets)
     }
-    
-    func moveList(from source: IndexSet, to destination: Int) {
-        sharedData.move(fromOffsets: source, toOffset: destination)
-    }
-    
-    func addPlainItem() {
-        //TODO: - 토글x, 기본매듭 추가시
-    }
-    
-    func addDisclosureGroupItem() {
-        //TODO: - 토글 버튼있는 응용매듭 추가시
+    private func moveItems(from source: IndexSet, to destination: Int) {
+        knotList.move(fromOffsets: source, toOffset: destination)
     }
 }
 
