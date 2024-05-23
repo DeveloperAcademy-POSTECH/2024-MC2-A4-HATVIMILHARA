@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C203E6C2BFE38820026061D /* TextPatternView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C203E6B2BFE38820026061D /* TextPatternView2.swift */; };
 		5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */; };
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C203E6B2BFE38820026061D /* TextPatternView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPatternView2.swift; sourceTree = "<group>"; };
 		5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDummy.swift; sourceTree = "<group>"; };
 		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */,
-				5C203E6B2BFE38820026061D /* TextPatternView2.swift */,
 			);
 			path = TextPattern;
 			sourceTree = "<group>";
@@ -284,7 +281,6 @@
 				E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */,
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
-				5C203E6C2BFE38820026061D /* TextPatternView2.swift in Sources */,
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
 				B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */,

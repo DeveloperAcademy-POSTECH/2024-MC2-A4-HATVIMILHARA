@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Pattern {
+struct Pattern: Identifiable {
+    var id = UUID()
     var knotList: [Knot]
     let createdAt: String
     let title: String

@@ -16,10 +16,10 @@ struct TextPatternView: View {
     }
     
     @State var sharedData: [ListItem] = [
-        ListItem(name: 도래매듭.매듭이름.rawValue, imgName: 도래매듭.매듭이름.rawValue, ear: nil),
-        ListItem(name: 귀도래매듭.매듭이름.rawValue, imgName: 귀도래매듭.매듭이름.rawValue, ear: [""]),
-        ListItem(name: 단추매듭.매듭이름.rawValue, imgName: 단추매듭.매듭이름.rawValue, ear: nil),
-        ListItem(name: 가락지매듭.매듭이름.rawValue, imgName: 가락지매듭.매듭이름.rawValue, ear: nil)
+        ListItem(name: 도래매듭.knotName.rawValue, imgName: 도래매듭.knotName.rawValue, ear: nil),
+        ListItem(name: 귀도래매듭.knotName.rawValue, imgName: 귀도래매듭.knotName.rawValue, ear: [""]),
+        ListItem(name: 단추매듭.knotName.rawValue, imgName: 단추매듭.knotName.rawValue, ear: nil),
+        ListItem(name: 가락지매듭.knotName.rawValue, imgName: 가락지매듭.knotName.rawValue, ear: nil)
     ]
     
     var body: some View {
