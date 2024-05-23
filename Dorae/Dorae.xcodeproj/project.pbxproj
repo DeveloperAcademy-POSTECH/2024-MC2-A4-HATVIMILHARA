@@ -12,6 +12,9 @@
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
 		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
+		E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */; };
+		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
+		E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A382BFF50DD004D15AF /* KnotImageView.swift */; };
 		E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */; };
 		E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */; };
 		E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DC2BF86CB300A1E749 /* Item.swift */; };
@@ -34,6 +37,9 @@
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatternItem.swift; sourceTree = "<group>"; };
 		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternViewModel.swift; sourceTree = "<group>"; };
+		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		E7549A382BFF50DD004D15AF /* KnotImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotImageView.swift; sourceTree = "<group>"; };
 		E7B5F6D52BF86CB300A1E749 /* Dorae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoraeApp.swift; sourceTree = "<group>"; };
 		E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +75,14 @@
 				B50F27132BFB668400BB96F5 /* AppliedKnot.swift */,
 			);
 			path = KnotList;
+			sourceTree = "<group>";
+		};
+		E7549A3A2BFF86CC004D15AF /* IImagePattern */ = {
+			isa = PBXGroup;
+			children = (
+				E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */,
+			);
+			path = IImagePattern;
 			sourceTree = "<group>";
 		};
 		E7B5F6CC2BF86CB300A1E749 = {
@@ -132,6 +146,7 @@
 			children = (
 				E7B5F7182BFB3F5A00A1E749 /* Color+.swift */,
 				B55EE5A42BFDCBBA005A43BC /* View+.swift */,
+				E7549A362BFF50AD004D15AF /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,6 +154,7 @@
 		E7B5F7022BFB388900A1E749 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7549A3A2BFF86CC004D15AF /* IImagePattern */,
 				E7B5F6DC2BF86CB300A1E749 /* Item.swift */,
 				E7B5F7082BFB3B5C00A1E749 /* KnotDataManager.swift */,
 			);
@@ -169,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */,
+				E7549A382BFF50DD004D15AF /* KnotImageView.swift */,
 			);
 			path = ImagePattern;
 			sourceTree = "<group>";
@@ -270,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */,
 				E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */,
 				B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */,
 				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
@@ -279,7 +297,9 @@
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */,
 				E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */,
+				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
+				E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */,
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
