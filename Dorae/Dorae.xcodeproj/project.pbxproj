@@ -77,12 +77,12 @@
 			path = KnotList;
 			sourceTree = "<group>";
 		};
-		E7549A3A2BFF86CC004D15AF /* IImagePattern */ = {
+		E7549A3A2BFF86CC004D15AF /* ImagePattern */ = {
 			isa = PBXGroup;
 			children = (
 				E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */,
 			);
-			path = IImagePattern;
+			path = ImagePattern;
 			sourceTree = "<group>";
 		};
 		E7B5F6CC2BF86CB300A1E749 = {
@@ -154,7 +154,7 @@
 		E7B5F7022BFB388900A1E749 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E7549A3A2BFF86CC004D15AF /* IImagePattern */,
+				E7549A3A2BFF86CC004D15AF /* ImagePattern */,
 				E7B5F6DC2BF86CB300A1E749 /* Item.swift */,
 				E7B5F7082BFB3B5C00A1E749 /* KnotDataManager.swift */,
 			);
