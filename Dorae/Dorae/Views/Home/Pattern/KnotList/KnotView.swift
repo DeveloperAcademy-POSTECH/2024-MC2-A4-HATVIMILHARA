@@ -68,7 +68,6 @@ struct KnotButtonListView: View {
             }
             .padding(24) // 좌측라운드판 안에 그리드 패딩값
         }
-        //TODO:
         .frame(maxWidth: .infinity)
     }
 }

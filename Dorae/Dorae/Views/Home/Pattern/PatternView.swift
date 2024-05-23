@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PatternView: View {
+    @State private var patternTitle = "제목없음"
+    
     var body: some View {
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
@@ -24,7 +26,6 @@ struct PatternView: View {
                     Text("글도안")
                 }
                 .frame(maxWidth: .infinity)
-//                .frame(width: 840 )
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 24))
             }
@@ -41,14 +42,13 @@ struct PatternView: View {
                 //TODO: 프레임 크기 뗀석기
                     .frame(width: 306)
             }
-            
         }
-        
         .background(Color.background)
+        .toolbarBackground(Color.white, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationTitle($patternTitle)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarRole(.editor)
     }
-        
 }
 
-#Preview {
-    PatternView()
-}

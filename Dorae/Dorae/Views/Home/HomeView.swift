@@ -35,12 +35,12 @@ struct HomeView: View {
                         HomeNewPatternItem()
                             .padding()
                     }
+                    
                     ForEach(patterns, id: \.self) { pattern in
                         NavigationLink(destination: PatternView()) {
-                            HomePatternItem(title: pattern)
+                            HomePatternItem()
                                 .padding()
                         }
-
                     }
                 }
                 .padding(68)

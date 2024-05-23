@@ -18,7 +18,7 @@ struct Photo: Transferable {
 
 struct HomePatternItem: View {
     private let photo = Photo(image: Image("육립매듭"))
-    var title = "제목없음"
+    var patternTitle = "제목없음"
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -46,7 +46,7 @@ struct HomePatternItem: View {
                 }
             Spacer()
                 .frame(height: 16)
-            Text("\(title)")
+            Text("\(patternTitle)")
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundStyle(.white)
             Text("2024. 06. 22")
@@ -73,7 +73,7 @@ struct HomeNewPatternItem: View {
             RoundedRectangle(cornerRadius: 15)
                 .stroke(style: StrokeStyle(lineWidth: 2, dash: [5, 5]))
         )
-        .foregroundStyle(Color(hex: "FF735A"))
+        .foregroundStyle(Color.newKnotButton)
     }
 }
 
