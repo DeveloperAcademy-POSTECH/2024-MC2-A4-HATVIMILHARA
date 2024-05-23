@@ -7,7 +7,18 @@
 
 import SwiftUI
 
+struct Photo: Transferable {
+    static var transferRepresentation: some TransferRepresentation {
+        ProxyRepresentation(exporting: \.image)
+    }
+    
+    public var image: Image
+}
+
+
 struct HomePatternItem: View {
+    private let photo = Photo(image: Image("육립매듭"))
+    
     var body: some View {
         VStack(alignment: .leading) {
             Image(systemName: "compass.drawing")
@@ -16,6 +27,22 @@ struct HomePatternItem: View {
                 .frame(width: 160, height: 180)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
+                .contextMenu {
+                    Button(role: .destructive) { // 👈 This argument
+                        // delete something
+                    } label: {
+                        Label("삭제", systemImage: "trash")
+                    }
+
+                    ShareLink(
+                        "공유",
+                        item: photo,
+                        preview: SharePreview(
+                            "Share Preview", image: photo.image
+                        )
+                    )
+                    
+                }
             Spacer()
                 .frame(height: 16)
             Text("도안제목")
