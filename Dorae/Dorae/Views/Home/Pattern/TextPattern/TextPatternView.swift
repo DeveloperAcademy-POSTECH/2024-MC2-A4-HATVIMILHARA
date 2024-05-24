@@ -12,7 +12,7 @@ struct TextPatternView: View {
     @State var knotList = PatternDummy.patternList[0].knotList
     @State private var braid = "" //끈목
     @State private var textfiled = ""
-    
+//    @State private var textFields: [String] = []
     
     var body: some View {
         NavigationStack {
@@ -80,9 +80,27 @@ struct TextPatternView: View {
             }
             
         case .applied(let knot):
-            Text("응용용")
+            //TODO: - 1. 개수만 있는 애들, 2. 귀만 있는 애들, 3. 귀, 개수 둘 다 있는 애들, 4. 기본만 있는 애들
+            DisclosureGroup("\(knot.knotName)") {
+                
+            }
+            
         case .etc(let knot):
-            Text("기타용가리")
+            if let braid = knot.braid {
+                Text(braid) // 끈목임
+            } else if let interval = knot.interval {
+                HStack {
+                    Image(systemName: "1.circle")
+                    Text("간격")
+                }
+            } else if let lasso = knot.lasso {
+                HStack {
+                    Image(systemName: "3.circle")
+                    Text(lasso)
+                }
+            } else {
+                Text("없는 애임")
+            }
         }
     }
 }
