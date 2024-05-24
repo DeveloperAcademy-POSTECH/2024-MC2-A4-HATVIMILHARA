@@ -14,8 +14,7 @@ struct TextPatternView: View {
     @State private var loopTextfiled = ""
     @State private var intervalTextfiled = ""
     @State private var textfiled = [String]()
-    let 매듭1 = 도래매듭
-    let 매듭2 = 도래매듭
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -69,14 +68,7 @@ struct TextPatternView: View {
             if let loop = oldBasicKnot.loop, !loop.isEmpty {
                 DisclosureGroup(oldBasicKnot.knotName.rawValue) {
                     //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
-//                    ForEach(0..<loop.count, id: \.self) { index in
-//                        HStack {
-//                            Text("귀")
-//                            Image(systemName: "\(index+1).circle")
-//                            TextField("cm", text: $loopTextfiled)
-//                        }
-//                    }
-                    LoopListView(loop: loop) { loop in
+                    LoopListView(loopList: loop) { loop in
                         knotList = knotList.map { knotItem in
                             if case Knot.basic(let newBasicKnot) = knotItem {
                                 if newBasicKnot.id == oldBasicKnot.id {
@@ -138,12 +130,12 @@ struct TextPatternView: View {
 }
 
 fileprivate struct LoopListView: View {
-    @State var loop: [String] = []
+    @State var loopList: [String] = []
     var changeLoop: ((_ loop: [String]) -> Void)
     
     var body: some View {
         VStack {
-            ForEach($loop, id: \.self) { $text in
+            ForEach($loopList, id: \.self) { $text in
                 HStack {
                     Text("귀")
                     TextField("cm", text: $text)
@@ -151,7 +143,7 @@ fileprivate struct LoopListView: View {
                 .deleteDisabled(true)
             }
         }
-        .onChange(of: loop) { oldValue, newValue in
+        .onChange(of: loopList) { oldValue, newValue in
             changeLoop(newValue)
         }
     }
