@@ -169,7 +169,6 @@
 			children = (
 				B50F27102BFB665500BB96F5 /* KnotList */,
 				E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */,
-				5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,6 +195,7 @@
 		E7B5F7162BFB3CFA00A1E749 /* TextPattern */ = {
 			isa = PBXGroup;
 			children = (
+				5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */,
 				E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */,
 			);
 			path = TextPattern;

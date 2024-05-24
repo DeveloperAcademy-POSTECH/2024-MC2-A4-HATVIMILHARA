@@ -8,11 +8,17 @@
 import Foundation
 
 final class PatternDummy {
-    static let patternList: [Pattern] = [
+    static var patternList: [Pattern] = [
         Pattern(knotList: [
-            .basic(knot: 도래매듭),
-            .basic(knot: 귀도래매듭),
-            .applied(knot: 항아리매듭)
+//            .etc(knot: EtcKnot(braid: "집보내줘")),
+//            .etc(knot: EtcKnot(interval: "간격있소")),
+//            .etc(knot: EtcKnot(lasso: "lasso가 뭐야")),
+//            .basic(knot: 도래매듭),
+//            .basic(knot: 귀도래매듭),
+            .applied(knot: 항아리매듭),
+            .applied(knot: 육립매듭),
+            .applied(knot: 공작매듭),
+            .applied(knot: 스타매듭)
         ],createdAt: "2000.01.11", title: "첫 번째 도안"),
         
         Pattern(knotList: [

@@ -11,9 +11,10 @@ struct TextPatternView: View {
     // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
     @State var knotList = PatternDummy.patternList[0].knotList
     @State private var braid = "" //끈목
-    @State private var textfiled = ""
-    
-    
+    @State private var loopTextfiled = ""
+    @State private var intervalTextfiled = ""
+    @State private var textfiled = [String]()
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -63,26 +64,87 @@ struct TextPatternView: View {
     @ViewBuilder
     func plainView(for knot: Knot) -> some View {
         switch knot {
-        case .basic(let knot):
-            if let loop = knot.loop, !loop.isEmpty {
-                DisclosureGroup("\(knot.knotName.rawValue)") {
+        case .basic(let oldBasicKnot):
+            if let loop = oldBasicKnot.loop, !loop.isEmpty {
+                DisclosureGroup(oldBasicKnot.knotName.rawValue) {
                     //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
-                    ForEach(0..<loop.count, id: \.self) { index in
-                        HStack {
-                            Text("귀")
-                            Image(systemName: "\(index+1).circle")
-                            TextField("cm", text: $textfiled)
+                    LoopListView(loopList: loop) { loop in
+                        knotList = knotList.map { knotItem in
+                            if case Knot.basic(let newBasicKnot) = knotItem {
+                                if newBasicKnot.id == oldBasicKnot.id {
+                                    var tempBasicKnot = newBasicKnot
+                                    tempBasicKnot.loop = loop
+                                    let newKnot: Knot = .basic(knot: tempBasicKnot)
+                                    return newKnot
+                                } else {
+                                    return knotItem
+                                }
+                            }
+                            return knotItem
                         }
                     }
+                    .deleteDisabled(true)
+
                 }
             } else {
-                Text(knot.knotName.rawValue)
+                HStack {
+                    Image(BasicKnotName.도래매듭.rawValue)
+                    Text(oldBasicKnot.knotName.rawValue)
+                }
             }
             
         case .applied(let knot):
-            Text("응용용")
+            //TODO: - 1. 개수만 있는 애들, 2. 귀만 있는 애들, 3. 귀, 개수 둘 다 있는 애들, 4. 기본만 있는 애들
+//            Text(knot.knotName.rawValue)
+            DisclosureGroup(
+                content: {
+                    // 내용들
+                }, label: {
+                    HStack {
+                        Image(knot.knotName.rawValue)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                        Text(knot.knotName.rawValue)
+                    }
+                })
+
         case .etc(let knot):
-            Text("기타용가리")
+            if let interval = knot.interval {
+                HStack {
+                    Image("간격")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text("간격")
+                    TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
+                }
+            } else if let lasso = knot.lasso {
+                HStack {
+                    Image("고")
+                    Text("\(lasso) 고 임")
+                }
+            } else {
+                Text("없는 애임")
+            }
+        }
+    }
+}
+
+fileprivate struct LoopListView: View {
+    @State var loopList: [String] = []
+    var changeLoop: ((_ loop: [String]) -> Void)
+    
+    var body: some View {
+        VStack {
+            ForEach($loopList, id: \.self) { $text in
+                HStack {
+                    Text("귀")
+                    TextField("cm", text: $text)
+                }
+                .deleteDisabled(true)
+            }
+        }
+        .onChange(of: loopList) { oldValue, newValue in
+            changeLoop(newValue)
         }
     }
 }
