@@ -15,6 +15,7 @@
 		E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */; };
 		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
 		E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A382BFF50DD004D15AF /* KnotImageView.swift */; };
+		E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A3B2C006F76004D15AF /* EtcKnot.swift */; };
 		E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */; };
 		E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */; };
 		E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DC2BF86CB300A1E749 /* Item.swift */; };
@@ -40,6 +41,7 @@
 		E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternViewModel.swift; sourceTree = "<group>"; };
 		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		E7549A382BFF50DD004D15AF /* KnotImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotImageView.swift; sourceTree = "<group>"; };
+		E7549A3B2C006F76004D15AF /* EtcKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtcKnot.swift; sourceTree = "<group>"; };
 		E7B5F6D52BF86CB300A1E749 /* Dorae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoraeApp.swift; sourceTree = "<group>"; };
 		E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				B50F27112BFB666C00BB96F5 /* BasicKnot.swift */,
 				B50F27132BFB668400BB96F5 /* AppliedKnot.swift */,
+				E7549A3B2C006F76004D15AF /* EtcKnot.swift */,
 			);
 			path = KnotList;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
 				B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */,
 				E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */,
+				E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */,
 				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */,
