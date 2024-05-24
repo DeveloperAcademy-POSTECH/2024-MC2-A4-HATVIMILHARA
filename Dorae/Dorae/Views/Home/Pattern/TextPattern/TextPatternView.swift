@@ -11,18 +11,25 @@ struct TextPatternView: View {
     // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
     @State var knotList = PatternDummy.patternList[0].knotList
     @State private var braid = "" //끈목
-    @State private var loopTextfiled = ""
-    @State private var intervalTextfiled = ""
+    @State private var loopTextfiled = "" //귀
+    @State private var intervalTextfiled = "" //간격
     @State private var textfiled = [String]()
-
+    
     var body: some View {
         NavigationStack {
             VStack {
+                Button(action: {
+                    print(intervalTextfiled)
+                    
+                }, label: {
+                    Text("바보가 되")
+                })
                 // 끈목, 끈목 텍스트필드 스택
                 HStack {
                     Text("끈목")
                         .padding(.trailing, 40)
                     TextField("끈목을 입력해주세요.", text: $braid)
+                        .textFieldStyle(.plain)
                 }
                 
                 Divider()
@@ -84,7 +91,7 @@ struct TextPatternView: View {
                         }
                     }
                     .deleteDisabled(true)
-
+                    
                 }
             } else {
                 HStack {
@@ -95,7 +102,7 @@ struct TextPatternView: View {
             
         case .applied(let knot):
             //TODO: - 1. 개수만 있는 애들, 2. 귀만 있는 애들, 3. 귀, 개수 둘 다 있는 애들, 4. 기본만 있는 애들
-//            Text(knot.knotName.rawValue)
+            //            Text(knot.knotName.rawValue)
             DisclosureGroup(
                 content: {
                     // 내용들
@@ -107,7 +114,7 @@ struct TextPatternView: View {
                         Text(knot.knotName.rawValue)
                     }
                 })
-
+            
         case .etc(let knot):
             if let interval = knot.interval {
                 HStack {
@@ -116,6 +123,13 @@ struct TextPatternView: View {
                         .frame(width: 50, height: 50)
                     Text("간격")
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
+                        .onChange(of: intervalTextfiled) { oldValue, newValue in
+                            if !newValue.isEmpty && Int(newValue) == nil {
+                                intervalTextfiled = String(newValue.prefix(newValue.count - 1))
+                            }
+                        }
+                        .textFieldStyle(.plain)
+                        .keyboardType(.numberPad)
                 }
             } else if let lasso = knot.lasso {
                 HStack {
