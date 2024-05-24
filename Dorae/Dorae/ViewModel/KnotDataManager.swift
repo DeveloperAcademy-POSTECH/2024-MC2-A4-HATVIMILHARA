@@ -13,13 +13,13 @@ final class KnotDataManager {
     var knotList: [Knot] = [
         Knot.basic(knot: 거꾸로나비매듭), Knot.etc(knot: 간격), Knot.basic(knot: 도래매듭), Knot.basic(knot: 장구매듭), Knot.basic(knot: 도래매듭), Knot.basic(knot: 도래매듭), Knot.basic(knot: 잠자리매듭), Knot.basic(knot: 도래매듭), Knot.etc(knot: 간격), Knot.basic(knot: 나비매듭),
         
-        Knot.basic(knot: BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5))), Knot.basic(knot: BasicKnot(knotName: .병아리매듭, loop: Array(repeating: "", count: 2))),
+        Knot.basic(knot: BasicKnot(knotName: .세벌국화매듭, loop: Array(repeating: "", count: 5))), Knot.basic(knot: BasicKnot(knotName: .병아리매듭, loop: Array(repeating: "", count: 2))),
         Knot.applied(knot: AppliedKnot(knotName: .꽃육립매듭, subKnotList: [
             BasicKnot(knotName: .도래매듭),
             BasicKnot(knotName: .생쪽매듭),
             BasicKnot(knotName: .장구매듭),
             BasicKnot(knotName: .도래매듭, knotCount: 4),
-            BasicKnot(knotName: .네벌국화, loop: Array(repeating: "", count: 7)),
+            BasicKnot(knotName: .네벌국화매듭, loop: Array(repeating: "", count: 7)),
             BasicKnot(knotName: .도래매듭, knotCount: 4),
             BasicKnot(knotName: .장구매듭),
             BasicKnot(knotName: .생쪽매듭),
@@ -32,7 +32,7 @@ final class KnotDataManager {
             BasicKnot(knotName: .도래매듭),
             BasicKnot(knotName: .가락지매듭, knotCount: 2),
             BasicKnot(knotName: .도래매듭),
-            BasicKnot(knotName: .세벌국화, loop: Array(repeating: "", count: 5)),
+            BasicKnot(knotName: .세벌국화매듭, loop: Array(repeating: "", count: 5)),
             BasicKnot(knotName: .도래매듭),
             BasicKnot(knotName: .가락지매듭, knotCount: 2),
             BasicKnot(knotName: .도래매듭),
