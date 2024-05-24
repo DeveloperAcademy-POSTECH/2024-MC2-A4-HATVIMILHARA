@@ -144,7 +144,7 @@ struct TextPatternView: View {
                             }
                         }
                         .textFieldStyle(.plain)
-                        .keyboardType(.decimalPad)
+                        .keyboardType(.numberPad)
                 }
             } else if let lasso = knot.lasso {
                 HStack {
