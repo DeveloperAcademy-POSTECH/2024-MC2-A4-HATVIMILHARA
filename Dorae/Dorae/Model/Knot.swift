@@ -27,9 +27,9 @@ struct BasicKnot: Identifiable, Hashable {
     var loop: [String]? = nil
     var knotCount: Int = 1
     var topHeightRatio: CGFloat = 0
-    var topWidthRatio: CGFloat = 0
+    var topWidthRatio: CGFloat = 1
     var bottomHeightRatio: CGFloat = 0
-    var bottomWidthRatio: CGFloat = 0
+    var bottomWidthRatio: CGFloat = 1
 }
 
 struct AppliedKnot: Identifiable, Hashable {
@@ -40,7 +40,6 @@ struct AppliedKnot: Identifiable, Hashable {
 
 struct EtcKnot: Identifiable {
     let id = UUID()
-    var braid: String?
     var interval: String?
     var tassel: TasselKnot?
     var lasso: String?

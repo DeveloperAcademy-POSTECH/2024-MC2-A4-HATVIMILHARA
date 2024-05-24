@@ -44,27 +44,24 @@ struct KnotImageView: View {
     }
     
     func setKnotSizeDict(basicKnot: BasicKnot, boundingBox: CGRect) {
+        imagePatternViewModel.boundingSizeDict[index] = boundingBox.size
         var availableBottomSize = CGSize(width: 0, height: 0)
         var availableTopSize = CGSize(width: 0, height: 0)
         
         let bottomHeightRatio: CGFloat = basicKnot.bottomHeightRatio
         let bottomWidthRatio: CGFloat = basicKnot.bottomWidthRatio
         
-        if bottomHeightRatio > 0 && bottomWidthRatio > 0 {
-            let availableWidth = bottomWidthRatio * boundingBox.width
-            let availableHeight = bottomHeightRatio * boundingBox.height
-            availableBottomSize = CGSize(width: availableWidth, height: availableHeight)
-        }
-        imagePatternViewModel.bottomsizeDict[index] = availableBottomSize
+        let availableBottomHeight = bottomHeightRatio * boundingBox.height
+        let availableBottomWidth = bottomWidthRatio * boundingBox.width
+        availableBottomSize = CGSize(width: availableBottomWidth, height: availableBottomHeight)
+        imagePatternViewModel.bottomSizeDict[index] = availableBottomSize
         
-        let topHeightRatio: CGFloat = basicKnot.topHeightRatio
         let topWidthRatio: CGFloat = basicKnot.topWidthRatio
+        let topHeightRatio: CGFloat = basicKnot.topHeightRatio
         
-        if topHeightRatio > 0 && topWidthRatio > 0 {
-            let availableWidth = topWidthRatio * boundingBox.width
-            let availableHeight = topHeightRatio * boundingBox.height
-            availableTopSize = CGSize(width: availableWidth, height: availableHeight)
-        }
+        let availableTopWidth = topWidthRatio * boundingBox.width
+        let availableTopHeight = topHeightRatio * boundingBox.height
+        availableTopSize = CGSize(width: availableTopWidth, height: availableTopHeight)
         imagePatternViewModel.topSizeDict[index] = availableTopSize
     }
 }
