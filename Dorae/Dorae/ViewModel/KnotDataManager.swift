@@ -10,10 +10,10 @@ import Foundation
 @Observable
 final class KnotDataManager {
     /// 줄글 도안과 이미지 도안에서 참조할 Knot 리스트
-    var knotList: [Knot] = []
+    var knotList: [Knot] = [Knot.basic(knot: 거꾸로나비매듭), Knot.etc(knot: 간격), Knot.basic(knot: 도래매듭), Knot.basic(knot: 장구매듭), Knot.basic(knot: 도래매듭), Knot.basic(knot: 도래매듭), Knot.basic(knot: 잠자리매듭), Knot.basic(knot: 도래매듭), Knot.etc(knot: 간격), Knot.basic(knot: 나비매듭)]
     
     func getKnotName(knot: Knot) -> String {
-        var knotName = "이름없음"
+        var knotName = ""
         switch knot {
         case .basic(let knot):
             knotName = knot.knotName.rawValue
