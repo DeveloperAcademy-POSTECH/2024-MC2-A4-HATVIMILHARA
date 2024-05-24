@@ -104,17 +104,36 @@ struct TextPatternView: View {
             
         case .applied(let knot):
             //TODO: - 1. 개수만 있는 애들, 2. 귀만 있는 애들, 3. 귀, 개수 둘 다 있는 애들, 4. 기본만 있는 애들
-            //            Text(knot.knotName.rawValue)
             DisclosureGroup(
                 content: {
-                    // 내용들
                     ForEach(knot.subKnotList) { subKnot in
                         HStack {
+                            Spacer().frame(width: 50)
                             Circle().frame(width: 5)
                             Text("\(subKnot.knotName)")
                             if subKnot.knotCount > 1 {
                                 Text("\(subKnot.knotCount)")
                             }
+                        }
+                        
+                        if let loop = subKnot.loop, !loop.isEmpty {
+                            LoopListView(loopList: loop) { loop in
+                                knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                                    if case Knot.applied(let appliedKnot) = knotItem {
+                                        if let subKnotIndex = appliedKnot.subKnotList.firstIndex(where: { $0.id == subKnot.id }) {
+                                            var updatedSubKnot = subKnot
+                                            updatedSubKnot.loop = loop
+                                            var updatedAppliedKnot = appliedKnot
+                                            updatedAppliedKnot.subKnotList[subKnotIndex] = updatedSubKnot
+                                            return .applied(knot: updatedAppliedKnot)
+                                        } else {
+                                            return knotItem
+                                        }
+                                    }
+                                    return knotItem
+                                }
+                            }
+                            .deleteDisabled(true)
                         }
                     }
                     .deleteDisabled(true)
@@ -122,8 +141,9 @@ struct TextPatternView: View {
                     
                 }, label: {
                     HStack {
-                        Image(knot.knotName.rawValue)
-                        //                            .resizable()
+                        Image("\(knot.knotName)매듭")
+                            .resizable()
+                            .frame(width: 50, height: 50)
                         Text(knot.knotName.rawValue)
                     }
                 })
@@ -159,17 +179,19 @@ struct TextPatternView: View {
 }
 
 fileprivate struct LoopListView: View {
-    @State var loopList: [String]
+    @State var loopList: [String] = []
     var changeLoop: ((_ loop: [String]) -> Void)
     
     var body: some View {
-        List($loopList, id: \.self) { $text in
+        ForEach(loopList.indices, id: \.self) { index in
             HStack {
-                Text("귀 \(loopList.count)")
-                Image(systemName: "1.circle")
-                TextField("cm", text: $text)
+                Spacer().frame(width: 80)
+                Text("귀")
+                Image(systemName: "\(index+1).circle")
+                TextField("cm", text: $loopList[index])
             }
         }
+        
         .deleteDisabled(true)
         .moveDisabled(true)
         .onChange(of: loopList) { oldValue, newValue in
