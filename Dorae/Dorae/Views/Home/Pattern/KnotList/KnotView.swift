@@ -8,13 +8,13 @@
 import SwiftUI
 
 enum KnotCategory {
-    case basic
-    case applied
-    case etc
+    case basicCategory
+    case appliedCategory
+    case etcCategory
 }
 
 struct KnotView: View {
-    @State private var selectedTab: KnotCategory = .basic
+    @State private var selectedTab: KnotCategory = .basicCategory
     
     let basicKnotNameList = BasicKnotName.allCases.map { knot in knot.rawValue }
     let appliedKnotNameList = AppliedKnotName.allCases.map { knot in knot.rawValue }
@@ -23,25 +23,25 @@ struct KnotView: View {
     var body: some View {
         HStack(spacing: 0) {
             switch selectedTab {
-            case .basic:
+            case .basicCategory:
                 KnotButtonListView(selectedTab: $selectedTab, knotNameList: basicKnotNameList)
-            case .applied:
+            case .appliedCategory:
                 KnotButtonListView(selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
-            case .etc:
+            case .etcCategory:
                 KnotButtonListView(selectedTab: $selectedTab, knotNameList: etcKnotNameList)
             }
             
             VStack(spacing: 0) {
-                TabButton(title: "기본", isSelected: selectedTab == .basic) {
-                    selectedTab = .basic
+                TabButton(title: "기본", isSelected: selectedTab == .basicCategory) {
+                    selectedTab = .basicCategory
                 }
                 
-                TabButton(title: "응용", isSelected: selectedTab == .applied) {
-                    selectedTab = .applied
+                TabButton(title: "응용", isSelected: selectedTab == .appliedCategory) {
+                    selectedTab = .appliedCategory
                 }
                 
-                TabButton(title: "기타", isSelected: selectedTab == .etc) {
-                    selectedTab = .etc
+                TabButton(title: "기타", isSelected: selectedTab == .etcCategory) {
+                    selectedTab = .etcCategory
                 }
                 
                 Spacer()
@@ -71,22 +71,21 @@ struct KnotButtonListView: View {
                     KnotButton(knotName: knotName)
                         .onTapGesture {
                             // TODO: 버튼인스턴스 만들어서 knot배열에 넣어주기
-                            // string -> knot
+
                             let newKnot: Knot
                             
                             switch selectedTab {
-                            case .basic:
+                            case .basicCategory:
                                 newKnot = Knot.basic(knot: BasicKnot(knotName: BasicKnotName(rawValue: knotName)!))
-                            case .applied:
+                            case .appliedCategory:
                                 newKnot = Knot.applied(knot: AppliedKnot(knotName: AppliedKnotName(rawValue: knotName)!))
-                            case .etc:
-                                
+                            case .etcCategory:
                                 if knotName == "고" {
                                     newKnot = Knot.etc(knot: EtcKnot(lasso: knotName))
                                 } else if knotName == "술" {
                                     newKnot = Knot.etc(knot: EtcKnot(tassel:  knotName))
                                 } else {
-                                    newKnot = Knot.etc(knot: EtcKnot(interval:  knotName))
+                                    newKnot = Knot.etc(knot: EtcKnot(interval:  0.0))
                                 }
                             }
 
