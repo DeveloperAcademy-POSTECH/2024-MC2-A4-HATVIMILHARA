@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TextPatternView: View {
+     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+
     // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
-    @State var knotList = PatternDummy.patternList[0].knotList
     @State private var braid = "" //끈목
     @State private var loopTextfiled = "" //귀
     @State private var intervalTextfiled = "" //간격
@@ -20,7 +21,6 @@ struct TextPatternView: View {
             VStack {
                 Button(action: {
                     print(intervalTextfiled)
-                    
                 }, label: {
                     Text("바보가 되")
                 })
@@ -36,7 +36,7 @@ struct TextPatternView: View {
                 
                 // 배열에 들어가있는 데이터 뽑는 리스트
                 List {
-                    ForEach(knotList) { knot in
+                    ForEach(knotDataManager.knotList) { knot in
                         plainView(for: knot)
                     }
                     .onDelete(perform: deleteItems)
@@ -58,14 +58,17 @@ struct TextPatternView: View {
                         .foregroundStyle(.red)
                 }
             }
+        
+
+            
         }
     }
     
     private func deleteItems(at offsets: IndexSet) {
-        knotList.remove(atOffsets: offsets)
+        knotDataManager.knotList.remove(atOffsets: offsets)
     }
     private func moveItems(from source: IndexSet, to destination: Int) {
-        knotList.move(fromOffsets: source, toOffset: destination)
+        knotDataManager.knotList.move(fromOffsets: source, toOffset: destination)
     }
     
     @ViewBuilder
@@ -76,7 +79,7 @@ struct TextPatternView: View {
                 DisclosureGroup(oldBasicKnot.knotName.rawValue) {
                     //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
                     LoopListView(loopList: loop) { loop in
-                        knotList = knotList.map { knotItem in
+                        knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
                             if case Knot.basic(let newBasicKnot) = knotItem {
                                 if newBasicKnot.id == oldBasicKnot.id {
                                     var tempBasicKnot = newBasicKnot
@@ -110,7 +113,6 @@ struct TextPatternView: View {
                     HStack {
                         Image(knot.knotName.rawValue)
                             .resizable()
-                            .frame(width: 50, height: 50)
                         Text(knot.knotName.rawValue)
                     }
                 })
@@ -120,7 +122,6 @@ struct TextPatternView: View {
                 HStack {
                     Image("간격")
                         .resizable()
-                        .frame(width: 50, height: 50)
                     Text("간격")
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
                         .onChange(of: intervalTextfiled) { oldValue, newValue in
@@ -166,4 +167,5 @@ fileprivate struct LoopListView: View {
 
 #Preview {
     TextPatternView()
+        .environment(KnotDataManager())
 }
