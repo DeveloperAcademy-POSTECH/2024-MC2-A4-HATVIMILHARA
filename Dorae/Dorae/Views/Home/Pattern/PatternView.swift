@@ -11,6 +11,7 @@ struct PatternView: View {
     @State private var patternTitle = "제목없음"
     
     var body: some View {
+       
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("도안")
@@ -19,15 +20,10 @@ struct PatternView: View {
                     .padding(.bottom, 8)
                     .font(.title2.bold())
                     .foregroundStyle(.white)
-                HStack {
-                    Text("그림도안")
-                    Divider()
-                        .rotationEffect(.zero)
-                    Text("글도안")
-                }
-                .frame(maxWidth: .infinity)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 24))
+                PatternPartView()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
             }
             .padding(.horizontal, 24)
 
@@ -50,5 +46,27 @@ struct PatternView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.editor)
     }
+}
+
+
+struct PatternPartView: View {
+    var body: some View {
+        GeometryReader { geometry in
+            HStack {
+                ImagePatternView()
+                    .frame(width: geometry.size.width/2)
+                    .padding(.vertical, 20)
+                Divider()
+                    .rotationEffect(.zero)
+                TextPatternView()
+                    .frame(width: geometry.size.width/2)
+            }
+            
+        }
+    }
+}
+
+#Preview {
+    PatternView()
 }
 

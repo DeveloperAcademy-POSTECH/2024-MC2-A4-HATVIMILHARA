@@ -13,6 +13,7 @@ struct KnotImageView: View {
     
     let knot: Knot
     let index: Int
+    let containerSize: CGSize
     var body: some View {
         Group {
             if let image = UIImage(named: knotDataManager.getKnotName(knot: knot)) {
@@ -22,13 +23,20 @@ struct KnotImageView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: boundingBox.width, height: boundingBox.height)
+                            .frame(width: min(boundingBox.width, containerSize.width),
+                                   height: min(boundingBox.height, containerSize.height))
                             .clipped()
                             .onAppear {
                                 print("\(knotDataManager.getKnotName(knot: knot)) bounding boxSize: \(boundingBox.size)")
                                 print("인덱스", index)
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
                                 imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
+                            }
+                            .onChange(of: knotDataManager.knotList) { _, _ in
+                                imagePatternViewModel.offsetYDict = [:]
+                                setKnotSizeDict(knot: knot, boundingBox: boundingBox)
+                                imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
+
                             }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

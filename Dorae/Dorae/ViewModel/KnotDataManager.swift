@@ -53,6 +53,8 @@ final class KnotDataManager {
                 knotName = "간격"
             }else if let knot = knot.tassel {
                 knotName = "술"
+            }else if let knot = knot.lasso {
+                knotName = "고"
             }
         }
         return knotName

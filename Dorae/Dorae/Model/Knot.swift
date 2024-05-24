@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Knot: Identifiable {
+enum Knot: Identifiable, Equatable {
     case basic(knot: BasicKnot)
     case applied(knot: AppliedKnot)
     case etc(knot: EtcKnot)
@@ -17,6 +17,20 @@ enum Knot: Identifiable {
         case .basic(let knot): return knot.id
         case .applied(let knot): return knot.id
         case .etc(let knot): return knot.id
+        }
+    }
+    
+    // Equatable 프로토콜 준수를 위한 사용자 정의 == 연산자
+    static func == (lhs: Knot, rhs: Knot) -> Bool {
+        switch (lhs, rhs) {
+        case (.basic(let lhsKnot), .basic(let rhsKnot)):
+            return lhsKnot == rhsKnot
+        case (.applied(let lhsKnot), .applied(let rhsKnot)):
+            return lhsKnot == rhsKnot
+        case (.etc(let lhsKnot), .etc(let rhsKnot)):
+            return lhsKnot == rhsKnot
+        default:
+            return false
         }
     }
 }
@@ -38,7 +52,7 @@ struct AppliedKnot: Identifiable, Hashable {
     var subKnotList: [BasicKnot] = []
 }
 
-struct EtcKnot: Identifiable {
+struct EtcKnot: Identifiable, Hashable {
     let id = UUID()
     /// 기타 매듭 이름
     var tassel: String?

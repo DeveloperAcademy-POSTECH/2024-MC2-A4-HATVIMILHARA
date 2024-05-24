@@ -10,19 +10,21 @@ import CoreGraphics
 
 
 struct ImagePatternView: View {
-    @Environment(KnotDataManager.self) var knotDataManager
+    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @State private var imagePatternVM = ImagePatternViewModel()
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(Array(knotDataManager.knotList.enumerated()), id: \.offset) { idx, knot in
-                    KnotImageView(imagePatternViewModel: imagePatternVM, knot: knot, index: idx)
-                        .offset(y: imagePatternVM.offsetYDict[idx] ?? 0)
+        GeometryReader { geometry in
+            ScrollView {
+                VStack {
+                    ForEach(Array(knotDataManager.knotList.enumerated()), id: \.offset) { idx, knot in
+                        KnotImageView(imagePatternViewModel: imagePatternVM, knot: knot, index: idx, containerSize: geometry.size)
+                            .offset(y: imagePatternVM.offsetYDict[idx] ?? 0)
+                    }
+                    
                 }
-                
             }
-            .padding()
+            .scrollIndicators(.hidden)
         }
     }
 }
