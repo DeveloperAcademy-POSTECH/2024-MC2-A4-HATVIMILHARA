@@ -176,8 +176,8 @@
 		E7B5F7142BFB3CDB00A1E749 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E7B5F70A2BFB3C6B00A1E749 /* HomeView.swift */,
 				B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */,
+				E7B5F70A2BFB3C6B00A1E749 /* HomeView.swift */,
 				E7B5F7212BFC6D0D00A1E749 /* Pattern */,
 			);
 			path = Home;
