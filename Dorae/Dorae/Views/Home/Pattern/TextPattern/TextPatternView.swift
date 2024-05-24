@@ -16,47 +16,50 @@ struct TextPatternView: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .top) {
                 Text("글 도안")
                     .font(.title)
                     .bold()
+                
                 Spacer()
+                
                 EditButton()
                     .font(.title2)
                     .foregroundStyle(.red)
             }
-            // 끈목, 끈목 텍스트필드 스택
+            
             HStack {
                 Text("끈목")
                     .padding(.trailing, 40)
                 TextField("끈목을 입력해주세요.", text: $braid)
-                    .textFieldStyle(.plain)
+                    .textFieldStyle(.roundedBorder)
             }
             
             Divider()
             
-            // 배열에 들어가있는 데이터 뽑는 리스트
             List {
                 ForEach(knotDataManager.knotList) { knot in
-                    plainView(for: knot)
+                    showKnotList(for: knot)
                 }
                 .onDelete(perform: deleteItems)
                 .onMove(perform: moveItems)
-                
             }
             .listStyle(.plain)
+            
         }
     }
     
     private func deleteItems(at offsets: IndexSet) {
         knotDataManager.knotList.remove(atOffsets: offsets)
     }
+    
     private func moveItems(from source: IndexSet, to destination: Int) {
         knotDataManager.knotList.move(fromOffsets: source, toOffset: destination)
     }
     
+    
     @ViewBuilder
-    func plainView(for knot: Knot) -> some View {
+    func showKnotList(for knot: Knot) -> some View {
         switch knot {
         case .basic(let oldBasicKnot):
             if let loop = oldBasicKnot.loop, !loop.isEmpty {
@@ -77,17 +80,17 @@ struct TextPatternView: View {
                         }
                     }
                     .deleteDisabled(true)
-                    
                 }
             } else {
                 HStack {
-                    Image(BasicKnotName.도래매듭.rawValue)
+                    Image("\(oldBasicKnot.knotName.rawValue)버튼")
+                        .resizable()
+                        .frame(width: 64, height: 64)
                     Text(oldBasicKnot.knotName.rawValue)
                 }
             }
             
         case .applied(let knot):
-            //TODO: - 1. 개수만 있는 애들, 2. 귀만 있는 애들, 3. 귀, 개수 둘 다 있는 애들, 4. 기본만 있는 애들
             DisclosureGroup(
                 content: {
                     ForEach(knot.subKnotList) { subKnot in
@@ -127,7 +130,7 @@ struct TextPatternView: View {
                     HStack {
                         Image("\(knot.knotName)매듭")
                             .resizable()
-                            .frame(width: 50, height: 50)
+                            .frame(width: 64, height: 64)
                         Text(knot.knotName.rawValue)
                     }
                 })
@@ -139,6 +142,7 @@ struct TextPatternView: View {
                     //                        .resizable()
                     Text("간격")
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
+                        .textFieldStyle(.roundedBorder)
                         .onChange(of: intervalTextfiled) { oldValue, newValue in
                             let allowedCharacters = CharacterSet(charactersIn: "0123456789.").inverted
                             if newValue.rangeOfCharacter(from: allowedCharacters) != nil || newValue.components(separatedBy: ".").count > 2 {
@@ -170,9 +174,10 @@ fileprivate struct LoopListView: View {
         ForEach(loopList.indices, id: \.self) { index in
             HStack {
                 Spacer().frame(width: 80)
-                Text("귀")
+                Text("귀(cm)")
                 Image(systemName: "\(index+1).circle")
                 TextField("cm", text: $loopList[index])
+                    .textFieldStyle(.roundedBorder)
             }
         }
         .deleteDisabled(true)
@@ -182,8 +187,6 @@ fileprivate struct LoopListView: View {
         }
     }
 }
-
-
 
 #Preview {
     TextPatternView()
