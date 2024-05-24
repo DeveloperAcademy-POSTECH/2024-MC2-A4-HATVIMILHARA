@@ -16,16 +16,19 @@ enum KnotCategory {
 struct KnotView: View {
     @State private var selectedTab: KnotCategory = .basic
     
+    let basicKnotNameList = BasicKnotName.allCases.map { knot in knot.rawValue }
+    let appliedKnotNameList = AppliedKnotName.allCases.map { knot in knot.rawValue }
+    let etcKnotNameList = EtcKnotName.allCases.map { knot in knot.rawValue }
+    
     var body: some View {
         HStack(spacing: 0) {
             switch selectedTab {
             case .basic:
-                // TODO: 카테고리 따라 다르게 뷰 그려주기
-                KnotButtonListView()
+                KnotButtonListView(selectedTab: $selectedTab, knotNameList: basicKnotNameList)
             case .applied:
-                KnotButtonListView()
+                KnotButtonListView(selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
             case .etc:
-                KnotButtonListView()
+                KnotButtonListView(selectedTab: $selectedTab, knotNameList: etcKnotNameList)
             }
             
             VStack(spacing: 0) {
@@ -53,20 +56,45 @@ struct KnotView: View {
 
 
 struct KnotButtonListView: View {
+    @Environment(KnotDataManager.self) var knotDataManager
+    @Binding var selectedTab: KnotCategory
+    
+    let knotNameList: [String]
+    
+    
     let columns = [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)]
-    let knots = ["도래매듭", "귀도래매듭", "단추매듭", "가락지매듭", "생쪽매듭", "나비매듭", "거꾸로나비매듭", "두벌매화", "세벌매화", "두벌국화", "세벌국화", "네벌국화", "도래매듭", "귀도래매듭", "단추매듭", "가락지매듭", "생쪽매듭", "나비매듭", "거꾸로나비매듭", "두벌매화", "세벌매화", "두벌국화", "세벌국화", "네벌국화"]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: columns, spacing: 16) { //상하간격
-                ForEach(knots, id: \.self) { knot in
-                    KnotButton(knotName: knot)
+            LazyVGrid(columns: columns, spacing: 16) { ///상하간격
+                ForEach(knotNameList, id: \.self) { knotName in
+                    KnotButton(knotName: knotName)
                         .onTapGesture {
-                            // TODO: 줄글 도안, 이미지 도안 띄우기
+                            // TODO: 버튼인스턴스 만들어서 knot배열에 넣어주기
+                            // string -> knot
+                            let newKnot: Knot
+                            
+                            switch selectedTab {
+                            case .basic:
+                                newKnot = Knot.basic(knot: BasicKnot(knotName: BasicKnotName(rawValue: knotName)!))
+                            case .applied:
+                                newKnot = Knot.applied(knot: AppliedKnot(knotName: AppliedKnotName(rawValue: knotName)!))
+                            case .etc:
+                                
+                                if knotName == "고" {
+                                    newKnot = Knot.etc(knot: EtcKnot(lasso: knotName))
+                                } else if knotName == "술" {
+                                    newKnot = Knot.etc(knot: EtcKnot(tassel:  knotName))
+                                } else {
+                                    newKnot = Knot.etc(knot: EtcKnot(interval:  knotName))
+                                }
+                            }
+
+                            knotDataManager.knotList.append(newKnot)
                         }
                 }
             }
-            .padding(24) // 좌측라운드판 안에 그리드 패딩값
+            .padding(24) /// 백그라운드와 그리드 사이 패딩값
         }
         .frame(maxWidth: .infinity)
     }
@@ -95,9 +123,7 @@ struct KnotButton: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "tornado")
-                .resizable()
-                .padding(20)
+            Image("\(knotName)버튼")
                 .frame(width: 84, height: 84)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -107,6 +133,4 @@ struct KnotButton: View {
     }
 }
 
-#Preview {
-    KnotView()
-}
+
