@@ -69,12 +69,12 @@ enum BasicKnotName: String, CaseIterable {
     case 생쪽매듭
     case 나비매듭
     case 거꾸로나비매듭    // 응용매듭에만 쓰임
-    case 두벌매화
-    case 세벌매화
-    case 두벌국화
-    case 세벌국화
-    case 네벌국화
-    case 다섯벌국화
+    case 두벌매화매듭
+    case 세벌매화매듭
+    case 두벌국화매듭
+    case 세벌국화매듭
+    case 네벌국화매듭
+    case 다섯벌국화매듭
     case 병아리매듭
     case 잠자리매듭
     case 동심결매듭
@@ -83,7 +83,6 @@ enum BasicKnotName: String, CaseIterable {
     case 가지방석매듭
     case 딸기매듭
     case 석씨매듭
-    case 매미매듭
 }
 
 enum AppliedKnotName: String, CaseIterable {

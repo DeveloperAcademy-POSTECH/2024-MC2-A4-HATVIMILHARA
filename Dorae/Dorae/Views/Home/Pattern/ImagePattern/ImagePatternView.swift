@@ -31,4 +31,5 @@ struct ImagePatternView: View {
 
 #Preview {
     ImagePatternView()
+        .environment(KnotDataManager())
 }
