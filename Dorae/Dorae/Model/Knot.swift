@@ -44,7 +44,7 @@ struct EtcKnot: Identifiable {
     var tassel: String?
     var lasso: String?
     /// 간격의 값
-    var interval: String?
+    var interval: Float?
 }
 
 enum BasicKnotName: String, CaseIterable {
