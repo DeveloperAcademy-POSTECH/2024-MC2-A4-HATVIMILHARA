@@ -13,6 +13,7 @@ struct KnotImageView: View {
     
     let knot: Knot
     let index: Int
+    let containerSize: CGSize
     var body: some View {
         Group {
             if let image = UIImage(named: knotDataManager.getKnotName(knot: knot)) {
@@ -22,7 +23,8 @@ struct KnotImageView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: boundingBox.width, height: boundingBox.height)
+                            .frame(width: min(boundingBox.width, containerSize.width),
+                                   height: min(boundingBox.height, containerSize.height))
                             .clipped()
                             .onAppear {
                                 print("\(knotDataManager.getKnotName(knot: knot)) bounding boxSize: \(boundingBox.size)")
