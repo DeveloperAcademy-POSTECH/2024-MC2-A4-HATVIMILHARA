@@ -30,6 +30,12 @@ struct KnotImageView: View {
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
                                 imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
                             }
+                            .onChange(of: knotDataManager.knotList) { _, _ in
+                                imagePatternViewModel.offsetYDict = [:]
+                                setKnotSizeDict(knot: knot, boundingBox: boundingBox)
+                                imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
+
+                            }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
