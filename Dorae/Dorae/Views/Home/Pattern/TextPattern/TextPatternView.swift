@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TextPatternView: View {
-     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-
+    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    
     // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
     @State private var braid = "" //끈목
     @State private var loopTextfiled = "" //귀
@@ -58,8 +58,8 @@ struct TextPatternView: View {
                         .foregroundStyle(.red)
                 }
             }
-        
-
+            
+            
             
         }
     }
@@ -77,7 +77,6 @@ struct TextPatternView: View {
         case .basic(let oldBasicKnot):
             if let loop = oldBasicKnot.loop, !loop.isEmpty {
                 DisclosureGroup(oldBasicKnot.knotName.rawValue) {
-                    //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
                     LoopListView(loopList: loop) { loop in
                         knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
                             if case Knot.basic(let newBasicKnot) = knotItem {
@@ -109,10 +108,22 @@ struct TextPatternView: View {
             DisclosureGroup(
                 content: {
                     // 내용들
+                    ForEach(knot.subKnotList) { subKnot in
+                        HStack {
+                            Circle().frame(width: 5)
+                            Text("\(subKnot.knotName)")
+                            if subKnot.knotCount > 1 {
+                                Text("\(subKnot.knotCount)")
+                            }
+                        }
+                    }
+                    .deleteDisabled(true)
+                    .moveDisabled(true)
+                    
                 }, label: {
                     HStack {
                         Image(knot.knotName.rawValue)
-                            .resizable()
+                        //                            .resizable()
                         Text(knot.knotName.rawValue)
                     }
                 })
@@ -121,7 +132,7 @@ struct TextPatternView: View {
             if let interval = knot.interval {
                 HStack {
                     Image("간격")
-                        .resizable()
+                    //                        .resizable()
                     Text("간격")
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
                         .onChange(of: intervalTextfiled) { oldValue, newValue in
@@ -145,24 +156,25 @@ struct TextPatternView: View {
 }
 
 fileprivate struct LoopListView: View {
-    @State var loopList: [String] = []
+    @State var loopList: [String]
     var changeLoop: ((_ loop: [String]) -> Void)
     
     var body: some View {
-        VStack {
-            ForEach($loopList, id: \.self) { $text in
-                HStack {
-                    Text("귀")
-                    TextField("cm", text: $text)
-                }
-                .deleteDisabled(true)
+        List($loopList, id: \.self) { $text in
+            HStack {
+                Text("귀 \(loopList.count)")
+                Image(systemName: "1.circle")
+                TextField("cm", text: $text)
             }
         }
+        .deleteDisabled(true)
+        .moveDisabled(true)
         .onChange(of: loopList) { oldValue, newValue in
             changeLoop(newValue)
         }
     }
 }
+
 
 
 #Preview {
