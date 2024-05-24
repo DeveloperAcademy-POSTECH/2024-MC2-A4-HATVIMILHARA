@@ -55,7 +55,6 @@ struct PatternPartView: View {
             HStack {
                 ImagePatternView()
                     .frame(width: geometry.size.width/2)
-                    .padding(.horizontal, 50)
                     .padding(.vertical, 20)
                 Divider()
                     .rotationEffect(.zero)
