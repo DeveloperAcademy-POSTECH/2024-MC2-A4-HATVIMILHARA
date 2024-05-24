@@ -27,9 +27,9 @@ struct BasicKnot: Identifiable, Hashable {
     var loop: [String]? = nil
     var knotCount: Int = 1
     var topHeightRatio: CGFloat = 0
-    var topWidthRatio: CGFloat = 0
+    var topWidthRatio: CGFloat = 1
     var bottomHeightRatio: CGFloat = 0
-    var bottomWidthRatio: CGFloat = 0
+    var bottomWidthRatio: CGFloat = 1
 }
 
 struct AppliedKnot: Identifiable, Hashable {
@@ -40,18 +40,14 @@ struct AppliedKnot: Identifiable, Hashable {
 
 struct EtcKnot: Identifiable {
     let id = UUID()
-    var braid: String?
-    var interval: String?
-    var tassel: TasselKnot?
+    /// 기타 매듭 이름
+    var tassel: String?
     var lasso: String?
+    /// 간격의 값
+    var interval: String?
 }
 
-enum TasselKnot {
-    case 딸기술, 봉술, 방망이술, 낙지발술, 방울술, 전복술, 금전지술, 잔술
-
-}
-
-enum BasicKnotName: String {
+enum BasicKnotName: String, CaseIterable {
     case 도래매듭
     case 귀도래매듭
     case 단추매듭
@@ -76,11 +72,17 @@ enum BasicKnotName: String {
     case 매미매듭
 }
 
-enum AppliedKnotName: String {
+enum AppliedKnotName: String, CaseIterable {
     case 항아리매듭
     case 지게매듭
     case 육립매듭
     case 꽃육립매듭
     case 공작매듭
     case 스타매듭
+}
+
+enum EtcKnotName: String, CaseIterable {
+    case 고
+    case 술
+    case 간격
 }

@@ -20,9 +20,7 @@ final class KnotDataManager {
         case .applied(let knot):
             knotName = knot.knotName.rawValue
         case .etc(let knot):
-            if let knot = knot.braid {
-                knotName = "끈목"
-            }else if let knot = knot.interval {
+            if let knot = knot.interval {
                 knotName = "간격"
             }else if let knot = knot.tassel {
                 knotName = "술"
