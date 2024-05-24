@@ -91,6 +91,8 @@ struct TextPatternView: View {
                             return knotItem
                         }
                     }
+                    .deleteDisabled(true)
+
                 }
             } else {
                 HStack {
@@ -144,6 +146,7 @@ fileprivate struct LoopListView: View {
                     Text("귀")
                     TextField("cm", text: $text)
                 }
+                .deleteDisabled(true)
             }
         }
         .onChange(of: loop) { oldValue, newValue in
