@@ -110,7 +110,7 @@ struct TextPatternView: View {
                         HStack {
                             Spacer().frame(width: 50)
                             Circle().frame(width: 5)
-                            Text("\(subKnot.knotName)")
+                            Text("\(subKnot.knotName.rawValue)")
                             if subKnot.knotCount > 1 {
                                 Text("\(subKnot.knotCount)")
                             }
