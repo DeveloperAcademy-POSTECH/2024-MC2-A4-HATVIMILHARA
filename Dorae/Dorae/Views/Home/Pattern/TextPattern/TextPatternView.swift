@@ -136,12 +136,15 @@ struct TextPatternView: View {
                     Text("간격")
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
                         .onChange(of: intervalTextfiled) { oldValue, newValue in
-                            if !newValue.isEmpty && Int(newValue) == nil {
+                            let allowedCharacters = CharacterSet(charactersIn: "0123456789.").inverted
+                            if newValue.rangeOfCharacter(from: allowedCharacters) != nil || newValue.components(separatedBy: ".").count > 2 {
+                                intervalTextfiled = oldValue
+                            } else if !newValue.isEmpty, Double(newValue) == nil {
                                 intervalTextfiled = String(newValue.prefix(newValue.count - 1))
                             }
                         }
                         .textFieldStyle(.plain)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.decimalPad)
                 }
             } else if let lasso = knot.lasso {
                 HStack {
