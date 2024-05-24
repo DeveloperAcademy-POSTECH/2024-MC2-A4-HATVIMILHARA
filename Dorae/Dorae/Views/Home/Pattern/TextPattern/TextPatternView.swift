@@ -115,15 +115,35 @@ struct TextPatternView: View {
                                 Text("\(subKnot.knotCount)")
                             }
                         }
+                        
+                        if let loop = subKnot.loop, !loop.isEmpty {
+                            LoopListView(loopList: loop) { loop in
+                                knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                                    if case Knot.applied(let appliedKnot) = knotItem {
+                                        if let subKnotIndex = appliedKnot.subKnotList.firstIndex(where: { $0.id == subKnot.id }) {
+                                            var updatedSubKnot = subKnot
+                                            updatedSubKnot.loop = loop
+                                            var updatedAppliedKnot = appliedKnot
+                                            updatedAppliedKnot.subKnotList[subKnotIndex] = updatedSubKnot
+                                            return .applied(knot: updatedAppliedKnot)
+                                        } else {
+                                            return knotItem
+                                        }
+                                    }
+                                    return knotItem
+                                }
+                            }
+                            .deleteDisabled(true)
+                        }
                     }
                     .deleteDisabled(true)
                     .moveDisabled(true)
                     
                 }, label: {
                     HStack {
-                        Image(knot.knotName.rawValue+"매듭")
+                        Image("\(knot.knotName)매듭")
                             .resizable()
-                            .frame(width: 42, height: 42)
+                            .frame(width: 50, height: 50)
                         Text(knot.knotName.rawValue)
                     }
                 })
@@ -165,6 +185,7 @@ fileprivate struct LoopListView: View {
     var body: some View {
         ForEach(loopList.indices, id: \.self) { index in
             HStack {
+                Spacer().frame(width: 80)
                 Text("귀")
                 Image(systemName: "\(index+1).circle")
                 TextField("cm", text: $loopList[index])
