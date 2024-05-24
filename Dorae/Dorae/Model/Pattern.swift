@@ -12,4 +12,5 @@ struct Pattern: Identifiable {
     var knotList: [Knot]
     let createdAt: String
     let title: String
+    var braid: String = ""
 }
