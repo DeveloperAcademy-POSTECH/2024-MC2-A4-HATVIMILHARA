@@ -9,58 +9,42 @@ import SwiftUI
 
 struct TextPatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-    
-    // 홈뷰에서 가져오는 첫 번째 Pattern 타입 knotList
     @State private var braid = "" //끈목
-    @State private var loopTextfiled = "" //귀
     @State private var intervalTextfiled = "" //간격
-    @State private var textfiled = [String]()
+    //    @State private var textfiled = [String]()
+    //    @State private var loopTextfiled = "" //귀
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Button(action: {
-                    print(intervalTextfiled)
-                }, label: {
-                    Text("바보가 되")
-                })
-                // 끈목, 끈목 텍스트필드 스택
-                HStack {
-                    Text("끈목")
-                        .padding(.trailing, 40)
-                    TextField("끈목을 입력해주세요.", text: $braid)
-                        .textFieldStyle(.plain)
-                }
-                
-                Divider()
-                
-                // 배열에 들어가있는 데이터 뽑는 리스트
-                List {
-                    ForEach(knotDataManager.knotList) { knot in
-                        plainView(for: knot)
-                    }
-                    .onDelete(perform: deleteItems)
-                    .onMove(perform: moveItems)
-                    
-                }
-                .listStyle(.plain)
+        VStack {
+            HStack {
+                Text("글 도안")
+                    .font(.title)
+                    .bold()
+                Spacer()
+                EditButton()
+                    .font(.title2)
+                    .foregroundStyle(.red)
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Text("글 도안")
-                        .font(.title)
-                        .bold()
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
-                        .font(.title2)
-                        .foregroundStyle(.red)
-                }
+            // 끈목, 끈목 텍스트필드 스택
+            HStack {
+                Text("끈목")
+                    .padding(.trailing, 40)
+                TextField("끈목을 입력해주세요.", text: $braid)
+                    .textFieldStyle(.plain)
             }
             
+            Divider()
             
-            
+            // 배열에 들어가있는 데이터 뽑는 리스트
+            List {
+                ForEach(knotDataManager.knotList) { knot in
+                    plainView(for: knot)
+                }
+                .onDelete(perform: deleteItems)
+                .onMove(perform: moveItems)
+                
+            }
+            .listStyle(.plain)
         }
     }
     
@@ -191,7 +175,6 @@ fileprivate struct LoopListView: View {
                 TextField("cm", text: $loopList[index])
             }
         }
-        
         .deleteDisabled(true)
         .moveDisabled(true)
         .onChange(of: loopList) { oldValue, newValue in
