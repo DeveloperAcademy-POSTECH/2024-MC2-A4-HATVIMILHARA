@@ -65,9 +65,9 @@ struct TextPatternView: View {
     @ViewBuilder
     func plainView(for knot: Knot) -> some View {
         switch knot {
-        case .basic(let knot):
-            if let loop = knot.loop, !loop.isEmpty {
-                DisclosureGroup(knot.knotName.rawValue) {
+        case .basic(let oldBasicKnot):
+            if let loop = oldBasicKnot.loop, !loop.isEmpty {
+                DisclosureGroup(oldBasicKnot.knotName.rawValue) {
                     //TODO: - 빈 String 배열 만들어서 인덱스값이랑 엮기
 //                    ForEach(0..<loop.count, id: \.self) { index in
 //                        HStack {
@@ -78,12 +78,12 @@ struct TextPatternView: View {
 //                    }
                     LoopListView(loop: loop) { loop in
                         knotList = knotList.map { knotItem in
-                            if case .basic(let data) = knotItem {
-                                if data.id == knot.id {
-                                    var tempBasicKnot = data
+                            if case Knot.basic(let newBasicKnot) = knotItem {
+                                if newBasicKnot.id == oldBasicKnot.id {
+                                    var tempBasicKnot = newBasicKnot
                                     tempBasicKnot.loop = loop
-                                    let newBasicKnot: Knot = .basic(knot: tempBasicKnot)
-                                    return newBasicKnot
+                                    let newKnot: Knot = .basic(knot: tempBasicKnot)
+                                    return newKnot
                                 } else {
                                     return knotItem
                                 }
@@ -97,7 +97,7 @@ struct TextPatternView: View {
             } else {
                 HStack {
                     Image(BasicKnotName.도래매듭.rawValue)
-                    Text(knot.knotName.rawValue)
+                    Text(oldBasicKnot.knotName.rawValue)
                 }
             }
             
@@ -109,7 +109,7 @@ struct TextPatternView: View {
                     // 내용들
                 }, label: {
                     HStack {
-                        Image("공작매듭")
+                        Image(knot.knotName.rawValue)
                             .resizable()
                             .frame(width: 50, height: 50)
                         Text(knot.knotName.rawValue)
@@ -120,6 +120,8 @@ struct TextPatternView: View {
             if let interval = knot.interval {
                 HStack {
                     Image("간격")
+                        .resizable()
+                        .frame(width: 50, height: 50)
                     Text("간격")
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
                 }
