@@ -108,6 +108,7 @@ struct TextPatternView: View {
                 content: {
                     ForEach(knot.subKnotList) { subKnot in
                         HStack {
+                            Spacer().frame(width: 50)
                             Circle().frame(width: 5)
                             Text("\(subKnot.knotName)")
                             if subKnot.knotCount > 1 {
@@ -120,8 +121,9 @@ struct TextPatternView: View {
                     
                 }, label: {
                     HStack {
-                        Image(knot.knotName.rawValue)
-                        //                            .resizable()
+                        Image(knot.knotName.rawValue+"매듭")
+                            .resizable()
+                            .frame(width: 42, height: 42)
                         Text(knot.knotName.rawValue)
                     }
                 })
