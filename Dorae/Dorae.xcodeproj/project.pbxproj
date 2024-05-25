@@ -11,6 +11,9 @@
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
+		B51873BE2C014A4600BEDFA2 /* SwiftDataTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */; };
+		B51873C22C01C29500BEDFA2 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */; };
+		B51873C42C01C32900BEDFA2 /* SampleDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C32C01C32900BEDFA2 /* SampleDeck.swift */; };
 		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
 		E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */; };
 		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
@@ -37,6 +40,9 @@
 		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatternItem.swift; sourceTree = "<group>"; };
+		B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataTestView.swift; sourceTree = "<group>"; };
+		B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
+		B51873C32C01C32900BEDFA2 /* SampleDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDeck.swift; sourceTree = "<group>"; };
 		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternViewModel.swift; sourceTree = "<group>"; };
 		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -80,6 +86,16 @@
 			path = KnotList;
 			sourceTree = "<group>";
 		};
+		B51873C52C01C51A00BEDFA2 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */,
+				B51873C32C01C32900BEDFA2 /* SampleDeck.swift */,
+				B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */,
+			);
+			path = SwiftData;
+			sourceTree = "<group>";
+		};
 		E7549A3A2BFF86CC004D15AF /* ImagePattern */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */,
+				B51873C52C01C51A00BEDFA2 /* SwiftData */,
 				E7B5F6FF2BFB385500A1E749 /* Model */,
 				E7B5F7002BFB387800A1E749 /* Views */,
 				E7B5F7022BFB388900A1E749 /* ViewModel */,
@@ -297,11 +314,14 @@
 				B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */,
 				E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */,
 				E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */,
+				B51873C22C01C29500BEDFA2 /* PreviewSampleData.swift in Sources */,
 				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */,
 				E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */,
+				B51873C42C01C32900BEDFA2 /* SampleDeck.swift in Sources */,
 				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
+				B51873BE2C014A4600BEDFA2 /* SwiftDataTestView.swift in Sources */,
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
 				E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */,
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
