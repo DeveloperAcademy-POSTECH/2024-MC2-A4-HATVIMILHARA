@@ -16,6 +16,7 @@ import SwiftUI
 
 struct TextPatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    @Bindable var pattern: Pattern
     @State private var braid = "" // 끈목
     @State private var intervalTextfield = "" // 간격
     @State private var isEditMode = true
@@ -56,7 +57,7 @@ struct TextPatternView: View {
     
     private var knotListView: some View {
         List {
-            ForEach(knotDataManager.knotList) { knot in
+            ForEach(pattern.knotList) { knot in
                 showKnotList(for: knot)
             }
             .onDelete(perform: deleteItems)
@@ -66,20 +67,20 @@ struct TextPatternView: View {
     }
     
     private func deleteItems(at offsets: IndexSet) {
-        knotDataManager.knotList.remove(atOffsets: offsets)
+        pattern.knotList.remove(atOffsets: offsets)
     }
     
     private func moveItems(from source: IndexSet, to destination: Int) {
-        knotDataManager.knotList.move(fromOffsets: source, toOffset: destination)
+        pattern.knotList.move(fromOffsets: source, toOffset: destination)
     }
     
     @ViewBuilder
     private func showKnotList(for knot: Knot) -> some View {
         switch knot {
         case .basic(let basicKnot):
-            BasicKnotView(knot: basicKnot)
+            BasicKnotView(pattern: pattern, knot: basicKnot)
         case .applied(let appliedKnot):
-            AppliedKnotView(knot: appliedKnot, knotDataManager: _knotDataManager)
+            AppliedKnotView(knot: appliedKnot, knotDataManager: _knotDataManager, pattern: pattern)
         case .etc(let etcKnot):
             EtcKnotView(knot: etcKnot, intervalTextfield: $intervalTextfield)
         }
@@ -88,6 +89,7 @@ struct TextPatternView: View {
 
 fileprivate struct BasicKnotView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    @Bindable var pattern: Pattern
     let knot: BasicKnot
     
     var body: some View {
@@ -95,7 +97,7 @@ fileprivate struct BasicKnotView: View {
             DisclosureGroup {
                 LoopListView(loopList: loop) { loop in
                     // Handle loop list change
-                    knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                    pattern.knotList = pattern.knotList.map { knotItem in
                         if case Knot.basic(let newBasicKnot) = knotItem {
                             if newBasicKnot.id == knot.id {
                                 var tempBasicKnot = newBasicKnot
@@ -129,6 +131,7 @@ fileprivate struct BasicKnotView: View {
 fileprivate struct AppliedKnotView: View {
     let knot: AppliedKnot
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    @Bindable var pattern: Pattern
     
     var body: some View {
         DisclosureGroup {
@@ -144,7 +147,7 @@ fileprivate struct AppliedKnotView: View {
                 if let loopList = subKnot.loop, !loopList.isEmpty {
                     LoopListView(loopList: loopList) { loop in
                         // Handle loop list change
-                        knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                        pattern.knotList = pattern.knotList.map { knotItem in
                             if case Knot.applied(let appliedKnot) = knotItem {
                                 if let subKnotIndex = appliedKnot.subKnotList.firstIndex(where: { $0.id == subKnot.id }) {
                                     var updatedSubKnot = subKnot
@@ -254,7 +257,7 @@ fileprivate struct LoopListView: View {
     }
 }
 
-#Preview {
-    TextPatternView()
-        .environment(KnotDataManager())
-}
+//#Preview {
+//    TextPatternView()
+//        .environment(KnotDataManager())
+//}

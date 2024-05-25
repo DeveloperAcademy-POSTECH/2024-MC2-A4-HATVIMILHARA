@@ -58,9 +58,3 @@ struct HomeView: View {
         .frame(maxWidth: .infinity)
     }
 }
-
-#Preview {
-    HomeView()
-        .modelContainer(previewContainer)
-        .environment(KnotDataManager())
-}

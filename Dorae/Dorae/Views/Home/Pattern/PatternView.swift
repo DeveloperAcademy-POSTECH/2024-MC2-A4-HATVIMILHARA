@@ -22,7 +22,7 @@ struct PatternView: View {
                     .padding(.bottom, 8)
                     .font(.title2.bold())
                     .foregroundStyle(.white)
-                PatternPartView()
+                PatternPartView(pattern: pattern)
                     .frame(maxWidth: .infinity)
                     .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -52,15 +52,16 @@ struct PatternView: View {
 
 
 struct PatternPartView: View {
+    @Bindable var pattern: Pattern
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                ImagePatternView()
+                ImagePatternView(pattern: pattern)
                     .frame(width: geometry.size.width/2)
                     .padding(.top, 20)
                 Divider()
                     .rotationEffect(.zero)
-                TextPatternView()
+                TextPatternView(pattern: pattern)
                     .frame(width: geometry.size.width/2)
             }
             
