@@ -13,7 +13,7 @@ struct HomeView: View {
     @Query var patternList: [Pattern]
     @Environment(\.modelContext) private var modelContext
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-    
+    @State private var tempPattern: Pattern = Pattern(knotList: [], createdAt: "", title: "제목없음", braid: "")
     
     let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -27,25 +27,24 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    // TODO: create data
-                    var newPattern = Pattern(knotList: [], createdAt: "", title: "제목없음", braid: "")
-                    
-                    NavigationLink(destination: PatternView(pattern: newPattern)) {
+                    NavigationLink(destination: PatternView(pattern: tempPattern)) {
                         HomeNewPatternItem()
                             .padding()
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        modelContext.insert(newPattern)
-//                        print(patternList)
+                        tempPattern = Pattern(knotList: [], createdAt: "", title: "제목없음", braid: "")
+                        modelContext.insert(tempPattern)
+                        knotDataManager.knotList = tempPattern.knotList
                     })
                     
-                    // TODO: knotlist 넘겨주기
                     ForEach(patternList, id: \.self) { pattern in
                         NavigationLink(destination: PatternView(pattern: pattern)) {
                             HomePatternItem(pattern: pattern)
                                 .padding()
-                            
                         }
+                        .simultaneousGesture(TapGesture().onEnded {
+                            knotDataManager.knotList = pattern.knotList
+                        })
                     }
                 }
                 .padding(68)
