@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PatternView: View {
-    @State private var patternTitle = "제목없음"
+    @Bindable var pattern: Pattern
+//    @State private var patternTitle = "제목없음"
     
     var body: some View {
        
@@ -42,7 +43,7 @@ struct PatternView: View {
         .background(Color.background)
         .toolbarBackground(Color.white, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
-        .navigationTitle($patternTitle)
+        .navigationTitle($pattern.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbarRole(.editor)
     }
@@ -66,7 +67,7 @@ struct PatternPartView: View {
     }
 }
 
-#Preview {
-    PatternView()
-}
+//#Preview {
+//    PatternView()
+//}
 
