@@ -37,8 +37,6 @@ struct ImagePatternView: View {
                     
                 }
             }
-            /// 스크롤뷰
-            .background(.green)
             .scrollIndicators(.hidden)
         }
            

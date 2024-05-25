@@ -34,37 +34,23 @@ struct KnotImageView: View {
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
                                 imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
                             }
-                        /// Image
-                            .border(.white, width: 5)
                     }
-                    /// VStack
-//                    .frame(width: geometry.size.width)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .border(.yellow, width: 3)
                 }
-                /// geometry
                 .frame(width: boundingBox.height)
                 .frame(height: getHeight(for: knot, boundingBox: boundingBox))
-                .border(.red, width: 3)
-
-
             } else {
                 Text("Image not found")
             }
         }
     }
 
+    /// 카테고리 별로 비율을 다르게 줄 수도 있어서 일단 분기처리
        private func getHeight(for knot: Knot, boundingBox: CGRect) -> CGFloat {
            switch knot {
            case .basic:
                return boundingBox.height * 0.3
-           case .applied(let knot):
-//               if knot.knotName == 지게매듭.knotName || knot.knotName == 스타매듭.knotName {
-//                   return boundingBox.height * 0.5
-//               }else if knot.knotName == 공작매듭.knotName {
-//                   return boundingBox.height * 0.3
-//               }
-//               return boundingBox.height * 0.7
+           case .applied:
                return boundingBox.height * 0.3
            case .etc:
                return boundingBox.height * 0.3
