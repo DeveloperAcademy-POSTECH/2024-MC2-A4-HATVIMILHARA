@@ -53,7 +53,7 @@ struct KnotImageView: View {
            case .applied:
                return boundingBox.height * 0.3
            case .etc:
-               return boundingBox.height * 0.3
+               return boundingBox.height * 0.5
            }
        }
     
