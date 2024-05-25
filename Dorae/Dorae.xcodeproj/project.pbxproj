@@ -14,6 +14,9 @@
 		B51873BE2C014A4600BEDFA2 /* SwiftDataTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */; };
 		B51873C22C01C29500BEDFA2 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */; };
 		B51873C42C01C32900BEDFA2 /* SampleDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C32C01C32900BEDFA2 /* SampleDeck.swift */; };
+		B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */; };
+		B51873C92C02636500BEDFA2 /* CategoryTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */; };
+		B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CA2C02639A00BEDFA2 /* KnotButton.swift */; };
 		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
 		E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */; };
 		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
@@ -31,7 +34,7 @@
 		E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F70C2BFB3CAA00A1E749 /* PatternView.swift */; };
 		E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */; };
 		E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */; };
-		E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7122BFB3CC900A1E749 /* KnotView.swift */; };
+		E7B5F7132BFB3CC900A1E749 /* KnotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7122BFB3CC900A1E749 /* KnotListView.swift */; };
 		E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7182BFB3F5A00A1E749 /* Color+.swift */; };
 		FF6D53242C01FC9A00452809 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6D53232C01FC9A00452809 /* PlayerViewModel.swift */; };
 		FF6D53292C020E4800452809 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FF6D53282C020E4800452809 /* SplashVideo.mp4 */; };
@@ -46,6 +49,9 @@
 		B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataTestView.swift; sourceTree = "<group>"; };
 		B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		B51873C32C01C32900BEDFA2 /* SampleDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDeck.swift; sourceTree = "<group>"; };
+		B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButtonListView.swift; sourceTree = "<group>"; };
+		B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabButton.swift; sourceTree = "<group>"; };
+		B51873CA2C02639A00BEDFA2 /* KnotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButton.swift; sourceTree = "<group>"; };
 		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternViewModel.swift; sourceTree = "<group>"; };
 		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -64,7 +70,7 @@
 		E7B5F70C2BFB3CAA00A1E749 /* PatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
 		E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternView.swift; sourceTree = "<group>"; };
 		E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPatternView.swift; sourceTree = "<group>"; };
-		E7B5F7122BFB3CC900A1E749 /* KnotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotView.swift; sourceTree = "<group>"; };
+		E7B5F7122BFB3CC900A1E749 /* KnotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotListView.swift; sourceTree = "<group>"; };
 		E7B5F7182BFB3F5A00A1E749 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		FF6D53232C01FC9A00452809 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		FF6D53282C020E4800452809 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SplashVideo.mp4; sourceTree = "<group>"; };
@@ -229,7 +235,10 @@
 		E7B5F7172BFB3D0900A1E749 /* KnotList */ = {
 			isa = PBXGroup;
 			children = (
-				E7B5F7122BFB3CC900A1E749 /* KnotView.swift */,
+				E7B5F7122BFB3CC900A1E749 /* KnotListView.swift */,
+				B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */,
+				B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */,
+				B51873CA2C02639A00BEDFA2 /* KnotButton.swift */,
 			);
 			path = KnotList;
 			sourceTree = "<group>";
@@ -331,12 +340,13 @@
 				B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */,
 				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
 				B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */,
-				E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */,
+				E7B5F7132BFB3CC900A1E749 /* KnotListView.swift in Sources */,
 				E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */,
 				B51873C22C01C29500BEDFA2 /* PreviewSampleData.swift in Sources */,
 				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */,
+				B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */,
 				E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */,
 				B51873C42C01C32900BEDFA2 /* SampleDeck.swift in Sources */,
 				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
@@ -347,10 +357,12 @@
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
 				B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */,
+				B51873C92C02636500BEDFA2 /* CategoryTabButton.swift in Sources */,
 				FF6D53242C01FC9A00452809 /* PlayerViewModel.swift in Sources */,
 				B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */,
 				E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */,
 				E7B5F7092BFB3B5C00A1E749 /* KnotDataManager.swift in Sources */,
+				B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

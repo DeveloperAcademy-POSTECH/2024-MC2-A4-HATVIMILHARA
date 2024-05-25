@@ -36,7 +36,7 @@ struct PatternView: View {
                     .padding(.bottom, 8)
                     .font(.title2.bold())
                     .foregroundStyle(.white)
-                KnotView(pattern: pattern)
+                KnotListView(pattern: pattern)
                 //TODO: 프레임 크기 뗀석기
                     .frame(width: 306)
             }
