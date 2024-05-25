@@ -56,7 +56,7 @@ struct AppliedKnot: Identifiable, Hashable, Codable {
 }
 
 struct EtcKnot: Identifiable, Hashable, Codable {
-    let id = UUID()
+    var id = UUID()
     /// 기타 매듭 이름
     var tassel: String?
     var lasso: String?
