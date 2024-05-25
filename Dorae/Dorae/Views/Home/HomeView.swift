@@ -59,8 +59,8 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    HomeView()
-        .modelContainer(previewContainer)
-        .environment(KnotDataManager())
-}
+//#Preview {
+//    HomeView()
+//        .modelContainer(previewContainer)
+//        .environment(KnotDataManager())
+//}
