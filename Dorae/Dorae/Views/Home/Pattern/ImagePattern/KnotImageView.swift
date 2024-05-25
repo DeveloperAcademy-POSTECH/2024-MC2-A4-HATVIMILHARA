@@ -76,14 +76,14 @@ struct KnotImageView: View {
         imagePatternViewModel.boundingSizeDict[index] = boundingBox.size
         var availableBottomSize = CGSize(width: 0, height: 0)
         
-        let availableBottomHeight = bottomHeightRatio * boundingBox.height
-        let availableBottomWidth = bottomWidthRatio * boundingBox.width
+        let availableBottomHeight = bottomHeightRatio * boundingBox.height * 0.4
+        let availableBottomWidth = bottomWidthRatio * boundingBox.width * 0.4
         availableBottomSize = CGSize(width: availableBottomWidth, height: availableBottomHeight)
         imagePatternViewModel.bottomSizeDict[index] = availableBottomSize
         
         var availableTopSize = CGSize(width: 0, height: 0)
-        let availableTopWidth = topWidthRatio * boundingBox.width
-        let availableTopHeight = topHeightRatio * boundingBox.height
+        let availableTopWidth = topWidthRatio * boundingBox.width * 0.4
+        let availableTopHeight = topHeightRatio * boundingBox.height * 0.4
 
         availableTopSize = CGSize(width: availableTopWidth, height: availableTopHeight)
         imagePatternViewModel.topSizeDict[index] = availableTopSize

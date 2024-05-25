@@ -191,7 +191,7 @@ fileprivate struct EtcKnotView: View {
     
     private var intervalView: some View {
         HStack {
-            Image("간격매듭버튼")
+            Image("간격버튼")
                 .resizable()
                 .frame(width: 50, height: 50)
             Text("간격")
@@ -215,7 +215,7 @@ fileprivate struct EtcKnotView: View {
     
     private func lassoView(lasso: String) -> some View {
         HStack {
-            Image("고매듭버튼")
+            Image("고버튼")
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(lasso)
@@ -224,7 +224,7 @@ fileprivate struct EtcKnotView: View {
     
     private func tasselView(tassel: String) -> some View {
         HStack {
-            Image("술매듭버튼")
+            Image("술버튼")
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(tassel)
