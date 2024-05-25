@@ -14,22 +14,33 @@ struct ImagePatternView: View {
     @State private var imagePatternVM = ImagePatternViewModel()
     
     var body: some View {
-        GeometryReader { geometry in
+        VStack {
+            HStack {
+                Text("이미지 도안")
+                    .font(.title)
+                    .bold()
+                Spacer()
+                Button {
+                    //TODO: 사이즈 버튼 이미지로 바꾸기
+                    print("사이즈 버튼 클릭")
+                } label: {
+                    Text("사이즈 버튼")
+                }
+            }
+            .padding(.horizontal)
             ScrollView {
                 VStack {
                     ForEach(Array(knotDataManager.knotList.enumerated()), id: \.offset) { idx, knot in
-                        KnotImageView(imagePatternViewModel: imagePatternVM, knot: knot, index: idx, containerSize: geometry.size)
+                        KnotImageView(imagePatternViewModel: imagePatternVM, knot: knot, index: idx)
                             .offset(y: imagePatternVM.offsetYDict[idx] ?? 0)
                     }
                     
                 }
             }
+            /// 스크롤뷰
+            .background(.green)
             .scrollIndicators(.hidden)
         }
+           
     }
-}
-
-#Preview {
-    ImagePatternView()
-        .environment(KnotDataManager())
 }
