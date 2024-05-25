@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-enum Knot: Identifiable, Equatable, Codable{
+enum Knot: Identifiable, Equatable, Codable, Hashable {
     case basic(knot: BasicKnot)
     case applied(knot: AppliedKnot)
     case etc(knot: EtcKnot)

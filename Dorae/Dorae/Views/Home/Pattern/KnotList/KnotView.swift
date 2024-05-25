@@ -71,12 +71,20 @@ struct KnotButtonListView: View {
                     KnotButton(knotName: knotName)
                         .onTapGesture {
                             // FIXME: 버튼인스턴스 수정 필요
-                            let newKnot: Knot
+                            var newKnot: Knot = Knot.basic(knot: 도래매듭)
                             switch selectedTab {
                             case .basicCategory:
-                                newKnot = Knot.basic(knot: BasicKnot(knotName: BasicKnotName(rawValue: knotName)!))
+                                basicKnotCollection.forEach { basicKnot in
+                                    if knotName == basicKnot.knotName.rawValue {
+                                        newKnot = Knot.basic(knot: basicKnot)
+                                    }
+                                }
                             case .appliedCategory:
-                                newKnot = Knot.applied(knot: AppliedKnot(knotName: AppliedKnotName(rawValue: knotName)!))
+                                appliedKnotCollection.forEach { appliedKnot in
+                                    if knotName == appliedKnot.knotName.rawValue {
+                                        newKnot = Knot.applied(knot: appliedKnot)
+                                    }
+                                }
                             case .etcCategory:
                                 if knotName == "고" {
                                     newKnot = Knot.etc(knot: EtcKnot(lasso: knotName))
@@ -85,6 +93,7 @@ struct KnotButtonListView: View {
                                 } else {
                                     newKnot = Knot.etc(knot: EtcKnot(interval:  0.0))
                                 }
+                                
                             }
                             knotDataManager.knotList.append(newKnot)
                             pattern.knotList = knotDataManager.knotList
