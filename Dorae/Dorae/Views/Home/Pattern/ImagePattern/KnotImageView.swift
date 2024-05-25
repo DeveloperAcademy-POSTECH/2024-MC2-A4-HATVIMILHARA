@@ -13,7 +13,6 @@ struct KnotImageView: View {
     
     let knot: Knot
     let index: Int
-    let containerSize: CGSize
     var body: some View {
         Group {
             if let image = UIImage(named: knotDataManager.getKnotName(knot: knot)) {
@@ -23,9 +22,8 @@ struct KnotImageView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: min(boundingBox.width, containerSize.width),
-                                   height: min(boundingBox.height, containerSize.height))
-                            .clipped()
+                            .frame(width: boundingBox.height,
+                                   height: getHeight(for: knot, boundingBox: boundingBox))
                             .onAppear {
                                 print("\(knotDataManager.getKnotName(knot: knot)) bounding boxSize: \(boundingBox.size)")
                                 print("인덱스", index)
@@ -33,22 +31,33 @@ struct KnotImageView: View {
                                 imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
                             }
                             .onChange(of: knotDataManager.knotList) { _, _ in
-                                imagePatternViewModel.offsetYDict = [:]
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
                                 imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
-
                             }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .frame(height: boundingBox.height)
+                .frame(width: boundingBox.height)
+                .frame(height: getHeight(for: knot, boundingBox: boundingBox))
             } else {
                 Text("Image not found")
             }
         }
     }
+
+    /// 카테고리 별로 비율을 다르게 줄 수도 있어서 일단 분기처리
+       private func getHeight(for knot: Knot, boundingBox: CGRect) -> CGFloat {
+           switch knot {
+           case .basic:
+               return boundingBox.height * 0.3
+           case .applied:
+               return boundingBox.height * 0.3
+           case .etc:
+               return boundingBox.height * 0.5
+           }
+       }
     
-    func setKnotSizeDict(knot: Knot, boundingBox: CGRect) {
+    private func setKnotSizeDict(knot: Knot, boundingBox: CGRect) {
         var bottomHeightRatio: CGFloat = 0
         var bottomWidthRatio: CGFloat = 1
         var topHeightRatio: CGFloat = 0

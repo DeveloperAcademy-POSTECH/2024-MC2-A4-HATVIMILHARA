@@ -22,6 +22,7 @@ final class ImagePatternViewModel {
         sizeCalCount += 1
         if sizeCalCount == knotList.count {
             sizeCalCount = 0
+            offsetYDict = [:]
             for idx in 0..<knotList.count {
                 calCurrentOffset(idx: idx)
             }
