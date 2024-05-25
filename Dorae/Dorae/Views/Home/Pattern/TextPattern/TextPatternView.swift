@@ -67,41 +67,39 @@ struct TextPatternView: View {
     @ViewBuilder
     func showKnotList(for knot: Knot) -> some View {
         switch knot {
-        // 기본 매듭일 경우
+            // 기본 매듭일 경우
         case .basic(let oldBasicKnot):
             // 기본 매듭이면서 귀가 있는 경우
             if let loop = oldBasicKnot.loop, !loop.isEmpty {
-                DisclosureGroup(oldBasicKnot.knotName.rawValue) {
-                    LoopListView(loopList: loop) { loop in
-                        knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
-                            if case Knot.basic(let newBasicKnot) = knotItem {
-                                if newBasicKnot.id == oldBasicKnot.id {
-                                    var tempBasicKnot = newBasicKnot
-                                    tempBasicKnot.loop = loop
-                                    let newKnot: Knot = .basic(knot: tempBasicKnot)
-                                    return newKnot
-                                } else {
-                                    return knotItem
+                DisclosureGroup(
+                    content: {
+                        LoopListView(loopList: loop) { loop in
+                            knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                                if case Knot.basic(let newBasicKnot) = knotItem {
+                                    if newBasicKnot.id == oldBasicKnot.id {
+                                        var tempBasicKnot = newBasicKnot
+                                        tempBasicKnot.loop = loop
+                                        let newKnot: Knot = .basic(knot: tempBasicKnot)
+                                        return newKnot
+                                    } else {
+                                        return knotItem
+                                    }
                                 }
+                                return knotItem
                             }
-                            return knotItem
+                        }
+                        .deleteDisabled(true)
+                    },
+                    label: {
+                        HStack {
+                            Image("\(oldBasicKnot.knotName.rawValue)버튼")
+                            Text("\(oldBasicKnot.knotName.rawValue)")
                         }
                     }
-                    .deleteDisabled(true)
-                }
-            }
+                )}
             
-            // 기본매듭에서 귀가 없는 경우
-            else {
-                HStack {
-                    Image("\(oldBasicKnot.knotName.rawValue)버튼")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                    Text(oldBasicKnot.knotName.rawValue)
-                }
-            }
             
-        // 응용 매듭일 경우
+            // 응용 매듭일 경우
         case .applied(let oldAppliedKnot):
             DisclosureGroup(
                 content: {
@@ -140,10 +138,10 @@ struct TextPatternView: View {
                     
                 }, label: {
                     HStack {
-                        Image("\(oldAppliedKnot.knotName)매듭")
+                        Image("\(oldAppliedKnot.knotName)버튼")
                             .resizable()
                             .frame(width: 50, height: 50)
-                        Text(oldAppliedKnot.knotName.rawValue)
+                        Text("\(oldAppliedKnot.knotName)")
                     }
                 })
             
@@ -151,7 +149,7 @@ struct TextPatternView: View {
             // 간격일 때
             if let interval = oldEtcKnot.interval {
                 HStack {
-                    Image("간격버튼")
+                    Image("간격매듭버튼")
                         .resizable()
                         .frame(width: 50, height: 50)
                     
@@ -170,28 +168,29 @@ struct TextPatternView: View {
                         .textFieldStyle(.plain)
                         .keyboardType(.numberPad)
                 }
-            // 고일 때
+                // 고일 때
             } else if let lasso = oldEtcKnot.lasso {
                 HStack {
-                    Image("고")
+                    Image("고매듭버튼")
                         .resizable()
                         .frame(width: 50, height: 50)
                     Text("\(lasso)")
                 }
-            } 
+            }
             // 술일 때
             else if let tassel = oldEtcKnot.tassel {
                 HStack {
-                    Image("술")
+                    Image("술매듭버튼")
                         .resizable()
                         .frame(width: 50, height: 50)
-
+                    
                     Text("\(tassel)")
                 }
             }
         }
     }
 }
+
 
 fileprivate struct LoopListView: View {
     @State var loopList: [String] = []
