@@ -77,3 +77,12 @@ let 공작매듭 = AppliedKnot(knotName: .공작매듭, subKnotList: [
     BasicKnot(knotName: .장구매듭),
     BasicKnot(knotName: .도래매듭)
 ])
+
+let appliedKnotCollection: [AppliedKnot] = [
+    항아리매듭,
+    지게매듭,
+    육립매듭,
+    꽃육립매듭,
+    공작매듭,
+    스타매듭
+]
