@@ -19,20 +19,20 @@ struct Photo: Transferable {
 struct HomePatternItem: View {
     @Bindable var pattern: Pattern
     
+    //TODO: 공유 이미지 수정
     private let photo = Photo(image: Image("육립매듭"))
-//    var patternTitle = "제목없음"
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image(systemName: "compass.drawing")
+            Image("육립매듭")
                 .resizable()
-                .padding()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 160, height: 180)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .contextMenu {
                     Button(role: .destructive) {
-                        // delete something
+                        // TODO: delete
                     } label: {
                         Label("삭제", systemImage: "trash")
                     }
