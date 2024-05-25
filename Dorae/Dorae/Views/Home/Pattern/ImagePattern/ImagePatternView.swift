@@ -12,7 +12,7 @@ import CoreGraphics
 struct ImagePatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @State private var imagePatternVM = ImagePatternViewModel()
-    
+    @State private var imageReduction: Bool = false
     var body: some View {
         VStack {
             HStack {
@@ -21,10 +21,10 @@ struct ImagePatternView: View {
                     .bold()
                 Spacer()
                 Button {
-                    //TODO: 사이즈 버튼 이미지로 바꾸기
-                    print("사이즈 버튼 클릭")
+                    //TODO: 확대축소 기능 구현
+                    imageReduction.toggle()
                 } label: {
-                    Text("사이즈 버튼")
+                    Image(imageReduction ? "enlargeBtn" : "reductionBtn")
                 }
             }
             .padding(.horizontal)
