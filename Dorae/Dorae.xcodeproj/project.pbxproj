@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */; };
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
-		B51873BE2C014A4600BEDFA2 /* SwiftDataTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */; };
-		B51873C22C01C29500BEDFA2 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */; };
-		B51873C42C01C32900BEDFA2 /* SampleDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C32C01C32900BEDFA2 /* SampleDeck.swift */; };
 		B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */; };
 		B51873C92C02636500BEDFA2 /* CategoryTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */; };
 		B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CA2C02639A00BEDFA2 /* KnotButton.swift */; };
@@ -23,8 +19,6 @@
 		E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A382BFF50DD004D15AF /* KnotImageView.swift */; };
 		E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A3B2C006F76004D15AF /* EtcKnot.swift */; };
 		E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */; };
-		E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */; };
-		E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6DC2BF86CB300A1E749 /* Item.swift */; };
 		E7B5F6DF2BF86CB400A1E749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */; };
 		E7B5F6E22BF86CB400A1E749 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */; };
 		E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7032BFB391500A1E749 /* Pattern.swift */; };
@@ -42,13 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternDummy.swift; sourceTree = "<group>"; };
 		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatternItem.swift; sourceTree = "<group>"; };
-		B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataTestView.swift; sourceTree = "<group>"; };
-		B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
-		B51873C32C01C32900BEDFA2 /* SampleDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDeck.swift; sourceTree = "<group>"; };
 		B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButtonListView.swift; sourceTree = "<group>"; };
 		B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabButton.swift; sourceTree = "<group>"; };
 		B51873CA2C02639A00BEDFA2 /* KnotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButton.swift; sourceTree = "<group>"; };
@@ -59,8 +49,6 @@
 		E7549A3B2C006F76004D15AF /* EtcKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtcKnot.swift; sourceTree = "<group>"; };
 		E7B5F6D52BF86CB300A1E749 /* Dorae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoraeApp.swift; sourceTree = "<group>"; };
-		E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E7B5F6DC2BF86CB300A1E749 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7B5F7032BFB391500A1E749 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
@@ -98,16 +86,6 @@
 			path = KnotList;
 			sourceTree = "<group>";
 		};
-		B51873C52C01C51A00BEDFA2 /* SwiftData */ = {
-			isa = PBXGroup;
-			children = (
-				B51873BD2C014A4600BEDFA2 /* SwiftDataTestView.swift */,
-				B51873C32C01C32900BEDFA2 /* SampleDeck.swift */,
-				B51873C12C01C29500BEDFA2 /* PreviewSampleData.swift */,
-			);
-			path = SwiftData;
-			sourceTree = "<group>";
-		};
 		E7549A3A2BFF86CC004D15AF /* ImagePattern */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */,
-				B51873C52C01C51A00BEDFA2 /* SwiftData */,
 				E7B5F6FF2BFB385500A1E749 /* Model */,
 				E7B5F7002BFB387800A1E749 /* Views */,
 				E7B5F7022BFB388900A1E749 /* ViewModel */,
@@ -168,7 +145,6 @@
 		E7B5F7002BFB387800A1E749 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E7B5F6DA2BF86CB300A1E749 /* ContentView.swift */,
 				E7B5F7142BFB3CDB00A1E749 /* Home */,
 			);
 			path = Views;
@@ -188,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				E7549A3A2BFF86CC004D15AF /* ImagePattern */,
-				E7B5F6DC2BF86CB300A1E749 /* Item.swift */,
 				E7B5F7082BFB3B5C00A1E749 /* KnotDataManager.swift */,
 			);
 			path = ViewModel;
@@ -226,7 +201,6 @@
 		E7B5F7162BFB3CFA00A1E749 /* TextPattern */ = {
 			isa = PBXGroup;
 			children = (
-				5C9FFF342BFE0156008A0E7D /* PatternDummy.swift */,
 				E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */,
 			);
 			path = TextPattern;
@@ -342,15 +316,9 @@
 				B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */,
 				E7B5F7132BFB3CC900A1E749 /* KnotListView.swift in Sources */,
 				E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */,
-				B51873C22C01C29500BEDFA2 /* PreviewSampleData.swift in Sources */,
-				E7B5F6DB2BF86CB300A1E749 /* ContentView.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
-				5C9FFF352BFE0156008A0E7D /* PatternDummy.swift in Sources */,
 				B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */,
-				E7B5F6DD2BF86CB300A1E749 /* Item.swift in Sources */,
-				B51873C42C01C32900BEDFA2 /* SampleDeck.swift in Sources */,
 				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
-				B51873BE2C014A4600BEDFA2 /* SwiftDataTestView.swift in Sources */,
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
 				E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */,
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
