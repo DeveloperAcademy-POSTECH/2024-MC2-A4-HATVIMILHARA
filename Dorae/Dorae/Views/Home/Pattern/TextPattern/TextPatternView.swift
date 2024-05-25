@@ -142,7 +142,7 @@ struct TextPatternView: View {
                         Image("\(oldAppliedKnot.knotName)버튼")
                             .resizable()
                             .frame(width: 50, height: 50)
-                        Text("\(oldAppliedKnot.knotName)")
+                        Text("\(oldAppliedKnot.knotName.rawValue)")
                     }
                 })
             
