@@ -1,14 +1,14 @@
 //
-//  PatternDummy.swift
+//  SampleDeck.swift
 //  Dorae
 //
-//  Created by yegang on 5/22/24.
+//  Created by 지영 on 5/25/24.
 //
 
 import Foundation
 
-final class PatternDummy {
-    static var patternList: [Pattern] = [
+struct SampleDeck {
+    static var contents: [Pattern] = [
         Pattern(knotList: [
             .etc(knot: EtcKnot(interval: 0)),
             .etc(knot: EtcKnot(lasso: "lasso가 뭐야")),
