@@ -6,18 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
-    let patterns = [
-        "화려한 곡선",
-        "기하학적 패턴",
-        "심플한 점선",
-        "추상적 예술",
-        "현대적 디자인",
-        "자연의 아름다움",
-        "고전적 장식",
-        "미니멀리즘"
-    ]
+    //TODO: 날짜에 따라서 sort해주기
+    @Query var patternList: [Pattern]
+    @Environment(\.modelContext) private var modelContext
+    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    
     
     let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -31,15 +27,24 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    NavigationLink(destination: PatternView()) {
+                    // TODO: create data
+                    var newPattern = Pattern(knotList: [], createdAt: "", title: "제목없음", braid: "")
+                    
+                    NavigationLink(destination: PatternView(pattern: newPattern)) {
                         HomeNewPatternItem()
                             .padding()
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        modelContext.insert(newPattern)
+//                        print(patternList)
+                    })
                     
-                    ForEach(patterns, id: \.self) { pattern in
-                        NavigationLink(destination: PatternView()) {
-                            HomePatternItem()
+                    // TODO: knotlist 넘겨주기
+                    ForEach(patternList, id: \.self) { pattern in
+                        NavigationLink(destination: PatternView(pattern: pattern)) {
+                            HomePatternItem(pattern: pattern)
                                 .padding()
+                            
                         }
                     }
                 }
@@ -57,4 +62,6 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .modelContainer(previewContainer)
+        .environment(KnotDataManager())
 }
