@@ -274,11 +274,11 @@
 			};
 			buildConfigurationList = E7B5F6D02BF86CB300A1E749 /* Build configuration list for PBXProject "Dorae" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ko,
 			);
 			mainGroup = E7B5F6CC2BF86CB300A1E749;
 			productRefGroup = E7B5F6D62BF86CB300A1E749 /* Products */;
