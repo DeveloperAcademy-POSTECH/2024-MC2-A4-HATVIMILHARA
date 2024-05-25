@@ -30,6 +30,9 @@
 		E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */; };
 		E7B5F7132BFB3CC900A1E749 /* KnotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7122BFB3CC900A1E749 /* KnotView.swift */; };
 		E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7182BFB3F5A00A1E749 /* Color+.swift */; };
+		FF6D53242C01FC9A00452809 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6D53232C01FC9A00452809 /* PlayerViewModel.swift */; };
+		FF6D53262C01FD9200452809 /* SplashVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FF6D53252C01FD9200452809 /* SplashVideo.mp4 */; };
+		FFB53EF12C01E740005923E7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB53EF02C01E740005923E7 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPatternView.swift; sourceTree = "<group>"; };
 		E7B5F7122BFB3CC900A1E749 /* KnotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotView.swift; sourceTree = "<group>"; };
 		E7B5F7182BFB3F5A00A1E749 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		FF6D53232C01FC9A00452809 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		FF6D53252C01FD9200452809 /* SplashVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = SplashVideo.mp4; path = ../../../../Desktop/Dorae_splash_AME/SplashVideo.mp4; sourceTree = "<group>"; };
+		FFB53EF02C01E740005923E7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F6D72BF86CB300A1E749 /* Dorae */,
+				FFB53EED2C01E1D3005923E7 /* Splash */,
 				E7B5F6D62BF86CB300A1E749 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -220,6 +227,16 @@
 			path = Pattern;
 			sourceTree = "<group>";
 		};
+		FFB53EED2C01E1D3005923E7 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FF6D53252C01FD9200452809 /* SplashVideo.mp4 */,
+				FFB53EF02C01E740005923E7 /* SplashView.swift */,
+				FF6D53232C01FC9A00452809 /* PlayerViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B5F6E22BF86CB400A1E749 /* Preview Assets.xcassets in Resources */,
+				FF6D53262C01FD9200452809 /* SplashVideo.mp4 in Resources */,
 				E7B5F6DF2BF86CB400A1E749 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */,
+				FFB53EF12C01E740005923E7 /* SplashView.swift in Sources */,
 				E7B5F7112BFB3CBB00A1E749 /* TextPatternView.swift in Sources */,
 				B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */,
 				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
@@ -308,6 +327,7 @@
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
 				B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */,
+				FF6D53242C01FC9A00452809 /* PlayerViewModel.swift in Sources */,
 				B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */,
 				E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */,
 				E7B5F7092BFB3B5C00A1E749 /* KnotDataManager.swift in Sources */,
