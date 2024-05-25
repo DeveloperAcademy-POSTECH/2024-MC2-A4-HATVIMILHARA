@@ -15,6 +15,7 @@ enum KnotCategory {
 
 struct KnotView: View {
     @State private var selectedTab: KnotCategory = .basicCategory
+    @Bindable var pattern: Pattern
     
     let basicKnotNameList = BasicKnotName.allCases.map { knot in knot.rawValue }
     let appliedKnotNameList = AppliedKnotName.allCases.map { knot in knot.rawValue }
@@ -24,11 +25,11 @@ struct KnotView: View {
         HStack(spacing: 0) {
             switch selectedTab {
             case .basicCategory:
-                KnotButtonListView(selectedTab: $selectedTab, knotNameList: basicKnotNameList)
+                KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: basicKnotNameList)
             case .appliedCategory:
-                KnotButtonListView(selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
+                KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
             case .etcCategory:
-                KnotButtonListView(selectedTab: $selectedTab, knotNameList: etcKnotNameList)
+                KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: etcKnotNameList)
             }
             
             VStack(spacing: 0) {
@@ -57,11 +58,10 @@ struct KnotView: View {
 
 struct KnotButtonListView: View {
     @Environment(KnotDataManager.self) var knotDataManager
+    @Bindable var pattern: Pattern
     @Binding var selectedTab: KnotCategory
     
     let knotNameList: [String]
-    
-    
     let columns = [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)]
     
     var body: some View {
@@ -70,10 +70,8 @@ struct KnotButtonListView: View {
                 ForEach(knotNameList, id: \.self) { knotName in
                     KnotButton(knotName: knotName)
                         .onTapGesture {
-                            // TODO: 버튼인스턴스 만들어서 knot배열에 넣어주기
-
+                            // FIXME: 버튼인스턴스 수정 필요
                             let newKnot: Knot
-                            
                             switch selectedTab {
                             case .basicCategory:
                                 newKnot = Knot.basic(knot: BasicKnot(knotName: BasicKnotName(rawValue: knotName)!))
@@ -88,8 +86,8 @@ struct KnotButtonListView: View {
                                     newKnot = Knot.etc(knot: EtcKnot(interval:  0.0))
                                 }
                             }
-
                             knotDataManager.knotList.append(newKnot)
+                            pattern.knotList = knotDataManager.knotList
                         }
                 }
             }

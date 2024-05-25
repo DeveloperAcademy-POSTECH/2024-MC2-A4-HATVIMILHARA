@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PatternView: View {
+    @Environment(KnotDataManager.self) var knotDataManager
+    @Environment(\.modelContext) var modelContext
     @Bindable var pattern: Pattern
-//    @State private var patternTitle = "제목없음"
     
     var body: some View {
-       
+    
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("도안")
@@ -35,7 +36,7 @@ struct PatternView: View {
                     .padding(.bottom, 8)
                     .font(.title2.bold())
                     .foregroundStyle(.white)
-                KnotView()
+                KnotView(pattern: pattern)
                 //TODO: 프레임 크기 뗀석기
                     .frame(width: 306)
             }
@@ -67,7 +68,4 @@ struct PatternPartView: View {
     }
 }
 
-//#Preview {
-//    PatternView()
-//}
 
