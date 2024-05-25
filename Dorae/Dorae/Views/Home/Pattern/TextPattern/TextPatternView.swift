@@ -141,8 +141,8 @@ fileprivate struct AppliedKnotView: View {
                         Text("\(subKnot.knotCount)")
                     }
                 }
-                if let loop = subKnot.loop, !loop.isEmpty {
-                    LoopListView(loopList: loop) { loop in
+                if let loopList = subKnot.loop, !loopList.isEmpty {
+                    LoopListView(loopList: loopList) { loop in
                         // Handle loop list change
                         knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
                             if case Knot.applied(let appliedKnot) = knotItem {
