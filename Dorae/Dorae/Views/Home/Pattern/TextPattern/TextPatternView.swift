@@ -49,6 +49,7 @@ struct TextPatternView: View {
                 .onMove(perform: moveItems)
             }
             .listStyle(.plain)
+//            Divider()
         }
         .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 30))
     }
@@ -191,7 +192,7 @@ struct TextPatternView: View {
     }
 }
 
-
+// 매듭 리스트에서 호출 되어 사용되는 loopListView
 fileprivate struct LoopListView: View {
     @State var loopList: [String] = []
     var changeLoop: ((_ loop: [String]) -> Void)
@@ -213,16 +214,6 @@ fileprivate struct LoopListView: View {
         }
     }
 }
-
-fileprivate struct IntervalView: View {
-    @State var interval: String = ""
-    var changeInterval: ((_ interval: String) -> Void)
-    
-    var body: some View {
-        Text("qwe")
-    }
-}
-
 
 #Preview {
     TextPatternView()
