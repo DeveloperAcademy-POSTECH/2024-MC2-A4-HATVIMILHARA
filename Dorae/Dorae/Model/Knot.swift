@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-enum Knot: Identifiable, Equatable {
+enum Knot: Identifiable, Equatable, Codable{
     case basic(knot: BasicKnot)
     case applied(knot: AppliedKnot)
     case etc(knot: EtcKnot)
@@ -35,7 +36,9 @@ enum Knot: Identifiable, Equatable {
     }
 }
 
-struct BasicKnot: Identifiable, Hashable {
+
+
+struct BasicKnot: Identifiable, Hashable, Codable {
     var id = UUID()
     let knotName: BasicKnotName
     var loop: [String]? = nil
@@ -46,13 +49,13 @@ struct BasicKnot: Identifiable, Hashable {
     var bottomWidthRatio: CGFloat = 1
 }
 
-struct AppliedKnot: Identifiable, Hashable {
+struct AppliedKnot: Identifiable, Hashable, Codable {
     var id = UUID()
     let knotName: AppliedKnotName
     var subKnotList: [BasicKnot] = []
 }
 
-struct EtcKnot: Identifiable, Hashable {
+struct EtcKnot: Identifiable, Hashable, Codable {
     let id = UUID()
     /// 기타 매듭 이름
     var tassel: String?
@@ -61,7 +64,7 @@ struct EtcKnot: Identifiable, Hashable {
     var interval: Float?
 }
 
-enum BasicKnotName: String, CaseIterable {
+enum BasicKnotName: String, CaseIterable, Codable {
     case 도래매듭
     case 귀도래매듭
     case 단추매듭
@@ -85,7 +88,7 @@ enum BasicKnotName: String, CaseIterable {
     case 석씨매듭
 }
 
-enum AppliedKnotName: String, CaseIterable {
+enum AppliedKnotName: String, CaseIterable, Codable {
     case 항아리매듭
     case 지게매듭
     case 육립매듭
@@ -94,8 +97,9 @@ enum AppliedKnotName: String, CaseIterable {
     case 스타매듭
 }
 
-enum EtcKnotName: String, CaseIterable {
+enum EtcKnotName: String, CaseIterable, Codable {
     case 고
     case 술
     case 간격
 }
+
