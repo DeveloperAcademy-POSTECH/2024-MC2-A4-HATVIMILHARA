@@ -6,11 +6,22 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Pattern: Identifiable {
-    var id = UUID()
+@Model
+class Pattern: Identifiable {
+    @Attribute(.unique) var id = UUID()
     var knotList: [Knot]
     let createdAt: String
-    let title: String
+    var title: String
     var braid: String = ""
+    
+    init(knotList: [Knot], createdAt: String, title: String, braid: String) {
+        self.knotList = knotList
+        self.createdAt = createdAt
+        self.title = title
+        self.braid = braid
+    }
 }
+
+

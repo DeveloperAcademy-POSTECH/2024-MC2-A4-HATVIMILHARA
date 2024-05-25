@@ -10,9 +10,12 @@ import SwiftData
 
 @main
 struct DoraeApp: App {
+    @State private var knotDataManager = KnotDataManager()
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+//            Item.self,
+            Pattern.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -23,7 +26,6 @@ struct DoraeApp: App {
         }
     }()
     
-    @State private var knotDataManager = KnotDataManager()
 
     var body: some Scene {
         WindowGroup {
