@@ -11,32 +11,36 @@ struct TextPatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @State private var braid = "" //끈목
     @State private var intervalTextfiled = "" //간격
-    //    @State private var textfiled = [String]()
-    //    @State private var loopTextfiled = "" //귀
     
     var body: some View {
         VStack {
-            HStack(alignment: .top) {
-                Text("글 도안")
-                    .font(.title)
-                    .bold()
+            // 상단 고정 Bar
+            VStack {
+                // 글 도안 + EditButton
+                HStack(alignment: .top) {
+                    Text("글 도안")
+                        .font(.title)
+                        .bold()
+                    
+                    Spacer()
+                    
+                    EditButton()
+                        .font(.title2)
+                        .foregroundStyle(.red)
+                }
                 
-                Spacer()
+                // 끈목 + 끈목 textfiled
+                HStack {
+                    Text("끈목")
+                        .padding(.trailing, 40)
+                    TextField("끈목을 입력해주세요.", text: $braid)
+                        .textFieldStyle(.roundedBorder)
+                }
                 
-                EditButton()
-                    .font(.title2)
-                    .foregroundStyle(.red)
+                Divider()
             }
             
-            HStack {
-                Text("끈목")
-                    .padding(.trailing, 40)
-                TextField("끈목을 입력해주세요.", text: $braid)
-                    .textFieldStyle(.roundedBorder)
-            }
-            
-            Divider()
-            
+            // 리스트로 매듭 가져오는 View
             List {
                 ForEach(knotDataManager.knotList) { knot in
                     showKnotList(for: knot)
@@ -45,23 +49,27 @@ struct TextPatternView: View {
                 .onMove(perform: moveItems)
             }
             .listStyle(.plain)
-            
         }
+        .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 30))
     }
     
+    // 리스트 내에서 노트 지우는 기능
     private func deleteItems(at offsets: IndexSet) {
         knotDataManager.knotList.remove(atOffsets: offsets)
     }
     
+    // 리스트 내에서 노트 움직이는 기능
     private func moveItems(from source: IndexSet, to destination: Int) {
         knotDataManager.knotList.move(fromOffsets: source, toOffset: destination)
     }
     
-    
+    // 매듭을 하나씩 가져와서 분기처리 해서 뷰로 return
     @ViewBuilder
     func showKnotList(for knot: Knot) -> some View {
         switch knot {
+        // 기본 매듭일 경우
         case .basic(let oldBasicKnot):
+            // 기본 매듭이면서 귀가 있는 경우
             if let loop = oldBasicKnot.loop, !loop.isEmpty {
                 DisclosureGroup(oldBasicKnot.knotName.rawValue) {
                     LoopListView(loopList: loop) { loop in
@@ -81,19 +89,23 @@ struct TextPatternView: View {
                     }
                     .deleteDisabled(true)
                 }
-            } else {
+            }
+            
+            // 기본매듭에서 귀가 없는 경우
+            else {
                 HStack {
                     Image("\(oldBasicKnot.knotName.rawValue)버튼")
                         .resizable()
-                        .frame(width: 64, height: 64)
+                        .frame(width: 50, height: 50)
                     Text(oldBasicKnot.knotName.rawValue)
                 }
             }
             
-        case .applied(let knot):
+        // 응용 매듭일 경우
+        case .applied(let oldAppliedKnot):
             DisclosureGroup(
                 content: {
-                    ForEach(knot.subKnotList) { subKnot in
+                    ForEach(oldAppliedKnot.subKnotList) { subKnot in
                         HStack {
                             Spacer().frame(width: 50)
                             Circle().frame(width: 5)
@@ -128,19 +140,23 @@ struct TextPatternView: View {
                     
                 }, label: {
                     HStack {
-                        Image("\(knot.knotName)매듭")
+                        Image("\(oldAppliedKnot.knotName)매듭")
                             .resizable()
-                            .frame(width: 64, height: 64)
-                        Text(knot.knotName.rawValue)
+                            .frame(width: 50, height: 50)
+                        Text(oldAppliedKnot.knotName.rawValue)
                     }
                 })
             
-        case .etc(let knot):
-            if let interval = knot.interval {
+        case .etc(let oldEtcKnot):
+            // 간격일 때
+            if let interval = oldEtcKnot.interval {
                 HStack {
-                    Image("간격")
-                    //                        .resizable()
+                    Image("간격버튼")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    
                     Text("간격")
+                    
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
                         .textFieldStyle(.roundedBorder)
                         .onChange(of: intervalTextfiled) { oldValue, newValue in
@@ -154,13 +170,24 @@ struct TextPatternView: View {
                         .textFieldStyle(.plain)
                         .keyboardType(.numberPad)
                 }
-            } else if let lasso = knot.lasso {
+            // 고일 때
+            } else if let lasso = oldEtcKnot.lasso {
                 HStack {
                     Image("고")
-                    Text("\(lasso) 고 임")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text("\(lasso)")
                 }
-            } else {
-                Text("없는 애임")
+            } 
+            // 술일 때
+            else if let tassel = oldEtcKnot.tassel {
+                HStack {
+                    Image("술")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+
+                    Text("\(tassel)")
+                }
             }
         }
     }
@@ -187,6 +214,16 @@ fileprivate struct LoopListView: View {
         }
     }
 }
+
+fileprivate struct IntervalView: View {
+    @State var interval: String = ""
+    var changeInterval: ((_ interval: String) -> Void)
+    
+    var body: some View {
+        Text("qwe")
+    }
+}
+
 
 #Preview {
     TextPatternView()
