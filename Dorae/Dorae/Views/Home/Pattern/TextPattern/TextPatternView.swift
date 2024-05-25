@@ -14,31 +14,24 @@ struct TextPatternView: View {
     
     var body: some View {
         VStack {
-            // 상단 고정 Bar
-            VStack {
-                // 글 도안 + EditButton
-                HStack(alignment: .top) {
-                    Text("글 도안")
-                        .font(.title)
-                        .bold()
-                    
-                    Spacer()
-                    
-                    EditButton()
-                        .font(.title2)
-                        .foregroundStyle(.red)
-                }
-                
-                // 끈목 + 끈목 textfiled
-                HStack {
-                    Text("끈목")
-                        .padding(.trailing, 40)
-                    TextField("끈목을 입력해주세요.", text: $braid)
-                        .textFieldStyle(.roundedBorder)
-                }
-                
-                Divider()
+            // 글 도안 + EditButton
+            HStack(alignment: .top) {
+                Text("글 도안")
+                    .font(.title)
+                    .bold()
+                Spacer()
+                EditButton()
+                    .font(.title2)
+                    .foregroundStyle(.red)
             }
+            HStack {
+                Text("끈목")
+                    .padding(.trailing, 40)
+                TextField("끈목을 입력해주세요.", text: $braid)
+                    .textFieldStyle(.plain)
+            }
+            Divider()
+            
             
             // 리스트로 매듭 가져오는 View
             List {
@@ -49,7 +42,7 @@ struct TextPatternView: View {
                 .onMove(perform: moveItems)
             }
             .listStyle(.plain)
-//            Divider()
+            //            Divider()
         }
         .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 30))
     }
@@ -68,84 +61,10 @@ struct TextPatternView: View {
     @ViewBuilder
     func showKnotList(for knot: Knot) -> some View {
         switch knot {
-            // 기본 매듭일 경우
         case .basic(let oldBasicKnot):
-            // 기본 매듭이면서 귀가 있는 경우
-            if let loop = oldBasicKnot.loop, !loop.isEmpty {
-                DisclosureGroup(
-                    content: {
-                        LoopListView(loopList: loop) { loop in
-                            knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
-                                if case Knot.basic(let newBasicKnot) = knotItem {
-                                    if newBasicKnot.id == oldBasicKnot.id {
-                                        var tempBasicKnot = newBasicKnot
-                                        tempBasicKnot.loop = loop
-                                        let newKnot: Knot = .basic(knot: tempBasicKnot)
-                                        return newKnot
-                                    } else {
-                                        return knotItem
-                                    }
-                                }
-                                return knotItem
-                            }
-                        }
-                        .deleteDisabled(true)
-                    },
-                    label: {
-                        HStack {
-                            Image("\(oldBasicKnot.knotName.rawValue)버튼")
-                            Text("\(oldBasicKnot.knotName.rawValue)")
-                        }
-                    }
-                )}
-            
-            
-            // 응용 매듭일 경우
+            showBasicKnot(oldBasicKnot)
         case .applied(let oldAppliedKnot):
-            DisclosureGroup(
-                content: {
-                    ForEach(oldAppliedKnot.subKnotList) { subKnot in
-                        HStack {
-                            Spacer().frame(width: 50)
-                            Circle().frame(width: 5)
-                            Text("\(subKnot.knotName.rawValue)")
-                            if subKnot.knotCount > 1 {
-                                Text("\(subKnot.knotCount)")
-                            }
-                        }
-                        
-                        if let loop = subKnot.loop, !loop.isEmpty {
-                            LoopListView(loopList: loop) { loop in
-                                knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
-                                    if case Knot.applied(let appliedKnot) = knotItem {
-                                        if let subKnotIndex = appliedKnot.subKnotList.firstIndex(where: { $0.id == subKnot.id }) {
-                                            var updatedSubKnot = subKnot
-                                            updatedSubKnot.loop = loop
-                                            var updatedAppliedKnot = appliedKnot
-                                            updatedAppliedKnot.subKnotList[subKnotIndex] = updatedSubKnot
-                                            return .applied(knot: updatedAppliedKnot)
-                                        } else {
-                                            return knotItem
-                                        }
-                                    }
-                                    return knotItem
-                                }
-                            }
-                            .deleteDisabled(true)
-                        }
-                    }
-                    .deleteDisabled(true)
-                    .moveDisabled(true)
-                    
-                }, label: {
-                    HStack {
-                        Image("\(oldAppliedKnot.knotName)버튼")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                        Text("\(oldAppliedKnot.knotName.rawValue)")
-                    }
-                })
-            
+            showAppliedKnot(oldAppliedKnot)
         case .etc(let oldEtcKnot):
             // 간격일 때
             if let interval = oldEtcKnot.interval {
@@ -153,11 +72,10 @@ struct TextPatternView: View {
                     Image("간격매듭버튼")
                         .resizable()
                         .frame(width: 50, height: 50)
-                    
                     Text("간격")
                     
                     TextField("간격(cm)을 입력해주세요.", text: $intervalTextfiled)
-                        .textFieldStyle(.roundedBorder)
+                        .textFieldStyle(.plain)
                         .onChange(of: intervalTextfiled) { oldValue, newValue in
                             let allowedCharacters = CharacterSet(charactersIn: "0123456789.").inverted
                             if newValue.rangeOfCharacter(from: allowedCharacters) != nil || newValue.components(separatedBy: ".").count > 2 {
@@ -184,11 +102,95 @@ struct TextPatternView: View {
                     Image("술매듭버튼")
                         .resizable()
                         .frame(width: 50, height: 50)
-                    
                     Text("\(tassel)")
                 }
             }
         }
+    }
+    
+    private func showBasicKnot(_ oldBasicKnot: BasicKnot) -> some View {
+        // 기본 매듭이면서 귀가 있는 경우
+        if let loop = oldBasicKnot.loop, !loop.isEmpty {
+            return AnyView {
+                DisclosureGroup(
+                    content: {
+                        LoopListView(loopList: loop) { loop in
+                            knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                                if case Knot.basic(let newBasicKnot) = knotItem {
+                                    if newBasicKnot.id == oldBasicKnot.id {
+                                        var tempBasicKnot = newBasicKnot
+                                        tempBasicKnot.loop = loop
+                                        let newKnot: Knot = .basic(knot: tempBasicKnot)
+                                        return newKnot
+                                    } else {
+                                        return knotItem
+                                    }
+                                }
+                                return knotItem
+                            }
+                        }
+                        .deleteDisabled(true)
+                    },
+                    label: {
+                        HStack {
+                            Image("\(oldBasicKnot.knotName.rawValue)버튼")
+                            Text("\(oldBasicKnot.knotName.rawValue)")
+                        }
+                    }
+                )}
+        }else {
+            return AnyView {
+                HStack {
+                    Image("\(oldBasicKnot.knotName.rawValue)버튼")
+                    Text("\(oldBasicKnot.knotName.rawValue)")
+                }
+            }
+        }
+    }
+    private func showAppliedKnot(_ oldAppliedKnot: AppliedKnot) -> some View {
+        DisclosureGroup(
+            content: {
+                ForEach(oldAppliedKnot.subKnotList) { subKnot in
+                    HStack {
+                        Spacer().frame(width: 50)
+                        Circle().frame(width: 5)
+                        Text("\(subKnot.knotName.rawValue)")
+                        if subKnot.knotCount > 1 {
+                            Text("\(subKnot.knotCount)")
+                        }
+                    }
+                    
+                    if let loop = subKnot.loop, !loop.isEmpty {
+                        LoopListView(loopList: loop) { loop in
+                            knotDataManager.knotList = knotDataManager.knotList.map { knotItem in
+                                if case Knot.applied(let appliedKnot) = knotItem {
+                                    if let subKnotIndex = appliedKnot.subKnotList.firstIndex(where: { $0.id == subKnot.id }) {
+                                        var updatedSubKnot = subKnot
+                                        updatedSubKnot.loop = loop
+                                        var updatedAppliedKnot = appliedKnot
+                                        updatedAppliedKnot.subKnotList[subKnotIndex] = updatedSubKnot
+                                        return .applied(knot: updatedAppliedKnot)
+                                    } else {
+                                        return knotItem
+                                    }
+                                }
+                                return knotItem
+                            }
+                        }
+                        .deleteDisabled(true)
+                    }
+                }
+                .deleteDisabled(true)
+                .moveDisabled(true)
+                
+            }, label: {
+                HStack {
+                    Image("\(oldAppliedKnot.knotName)버튼")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    Text("\(oldAppliedKnot.knotName.rawValue)")
+                }
+            })
     }
 }
 
@@ -204,7 +206,7 @@ fileprivate struct LoopListView: View {
                 Text("귀(cm)")
                 Image(systemName: "\(index+1).circle")
                 TextField("cm", text: $loopList[index])
-                    .textFieldStyle(.roundedBorder)
+                    .textFieldStyle(.plain)
             }
         }
         .deleteDisabled(true)
