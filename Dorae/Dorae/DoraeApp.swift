@@ -29,7 +29,7 @@ struct DoraeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SplashView()
         }
         .environment(knotDataManager)
         .modelContainer(sharedModelContainer)
