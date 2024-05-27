@@ -16,6 +16,7 @@ import SwiftUI
 
 struct TextPatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    @Environment(\.editMode) var editMode
     @Bindable var pattern: Pattern
     @State private var braid = "" // 끈목
     @State private var intervalTextfield = "" // 간격
@@ -55,11 +56,19 @@ struct TextPatternView: View {
     
     private var knotListView: some View {
         List {
-            ForEach(pattern.knotList) { knot in
-                showKnotList(for: knot)
+            if editMode?.wrappedValue.isEditing == true {
+                ForEach(pattern.knotList) { knot in
+                    showKnotList(for: knot)
+                }
+                .onDelete(perform: deleteItems)
+                .onMove(perform: moveItems)
+            } else {
+                ForEach(pattern.knotList) { knot in
+                    showKnotList(for: knot)
+                }
+                .deleteDisabled(true)
+                .moveDisabled(true)
             }
-            .onDelete(perform: deleteItems)
-            .onMove(perform: moveItems)
         }
         .listStyle(.plain)
     }
