@@ -18,6 +18,7 @@ struct Photo: Transferable {
 
 struct HomePatternItem: View {
     @Bindable var pattern: Pattern
+    @Environment(\.modelContext) var modelContext
     
     //TODO: 공유 이미지 수정
     private let photo = Photo(image: Image("육립매듭"))
@@ -34,7 +35,7 @@ struct HomePatternItem: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .contextMenu {
                     Button(role: .destructive) {
-                        // TODO: delete
+                        modelContext.delete(pattern)
                     } label: {
                         Label("삭제", systemImage: "trash")
                     }
