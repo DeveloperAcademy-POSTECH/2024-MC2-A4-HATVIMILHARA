@@ -47,12 +47,50 @@ struct BasicKnot: Identifiable, Hashable, Codable {
     var topWidthRatio: CGFloat = 1
     var bottomHeightRatio: CGFloat = 0
     var bottomWidthRatio: CGFloat = 1
+    
+    // 기본 초기화 메서드
+    init(knotName: BasicKnotName,
+         loop: [String]? = nil,
+         knotCount: Int = 1,
+         topHeightRatio: CGFloat = 0,
+         topWidthRatio: CGFloat = 1,
+         bottomHeightRatio: CGFloat = 0,
+         bottomWidthRatio: CGFloat = 1) {
+        self.knotName = knotName
+        self.loop = loop
+        self.knotCount = knotCount
+        self.topHeightRatio = topHeightRatio
+        self.topWidthRatio = topWidthRatio
+        self.bottomHeightRatio = bottomHeightRatio
+        self.bottomWidthRatio = bottomWidthRatio
+    }
+    
+    
+    init(basicKnot: BasicKnot) {
+        self.knotName = basicKnot.knotName
+        self.loop = basicKnot.loop
+        self.knotCount = basicKnot.knotCount
+        self.topHeightRatio = basicKnot.topHeightRatio
+        self.topWidthRatio = basicKnot.topWidthRatio
+        self.bottomHeightRatio = basicKnot.bottomHeightRatio
+        self.bottomWidthRatio = basicKnot.bottomWidthRatio
+    }
 }
 
 struct AppliedKnot: Identifiable, Hashable, Codable {
     var id = UUID()
     let knotName: AppliedKnotName
     var subKnotList: [BasicKnot] = []
+    
+    init(knotName: AppliedKnotName, subKnotList: [BasicKnot] = []) {
+        self.knotName = knotName
+        self.subKnotList = subKnotList
+    }
+    
+    init(appliedKnot: AppliedKnot) {
+        self.knotName = appliedKnot.knotName
+        self.subKnotList = appliedKnot.subKnotList
+    }
 }
 
 struct EtcKnot: Identifiable, Hashable, Codable {
@@ -62,6 +100,18 @@ struct EtcKnot: Identifiable, Hashable, Codable {
     var lasso: String?
     /// 간격의 값
     var interval: Float?
+    
+    init(tassel: String? = nil, lasso: String? = nil, interval: Float? = nil) {
+        self.tassel = tassel
+        self.lasso = lasso
+        self.interval = interval
+    }
+
+    init(etcKnot: EtcKnot) {
+        self.tassel = etcKnot.tassel
+        self.lasso = etcKnot.lasso
+        self.interval = etcKnot.interval
+    }
 }
 
 enum BasicKnotName: String, CaseIterable, Codable {
