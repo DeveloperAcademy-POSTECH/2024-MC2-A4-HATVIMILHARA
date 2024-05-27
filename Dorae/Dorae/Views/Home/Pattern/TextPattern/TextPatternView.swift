@@ -37,9 +37,7 @@ struct TextPatternView: View {
                 .font(.title)
                 .bold()
             Spacer()
-            ZStack {
-                
-            }
+
             EditButton()
                 .font(.title2)
                 .foregroundStyle(.red)
