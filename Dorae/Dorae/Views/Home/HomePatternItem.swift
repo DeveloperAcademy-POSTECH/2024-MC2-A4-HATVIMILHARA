@@ -21,12 +21,14 @@ struct HomePatternItem: View {
     
     //TODO: 공유 이미지 수정
     private let photo = Photo(image: Image("육립매듭"))
+//    @State private var renderedPatternImage = Image("육립매듭")
+//    @Environment(\.displayScale) var displayScale
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image("육립매듭")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            ImagePatternView(pattern: pattern)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
                 .frame(width: 160, height: 180)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -43,8 +45,7 @@ struct HomePatternItem: View {
                         preview: SharePreview(
                             "Share Preview", image: photo.image
                         )
-                    )
-                    
+                    )  
                 }
             Spacer()
                 .frame(height: 16)
@@ -55,31 +56,18 @@ struct HomePatternItem: View {
                 .font(.system(size: 13, weight: .regular))
                 .foregroundStyle(.white)
         }
-        
+//        .onChange(of: pattern) { _ in render() }
+//        .onAppear { render() }
     }
-}
-
-struct HomeNewPatternItem: View {
     
-    var body: some View {
-        VStack(spacing: 0) {
-            Image(systemName: "plus")
-                .padding(.bottom, 12)
-            Text("새 매듭 도안")
-            Text("생성하기")
-        }
-        .frame(width: 160, height: 180)
-            .clipShape(
-            RoundedRectangle(cornerRadius: 15)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 15)
-                .stroke(style: StrokeStyle(lineWidth: 2, dash: [5, 5]))
-        )
-        .foregroundStyle(Color.newKnotButton)
-    }
+//    @MainActor
+//    func render() {
+//        let renderer = ImageRenderer(content: ImagePatternView(pattern: pattern))
+//        
+//        renderer.scale = displayScale
+//        
+//        if let uiImage = renderer.uiImage {
+//            renderedPatternImage = Image(uiImage: uiImage)
+//        }
+//    }
 }
-
-//#Preview {
-//    HomePatternItem()
-//}

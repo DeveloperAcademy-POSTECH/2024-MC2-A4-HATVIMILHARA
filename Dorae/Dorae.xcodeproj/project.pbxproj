@@ -13,6 +13,7 @@
 		B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */; };
 		B51873C92C02636500BEDFA2 /* CategoryTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */; };
 		B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CA2C02639A00BEDFA2 /* KnotButton.swift */; };
+		B51873CD2C02811900BEDFA2 /* HomeNewPatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */; };
 		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
 		E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */; };
 		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
@@ -42,6 +43,7 @@
 		B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButtonListView.swift; sourceTree = "<group>"; };
 		B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTabButton.swift; sourceTree = "<group>"; };
 		B51873CA2C02639A00BEDFA2 /* KnotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButton.swift; sourceTree = "<group>"; };
+		B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewPatternItem.swift; sourceTree = "<group>"; };
 		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternViewModel.swift; sourceTree = "<group>"; };
 		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -182,8 +184,9 @@
 		E7B5F7142BFB3CDB00A1E749 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */,
 				E7B5F70A2BFB3C6B00A1E749 /* HomeView.swift */,
+				B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */,
+				B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */,
 				E7B5F7212BFC6D0D00A1E749 /* Pattern */,
 			);
 			path = Home;
@@ -319,6 +322,7 @@
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */,
 				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
+				B51873CD2C02811900BEDFA2 /* HomeNewPatternItem.swift in Sources */,
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
 				E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */,
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,

@@ -53,10 +53,30 @@ struct PatternView: View {
 
 struct PatternPartView: View {
     @Bindable var pattern: Pattern
+    @State private var imageReduction: Bool = false
+
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                ImagePatternView(pattern: pattern)
+                VStack {
+                    HStack {
+                        Text("이미지 도안")
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                        Button {
+                            //TODO: 확대축소 기능 구현
+                            imageReduction.toggle()
+                        } label: {
+                            Image(imageReduction ? "enlargeBtn" : "reductionBtn")
+                        }
+                    }
+                    .padding(.horizontal)
+                    ScrollView {
+                        ImagePatternView(pattern: pattern)
+                    }
+                    .scrollIndicators(.hidden)
+                }
                     .frame(width: geometry.size.width/2)
                     .padding(.top, 20)
                 Divider()
