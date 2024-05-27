@@ -17,7 +17,7 @@ struct SplashView: View {
                 HomeView()
             } else {
                 if let player = viewModel.player {
-                    VideoPlayer(player: player)
+                    VideoPlayerView(player: player)
                         .onAppear {
                             player.play()
                         }
@@ -29,6 +29,20 @@ struct SplashView: View {
                 }
             }
         }
+    }
+}
+struct VideoPlayerView: UIViewControllerRepresentable {
+    var player: AVPlayer
+
+    func makeUIViewController(context: Context) -> AVPlayerViewController {
+        let controller = AVPlayerViewController()
+        controller.player = player
+        controller.showsPlaybackControls = false
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
+        // 필요한 경우 업데이트 로직 추가
     }
 }
 

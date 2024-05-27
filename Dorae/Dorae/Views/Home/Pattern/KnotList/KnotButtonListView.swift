@@ -27,19 +27,21 @@ struct KnotButtonListView: View {
                              case .basicCategory:
                                  basicKnotCollection.forEach { basicKnot in
                                      if knotName == basicKnot.knotName.rawValue {
-                                         newKnot = Knot.basic(knot: basicKnot)
+                                         let newBasicKnot = BasicKnot(basicKnot: basicKnot)
+                                         newKnot = Knot.basic(knot: newBasicKnot)
                                      }
                                  }
                              case .appliedCategory:
                                  appliedKnotCollection.forEach { appliedKnot in
                                      if knotName == appliedKnot.knotName.rawValue {
-                                         newKnot = Knot.applied(knot: appliedKnot)
+                                         let newAppliedKnot = AppliedKnot(appliedKnot: appliedKnot)
+                                         newKnot = Knot.applied(knot: newAppliedKnot)
                                      }
                                  }
                             case .etcCategory:
-                                if knotName == "고" {
+                                 if knotName == EtcKnotName.고.rawValue {
                                     newKnot = Knot.etc(knot: EtcKnot(lasso: knotName))
-                                } else if knotName == "술" {
+                                } else if knotName == EtcKnotName.술.rawValue {
                                     newKnot = Knot.etc(knot: EtcKnot(tassel:  knotName))
                                 } else {
                                     newKnot = Knot.etc(knot: EtcKnot(interval:  0.0))
