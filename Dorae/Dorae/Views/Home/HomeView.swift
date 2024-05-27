@@ -32,7 +32,7 @@ struct HomeView: View {
                             .padding()
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        tempPattern = Pattern(knotList: [], createdAt: "", title: "제목없음", braid: "")
+                        tempPattern = Pattern(knotList: [], createdAt: DateFormatter.patternDateFormat.string(from: Date()), title: "제목없음", braid: "")
                         modelContext.insert(tempPattern)
                         knotDataManager.knotList = tempPattern.knotList
                     })
