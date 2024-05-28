@@ -12,9 +12,8 @@ struct PatternView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var pattern: Pattern
     @Environment(\.editMode) var editMode
-
-    var body: some View {
     
+    var body: some View {
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("도안")
@@ -25,6 +24,17 @@ struct PatternView: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
+                    .overlay {
+                        if knotDataManager.knotList.isEmpty {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 24)
+                                    .fill(.black.opacity(0.5))
+                                Text("매듭을 눌러 도안을 추가해보세요")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 34, weight: .bold))
+                            }
+                        }
+                    }
             }
             .padding(.horizontal, 24)
             
@@ -60,7 +70,7 @@ struct PatternView: View {
 struct PatternPartView: View {
     @Bindable var pattern: Pattern
     @State private var imageReduction: Bool = false
-
+    
     var body: some View {
         GeometryReader { geometry in
             HStack {
@@ -83,14 +93,13 @@ struct PatternPartView: View {
                     }
                     .scrollIndicators(.hidden)
                 }
-                    .frame(width: geometry.size.width/2)
-                    .padding(.top, 20)
+                .frame(width: geometry.size.width/2)
+                .padding(.top, 20)
                 Divider()
                     .rotationEffect(.zero)
                 TextPatternView(pattern: pattern)
                     .frame(width: geometry.size.width/2)
             }
-            
         }
     }
 }
