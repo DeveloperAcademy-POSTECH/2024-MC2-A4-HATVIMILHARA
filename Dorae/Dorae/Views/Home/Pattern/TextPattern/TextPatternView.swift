@@ -14,22 +14,11 @@
 
 import SwiftUI
 
-//extension View {
-//    @ViewBuilder func `if`<Content: View>(_ editMode: Bool, view: (Self) -> Content) -> some View {
-//        if editMode {
-//            view(self)
-//        } else {
-//            self
-//        }
-//    }
-//}
-
 struct TextPatternView: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
     @Environment(\.editMode) var editMode
     @State private var intervalTextfield = "" // 간격
-    @State private var isEditMode = true
     
     var body: some View {
         VStack(alignment: .leading) {
