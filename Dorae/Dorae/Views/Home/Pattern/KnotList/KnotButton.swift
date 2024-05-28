@@ -16,6 +16,8 @@ struct KnotButton: View {
                 .frame(width: 84, height: 84)
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
+            Spacer()
+                .frame(height: 8)
             Text("\(knotName)")
                 .font(.caption)
         }

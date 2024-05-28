@@ -12,7 +12,7 @@ struct PatternView: View {
     @Bindable var pattern: Pattern
     
     var body: some View {
-    
+        
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("도안")
@@ -25,7 +25,7 @@ struct PatternView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 24))
             }
             .padding(.horizontal, 24)
-
+            
             VStack(alignment: .leading) {
                 Text("매듭")
                     .padding(EdgeInsets(top: 24, leading: 16, bottom: 4, trailing: 0))
@@ -49,10 +49,10 @@ struct PatternView: View {
 struct PatternPartView: View {
     @Bindable var pattern: Pattern
     @State private var imageReduction: Bool = false
-
+    
     var body: some View {
         GeometryReader { geometry in
-            HStack {
+            HStack(spacing: 0) {
                 VStack {
                     HStack {
                         Text("그림 도안")
@@ -66,18 +66,37 @@ struct PatternPartView: View {
                             Image(imageReduction ? "enlargeBtn" : "reductionBtn")
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 12)
+                    .frame(height: 60)
+                    Divider()
                     ScrollView {
                         ImagePatternView(pattern: pattern)
                     }
                     .scrollIndicators(.hidden)
                 }
-                    .frame(width: geometry.size.width/2)
-                    .padding(.top, 20)
+                .frame(width: geometry.size.width/2)
+                
                 Divider()
                     .rotationEffect(.zero)
-                TextPatternView(pattern: pattern)
-                    .frame(width: geometry.size.width/2)
+                
+                
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top) {
+                        Text("글 도안")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        Spacer()
+                        EditButton()
+                            .foregroundStyle(.red)
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 12)
+                    .frame(height: 60)
+                    Divider()
+                    TextPatternView(pattern: pattern)
+                        .frame(width: geometry.size.width/2)
+                }
             }
             
         }
