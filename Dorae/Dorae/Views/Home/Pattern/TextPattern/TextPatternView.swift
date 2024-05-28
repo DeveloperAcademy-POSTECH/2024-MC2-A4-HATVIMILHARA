@@ -63,11 +63,13 @@ struct TextPatternView: View {
     
     private func deleteItems(at offsets: IndexSet) {
         pattern.knotList.remove(atOffsets: offsets)
+        try? modelContext.save()
         
     }
     
     private func moveItems(from source: IndexSet, to destination: Int) {
         pattern.knotList.move(fromOffsets: source, toOffset: destination)
+        try? modelContext.save()
     }
     
     @ViewBuilder
