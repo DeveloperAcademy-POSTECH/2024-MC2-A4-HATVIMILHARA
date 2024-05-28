@@ -66,16 +66,20 @@ struct TextPatternView: View {
     
     private var knotListView: some View {
         List {
-            ForEach(pattern.knotList) { knot in
-                showKnotList(for: knot)
+            if editMode?.wrappedValue.isEditing == true {
+                ForEach(pattern.knotList) { knot in
+                    showKnotList(for: knot)
+                }
+                .onDelete(perform: deleteItems)
+                .onMove(perform: moveItems)
+                
+            } else {
+                ForEach(pattern.knotList) { knot in
+                    showKnotList(for: knot)
+                }
+                .deleteDisabled(true)
+                .moveDisabled(true)
             }
-            .applyIfEditing(editMode?.wrappedValue.isEditing == true) { view in
-                view
-                    .onDelete(perform: deleteItems)
-                    .onMove(perform: moveItems)
-            }
-            .deleteDisabled(editMode?.wrappedValue.isEditing == false)
-            .moveDisabled(editMode?.wrappedValue.isEditing == false)
         }
         .listStyle(.plain)
     }
