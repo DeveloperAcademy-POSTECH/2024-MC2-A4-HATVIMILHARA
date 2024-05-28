@@ -125,7 +125,6 @@ fileprivate struct BasicKnotView: View {
                         return knotItem
                     }
                 }
-                .deleteDisabled(true)
             } label: {
                 knotHeaderView
             }
@@ -176,7 +175,6 @@ fileprivate struct AppliedKnotView: View {
                             return knotItem
                         }
                     }
-                    .deleteDisabled(true)
                 }
             }
             .deleteDisabled(true)
