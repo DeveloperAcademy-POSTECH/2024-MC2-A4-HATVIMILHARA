@@ -19,15 +19,17 @@ struct PatternView: View {
                     .padding(EdgeInsets(top: 24, leading: 16, bottom: 4, trailing: 0))
                     .font(.title2.bold())
                     .foregroundStyle(.white)
+                
                 PatternPartView(pattern: pattern)
                     .frame(maxWidth: .infinity)
                     .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
                     .overlay {
-                        if pattern.knotList.isEmpty {
+                        if pattern.knotList.isEmpty && editMode?.wrappedValue.isEditing == false && pattern.braid.isEmpty {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 24)
                                     .fill(.black.opacity(0.5))
+                                
                                 Text("매듭을 눌러 도안을 추가해보세요")
                                     .foregroundStyle(.white)
                                     .font(.system(size: 34, weight: .bold))
@@ -46,7 +48,7 @@ struct PatternView: View {
                 
                 KnotListView(pattern: pattern)
                     .overlay {
-                        if editMode?.wrappedValue.isEditing == true {
+                        if editMode?.wrappedValue.isEditing == true && !pattern.knotList.isEmpty {
                             RoundedRectangle(cornerRadius: 24)
                                 .opacity(0.6)
                                 .padding(.trailing, -20)
