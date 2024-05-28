@@ -9,6 +9,7 @@ import SwiftUI
 
 struct KnotButtonListView: View {
     @Bindable var pattern: Pattern
+    @Environment(\.modelContext) private var modelContext
     @Binding var selectedTab: KnotCategory
     
     let knotNameList: [String]
@@ -47,6 +48,7 @@ struct KnotButtonListView: View {
                                 }
                             }
                             pattern.knotList.append(newKnot)
+                            try? modelContext.save()
                         }
                 }
             }
