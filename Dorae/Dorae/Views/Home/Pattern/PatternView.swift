@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PatternView: View {
-    @Environment(KnotDataManager.self) var knotDataManager
     @Environment(\.modelContext) var modelContext
     @Bindable var pattern: Pattern
     @Environment(\.editMode) var editMode
@@ -17,7 +16,7 @@ struct PatternView: View {
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("도안")
-                    .padding(EdgeInsets(top: 22, leading: 16, bottom: 8, trailing: 0))
+                    .padding(EdgeInsets(top: 24, leading: 16, bottom: 4, trailing: 0))
                     .font(.title2.bold())
                     .foregroundStyle(.white)
                 PatternPartView(pattern: pattern)
@@ -40,7 +39,7 @@ struct PatternView: View {
             
             VStack(alignment: .leading) {
                 Text("매듭")
-                    .padding(EdgeInsets(top: 22, leading: 16, bottom: 8, trailing: 0))
+                    .padding(EdgeInsets(top: 24, leading: 16, bottom: 4, trailing: 0))
                     .font(.title2.bold())
                     .foregroundStyle(.white)
                     .opacity(editMode?.wrappedValue.isEditing == true ? 0.6 : 1)
@@ -73,12 +72,12 @@ struct PatternPartView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack {
+            HStack(spacing: 0) {
                 VStack {
                     HStack {
-                        Text("이미지 도안")
-                            .font(.title)
-                            .bold()
+                        Text("그림 도안")
+                            .font(.headline)
+                            .fontWeight(.semibold)
                         Spacer()
                         Button {
                             //TODO: 확대축소 기능 구현
@@ -87,18 +86,37 @@ struct PatternPartView: View {
                             Image(imageReduction ? "enlargeBtn" : "reductionBtn")
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 12)
+                    .frame(height: 60)
+                    Divider()
                     ScrollView {
                         ImagePatternView(pattern: pattern)
                     }
                     .scrollIndicators(.hidden)
                 }
                 .frame(width: geometry.size.width/2)
-                .padding(.top, 20)
+                
                 Divider()
                     .rotationEffect(.zero)
-                TextPatternView(pattern: pattern)
-                    .frame(width: geometry.size.width/2)
+                
+                
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top) {
+                        Text("글 도안")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        Spacer()
+                        EditButton()
+                            .foregroundStyle(.red)
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 12)
+                    .frame(height: 60)
+                    Divider()
+                    TextPatternView(pattern: pattern)
+                        .frame(width: geometry.size.width/2)
+                }
             }
         }
     }

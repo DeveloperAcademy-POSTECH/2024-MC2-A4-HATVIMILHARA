@@ -25,43 +25,33 @@ extension View {
 }
 
 struct TextPatternView: View {
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-    @Environment(\.editMode) var editMode
     @Bindable var pattern: Pattern
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.editMode) var editMode
+    
     @State private var braid = "" // 끈목
     @State private var intervalTextfield = "" // 간격
     @State private var isEditMode = true
     
     var body: some View {
-        VStack {
-            headerView
+        VStack(alignment: .leading) {
             inputView
             Divider()
             knotListView
         }
-        .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 30))
     }
     
-    private var headerView: some View {
-        HStack(alignment: .top) {
-            Text("글 도안")
-                .font(.title)
-                .bold()
-            Spacer()
-            
-            EditButton()
-                .font(.title2)
-                .foregroundStyle(.red)
-        }
-    }
     
     private var inputView: some View {
-        HStack {
+        HStack(spacing: 0) {
             Text("끈목")
-                .padding(.trailing, 40)
+                .frame(width: 70)
+            Spacer()
             TextField("끈목을 입력해주세요.", text: $braid)
                 .textFieldStyle(.plain)
         }
+        .frame(height: 44)
+        
     }
     
     private var knotListView: some View {
@@ -94,7 +84,7 @@ struct TextPatternView: View {
         case .basic(let basicKnot):
             BasicKnotView(pattern: pattern, knot: basicKnot)
         case .applied(let appliedKnot):
-            AppliedKnotView(knot: appliedKnot, knotDataManager: _knotDataManager, pattern: pattern)
+            AppliedKnotView(knot: appliedKnot, pattern: pattern)
         case .etc(let etcKnot):
             EtcKnotView(knot: etcKnot, intervalTextfield: $intervalTextfield)
         }
@@ -102,7 +92,6 @@ struct TextPatternView: View {
 }
 
 fileprivate struct BasicKnotView: View {
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @Bindable var pattern: Pattern
     let knot: BasicKnot
     
@@ -144,15 +133,16 @@ fileprivate struct BasicKnotView: View {
 
 fileprivate struct AppliedKnotView: View {
     let knot: AppliedKnot
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @Bindable var pattern: Pattern
     
     var body: some View {
         DisclosureGroup {
             ForEach(knot.subKnotList) { subKnot in
                 HStack {
-                    Spacer().frame(width: 50)
-                    Circle().frame(width: 5)
+                    Spacer()
+                        .frame(width: 50)
+                    Circle()
+                        .frame(width: 5)
                     Text(subKnot.knotName.rawValue)
                     if subKnot.knotCount > 1 {
                         Text("\(subKnot.knotCount)")
@@ -185,7 +175,8 @@ fileprivate struct AppliedKnotView: View {
             HStack {
                 Image("\(knot.knotName)버튼")
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 44, height: 44)
+                    .background(.red)
                 Text(knot.knotName.rawValue)
             }
         }
@@ -208,9 +199,10 @@ fileprivate struct EtcKnotView: View {
     
     private var intervalView: some View {
         HStack {
+            //FIXME: 이미지 크기
             Image("간격버튼")
                 .resizable()
-                .frame(width: 50, height: 50)
+                .frame(width: 44, height: 44)
             Text("간격")
             TextField("간격(cm)을 입력해주세요.", text: $intervalTextfield)
                 .textFieldStyle(.plain)
@@ -232,18 +224,20 @@ fileprivate struct EtcKnotView: View {
     
     private func lassoView(lasso: String) -> some View {
         HStack {
+            //FIXME: 이미지 크기
             Image("고버튼")
                 .resizable()
-                .frame(width: 50, height: 50)
+                .frame(width: 44, height: 44)
             Text(lasso)
         }
     }
     
     private func tasselView(tassel: String) -> some View {
         HStack {
+            //FIXME: 이미지 크기
             Image("술버튼")
                 .resizable()
-                .frame(width: 50, height: 50)
+                .frame(width: 44, height: 44)
             Text(tassel)
         }
     }
@@ -256,7 +250,8 @@ fileprivate struct LoopListView: View {
     var body: some View {
         ForEach(loopList.indices, id: \.self) { index in
             HStack {
-                Spacer().frame(width: 80)
+                Spacer()
+                //                    .frame(width: 80)
                 Text("귀(cm)")
                 Image(systemName: "\(index+1).circle")
                 TextField("cm", text: $loopList[index])
@@ -270,8 +265,3 @@ fileprivate struct LoopListView: View {
         }
     }
 }
-
-//#Preview {
-//    TextPatternView()
-//        .environment(KnotDataManager())
-//}

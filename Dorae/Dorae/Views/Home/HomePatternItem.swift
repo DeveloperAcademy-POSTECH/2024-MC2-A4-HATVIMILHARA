@@ -28,8 +28,6 @@ struct HomePatternItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             ImagePatternView(pattern: pattern)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
                 .frame(width: 160, height: 180)
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
