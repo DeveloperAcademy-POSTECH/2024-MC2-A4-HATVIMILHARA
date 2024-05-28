@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PatternView: View {
-    @Environment(KnotDataManager.self) var knotDataManager
     @Environment(\.modelContext) var modelContext
     @Bindable var pattern: Pattern
     

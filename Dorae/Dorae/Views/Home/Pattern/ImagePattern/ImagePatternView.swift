@@ -10,7 +10,6 @@ import CoreGraphics
 
 
 struct ImagePatternView: View {
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @State private var imagePatternVM = ImagePatternViewModel()
     
     @Bindable var pattern: Pattern

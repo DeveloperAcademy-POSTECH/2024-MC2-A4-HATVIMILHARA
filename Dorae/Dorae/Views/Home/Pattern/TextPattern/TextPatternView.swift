@@ -25,9 +25,10 @@ extension View {
 }
 
 struct TextPatternView: View {
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-    @Environment(\.editMode) var editMode
     @Bindable var pattern: Pattern
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.editMode) var editMode
+
     @State private var braid = "" // 끈목
     @State private var intervalTextfield = "" // 간격
     @State private var isEditMode = true
@@ -94,7 +95,7 @@ struct TextPatternView: View {
         case .basic(let basicKnot):
             BasicKnotView(pattern: pattern, knot: basicKnot)
         case .applied(let appliedKnot):
-            AppliedKnotView(knot: appliedKnot, knotDataManager: _knotDataManager, pattern: pattern)
+            AppliedKnotView(knot: appliedKnot, pattern: pattern)
         case .etc(let etcKnot):
             EtcKnotView(knot: etcKnot, intervalTextfield: $intervalTextfield)
         }
@@ -102,7 +103,6 @@ struct TextPatternView: View {
 }
 
 fileprivate struct BasicKnotView: View {
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @Bindable var pattern: Pattern
     let knot: BasicKnot
     
@@ -144,7 +144,6 @@ fileprivate struct BasicKnotView: View {
 
 fileprivate struct AppliedKnotView: View {
     let knot: AppliedKnot
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @Bindable var pattern: Pattern
     
     var body: some View {
@@ -270,8 +269,3 @@ fileprivate struct LoopListView: View {
         }
     }
 }
-
-//#Preview {
-//    TextPatternView()
-//        .environment(KnotDataManager())
-//}
