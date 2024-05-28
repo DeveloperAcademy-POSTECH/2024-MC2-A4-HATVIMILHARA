@@ -28,8 +28,6 @@ struct TextPatternView: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
     @Environment(\.editMode) var editMode
-    
-    @State private var braid = "" // 끈목
     @State private var intervalTextfield = "" // 간격
     @State private var isEditMode = true
     
@@ -47,7 +45,7 @@ struct TextPatternView: View {
             Text("끈목")
                 .frame(width: 70)
             Spacer()
-            TextField("끈목을 입력해주세요.", text: $braid)
+            TextField("끈목을 입력해주세요.", text: $pattern.braid)
                 .textFieldStyle(.plain)
         }
         .frame(height: 44)
