@@ -45,16 +45,16 @@ struct PatternView: View {
                     .foregroundStyle(.white)
                     .opacity(editMode?.wrappedValue.isEditing == true ? 0.6 : 1)
                 
-                ZStack {
-                    KnotListView(pattern: pattern)
-                    if editMode?.wrappedValue.isEditing == true {
-                        RoundedRectangle(cornerRadius: 24)
-                            .opacity(0.6)
-                            .padding(.trailing, -20)
+                KnotListView(pattern: pattern)
+                    .overlay {
+                        if editMode?.wrappedValue.isEditing == true {
+                            RoundedRectangle(cornerRadius: 24)
+                                .opacity(0.6)
+                                .padding(.trailing, -20)
+                        }
                     }
-                }
                 //TODO: 프레임 크기 뗀석기
-                .frame(width: 306)
+                    .frame(width: 306)
             }
         }
         .background(Color.background)
