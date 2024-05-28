@@ -25,7 +25,7 @@ struct PatternView: View {
                     .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
                     .overlay {
-                        if knotDataManager.knotList.isEmpty {
+                        if pattern.knotList.isEmpty {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 24)
                                     .fill(.black.opacity(0.5))
