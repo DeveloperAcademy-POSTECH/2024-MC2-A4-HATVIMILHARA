@@ -15,7 +15,7 @@
 import SwiftUI
 
 extension View {
-    @ViewBuilder func `if`<Content: View>(_ editMode: Bool, view: (Self) -> Content) -> some View {
+    @ViewBuilder func `applyIfEditing`<Content: View>(_ editMode: Bool, view: (Self) -> Content) -> some View {
         if editMode {
             view(self)
         } else {
@@ -69,7 +69,7 @@ struct TextPatternView: View {
             ForEach(pattern.knotList) { knot in
                 showKnotList(for: knot)
             }
-            .if(editMode?.wrappedValue.isEditing == true) { view in
+            .applyIfEditing(editMode?.wrappedValue.isEditing == true) { view in
                 view
                     .onDelete(perform: deleteItems)
                     .onMove(perform: moveItems)
