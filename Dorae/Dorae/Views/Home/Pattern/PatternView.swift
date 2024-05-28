@@ -16,7 +16,7 @@ struct PatternView: View {
         HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("도안")
-                    .padding(EdgeInsets(top: 22, leading: 16, bottom: 8, trailing: 0))
+                    .padding(EdgeInsets(top: 24, leading: 16, bottom: 4, trailing: 0))
                     .font(.title2.bold())
                     .foregroundStyle(.white)
                 PatternPartView(pattern: pattern)
@@ -28,7 +28,7 @@ struct PatternView: View {
 
             VStack(alignment: .leading) {
                 Text("매듭")
-                    .padding(EdgeInsets(top: 22, leading: 16, bottom: 8, trailing: 0))
+                    .padding(EdgeInsets(top: 24, leading: 16, bottom: 4, trailing: 0))
                     .font(.title2.bold())
                     .foregroundStyle(.white)
                 KnotListView(pattern: pattern)
@@ -55,9 +55,9 @@ struct PatternPartView: View {
             HStack {
                 VStack {
                     HStack {
-                        Text("이미지 도안")
-                            .font(.title)
-                            .bold()
+                        Text("그림 도안")
+                            .font(.headline)
+                            .fontWeight(.semibold)
                         Spacer()
                         Button {
                             //TODO: 확대축소 기능 구현

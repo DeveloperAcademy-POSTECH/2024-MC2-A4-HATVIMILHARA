@@ -36,8 +36,11 @@ struct TextPatternView: View {
     var body: some View {
         VStack {
             headerView
+            Divider()
+                .frame(width: 408)
             inputView
             Divider()
+                .frame(width: 408)
             knotListView
         }
         .padding(EdgeInsets(top: 20, leading: 10, bottom: 10, trailing: 30))
@@ -46,12 +49,11 @@ struct TextPatternView: View {
     private var headerView: some View {
         HStack(alignment: .top) {
             Text("글 도안")
-                .font(.title)
-                .bold()
+                .font(.headline)
+                .fontWeight(.semibold)
             Spacer()
-            
             EditButton()
-                .font(.title2)
+                .font(.system(size: 14))
                 .foregroundStyle(.red)
         }
     }
