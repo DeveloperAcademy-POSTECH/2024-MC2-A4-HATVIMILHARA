@@ -13,7 +13,7 @@ struct HomeView: View {
     @Query(sort: \Pattern.createdAt, order: .reverse) var patternList: [Pattern]
     @Environment(\.modelContext) private var modelContext
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-    @State private var tempPattern: Pattern = Pattern(knotList: [], createdAt: "", title: "제목없음", braid: "")
+    @State private var tempPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
     
     let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -32,7 +32,7 @@ struct HomeView: View {
                             .padding()
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        tempPattern = Pattern(knotList: [], createdAt: Date().toString(), title: "제목없음", braid: "")
+                        tempPattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
                         modelContext.insert(tempPattern)
                         knotDataManager.knotList = tempPattern.knotList
                     })
