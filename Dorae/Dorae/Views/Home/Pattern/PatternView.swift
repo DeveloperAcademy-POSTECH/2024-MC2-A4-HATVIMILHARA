@@ -46,7 +46,7 @@ struct PatternView: View {
                 
                 KnotListView(pattern: pattern)
                     .overlay {
-                        if editMode?.wrappedValue.isEditing == true {
+                        if editMode?.wrappedValue.isEditing == true && !pattern.knotList.isEmpty {
                             RoundedRectangle(cornerRadius: 24)
                                 .opacity(0.6)
                                 .padding(.trailing, -20)
