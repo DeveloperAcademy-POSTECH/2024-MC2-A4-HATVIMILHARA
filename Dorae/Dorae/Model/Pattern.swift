@@ -12,11 +12,11 @@ import SwiftData
 class Pattern: Identifiable {
     @Attribute(.unique) var id = UUID()
     var knotList: [Knot]
-    let createdAt: String
+    var createdAt: Date
     var title: String
     var braid: String = ""
     
-    init(knotList: [Knot], createdAt: String, title: String, braid: String) {
+    init(knotList: [Knot], createdAt: Date, title: String, braid: String) {
         self.knotList = knotList
         self.createdAt = createdAt
         self.title = title

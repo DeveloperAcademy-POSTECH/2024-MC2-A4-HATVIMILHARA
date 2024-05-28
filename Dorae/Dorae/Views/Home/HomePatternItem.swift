@@ -53,7 +53,7 @@ struct HomePatternItem: View {
             Text(pattern.title)
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundStyle(.white)
-            Text(pattern.createdAt)
+            Text(pattern.createdAt.toString())
                 .font(.system(size: 13, weight: .regular))
                 .foregroundStyle(.white)
         }
