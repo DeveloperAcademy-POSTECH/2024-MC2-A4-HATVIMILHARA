@@ -12,8 +12,7 @@ struct HomeView: View {
     //TODO: 날짜에 따라서 sort해주기
     @Query(sort: \Pattern.createdAt, order: .reverse) var patternList: [Pattern]
     @Environment(\.modelContext) private var modelContext
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
-    @State private var tempPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
+    @State private var newPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
     
     let columns = [
         GridItem(.flexible(), alignment: .top),
@@ -27,14 +26,13 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    NavigationLink(destination: PatternView(pattern: tempPattern)) {
+                    NavigationLink(destination: PatternView(pattern: newPattern)) {
                         HomeNewPatternItem()
                             .padding()
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        tempPattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
-                        modelContext.insert(tempPattern)
-                        knotDataManager.knotList = tempPattern.knotList
+                        newPattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
+                        modelContext.insert(newPattern)
                     })
                     
                     ForEach(patternList, id: \.self) { pattern in
@@ -42,9 +40,6 @@ struct HomeView: View {
                             HomePatternItem(pattern: pattern)
                                 .padding()
                         }
-                        .simultaneousGesture(TapGesture().onEnded {
-                            knotDataManager.knotList = pattern.knotList
-                        })
                     }
                 }
                 .padding(68)
