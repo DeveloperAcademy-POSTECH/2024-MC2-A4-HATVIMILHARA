@@ -14,15 +14,15 @@
 
 import SwiftUI
 
-extension View {
-    @ViewBuilder func `if`<Content: View>(_ editMode: Bool, view: (Self) -> Content) -> some View {
-        if editMode {
-            view(self)
-        } else {
-            self
-        }
-    }
-}
+//extension View {
+//    @ViewBuilder func `if`<Content: View>(_ editMode: Bool, view: (Self) -> Content) -> some View {
+//        if editMode {
+//            view(self)
+//        } else {
+//            self
+//        }
+//    }
+//}
 
 struct TextPatternView: View {
     @Bindable var pattern: Pattern
@@ -49,27 +49,32 @@ struct TextPatternView: View {
                 .textFieldStyle(.plain)
         }
         .frame(height: 44)
-        
     }
     
     private var knotListView: some View {
         List {
-            ForEach(pattern.knotList) { knot in
-                showKnotList(for: knot)
+            if editMode?.wrappedValue.isEditing == true {
+                ForEach(pattern.knotList) { knot in
+                    showKnotList(for: knot)
+                }
+                .onDelete(perform: deleteItems)
+                .onMove(perform: moveItems)
             }
-            .if(editMode?.wrappedValue.isEditing == true) { view in
-                view
-                    .onDelete(perform: deleteItems)
-                    .onMove(perform: moveItems)
+            
+            else {
+                ForEach(pattern.knotList) { knot in
+                    showKnotList(for: knot)
+                }
+                .deleteDisabled(editMode?.wrappedValue.isEditing == false)
+                .moveDisabled(editMode?.wrappedValue.isEditing == false)
             }
-            .deleteDisabled(editMode?.wrappedValue.isEditing == false)
-            .moveDisabled(editMode?.wrappedValue.isEditing == false)
         }
         .listStyle(.plain)
     }
     
     private func deleteItems(at offsets: IndexSet) {
         pattern.knotList.remove(atOffsets: offsets)
+        
     }
     
     private func moveItems(from source: IndexSet, to destination: Int) {
