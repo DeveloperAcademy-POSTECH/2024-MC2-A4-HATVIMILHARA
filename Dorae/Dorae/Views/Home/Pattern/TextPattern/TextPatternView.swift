@@ -14,8 +14,19 @@
 
 import SwiftUI
 
+extension View {
+    @ViewBuilder func `if`<Content: View>(_ editMode: Bool, view: (Self) -> Content) -> some View {
+        if editMode {
+            view(self)
+        } else {
+            self
+        }
+    }
+}
+
 struct TextPatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    @Environment(\.editMode) var editMode
     @Bindable var pattern: Pattern
     @State private var braid = "" // 끈목
     @State private var intervalTextfield = "" // 간격
@@ -37,9 +48,7 @@ struct TextPatternView: View {
                 .font(.title)
                 .bold()
             Spacer()
-            ZStack {
-                
-            }
+            
             EditButton()
                 .font(.title2)
                 .foregroundStyle(.red)
@@ -60,8 +69,13 @@ struct TextPatternView: View {
             ForEach(pattern.knotList) { knot in
                 showKnotList(for: knot)
             }
-            .onDelete(perform: deleteItems)
-            .onMove(perform: moveItems)
+            .if(editMode?.wrappedValue.isEditing == true) { view in
+                view
+                    .onDelete(perform: deleteItems)
+                    .onMove(perform: moveItems)
+            }
+            .deleteDisabled(editMode?.wrappedValue.isEditing == false)
+            .moveDisabled(editMode?.wrappedValue.isEditing == false)
         }
         .listStyle(.plain)
     }
