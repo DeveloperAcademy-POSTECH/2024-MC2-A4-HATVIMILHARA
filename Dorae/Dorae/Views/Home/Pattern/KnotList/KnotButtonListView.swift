@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct KnotButtonListView: View {
-    @Environment(KnotDataManager.self) var knotDataManager
     @Bindable var pattern: Pattern
     @Binding var selectedTab: KnotCategory
     
@@ -47,8 +46,7 @@ struct KnotButtonListView: View {
                                     newKnot = Knot.etc(knot: EtcKnot(interval:  0.0))
                                 }
                             }
-                            knotDataManager.knotList.append(newKnot)
-                            pattern.knotList = knotDataManager.knotList
+                            pattern.knotList.append(newKnot)
                         }
                 }
             }
