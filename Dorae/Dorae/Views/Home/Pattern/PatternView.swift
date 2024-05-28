@@ -11,7 +11,8 @@ struct PatternView: View {
     @Environment(KnotDataManager.self) var knotDataManager
     @Environment(\.modelContext) var modelContext
     @Bindable var pattern: Pattern
-    
+    @Environment(\.editMode) var editMode
+
     var body: some View {
     
         HStack(spacing: 0) {
@@ -26,15 +27,24 @@ struct PatternView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 24))
             }
             .padding(.horizontal, 24)
-
+            
             VStack(alignment: .leading) {
                 Text("매듭")
                     .padding(EdgeInsets(top: 22, leading: 16, bottom: 8, trailing: 0))
                     .font(.title2.bold())
                     .foregroundStyle(.white)
-                KnotListView(pattern: pattern)
+                    .opacity(editMode?.wrappedValue.isEditing == true ? 0.6 : 1)
+                
+                ZStack {
+                    KnotListView(pattern: pattern)
+                    if editMode?.wrappedValue.isEditing == true {
+                        RoundedRectangle(cornerRadius: 24)
+                            .opacity(0.6)
+                            .padding(.trailing, -20)
+                    }
+                }
                 //TODO: 프레임 크기 뗀석기
-                    .frame(width: 306)
+                .frame(width: 306)
             }
         }
         .background(Color.background)
@@ -84,5 +94,3 @@ struct PatternPartView: View {
         }
     }
 }
-
-
