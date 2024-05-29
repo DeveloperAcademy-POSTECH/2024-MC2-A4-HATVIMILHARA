@@ -18,7 +18,7 @@ struct TextPatternView: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
     @Environment(\.editMode) var editMode
-    @State private var intervalTextfield = "" // 간격
+    @State private var braid = "" // 끈목
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -43,16 +43,16 @@ struct TextPatternView: View {
     private var knotListView: some View {
         List {
             if editMode?.wrappedValue.isEditing == true {
-                ForEach(pattern.knotList) { knot in
-                    showKnotList(for: knot)
+                ForEach(Array(pattern.knotList.enumerated()), id: \.offset) { idx, knot in
+                    showKnotList(index: idx,for: knot)
                 }
                 .onDelete(perform: deleteItems)
                 .onMove(perform: moveItems)
             }
             
             else {
-                ForEach(pattern.knotList) { knot in
-                    showKnotList(for: knot)
+                ForEach(Array(pattern.knotList.enumerated()), id: \.offset) { idx, knot in
+                    showKnotList(index: idx, for: knot)
                 }
                 .deleteDisabled(editMode?.wrappedValue.isEditing == false)
                 .moveDisabled(editMode?.wrappedValue.isEditing == false)
@@ -73,14 +73,20 @@ struct TextPatternView: View {
     }
     
     @ViewBuilder
-    private func showKnotList(for knot: Knot) -> some View {
-        switch knot {
-        case .basic(let basicKnot):
-            BasicKnotView(pattern: pattern, knot: basicKnot)
-        case .applied(let appliedKnot):
-            AppliedKnotView(knot: appliedKnot, pattern: pattern)
-        case .etc(let etcKnot):
-            EtcKnotView(knot: etcKnot, intervalTextfield: $intervalTextfield)
+    private func showKnotList(index: Int, for knot: Knot) -> some View {
+        
+        if !pattern.knotList.isEmpty && index < pattern.knotList.count {
+            switch knot {
+            case .basic(let basicKnot):
+                BasicKnotView(pattern: pattern, knot: basicKnot)
+            case .applied(let appliedKnot):
+                AppliedKnotView(knot: appliedKnot, pattern: pattern)
+            case .etc(let etcKnot):
+                EtcKnotView(etcknot: etcKnot,
+                            knot: $pattern.knotList[index], textFieldString: String(etcKnot.interval ?? 0.0))
+            }
+        } else {
+            Text("이스터 에그")
         }
     }
 }
@@ -178,15 +184,16 @@ fileprivate struct AppliedKnotView: View {
 }
 
 fileprivate struct EtcKnotView: View {
-    let knot: EtcKnot
-    @Binding var intervalTextfield: String
+    let etcknot: EtcKnot
+    @Binding var knot: Knot
+    @State var textFieldString: String
     
     var body: some View {
-        if let interval = knot.interval {
+        if let interval = etcknot.interval {
             intervalView
-        } else if let lasso = knot.lasso {
+        } else if let lasso = etcknot.lasso {
             lassoView(lasso: lasso)
-        } else if let tassel = knot.tassel {
+        } else if let tassel = etcknot.tassel {
             tasselView(tassel: tassel)
         }
     }
@@ -194,15 +201,19 @@ fileprivate struct EtcKnotView: View {
     private var intervalView: some View {
         HStack {
             //FIXME: 이미지 크기
-            Image("간격버튼")
+            Image("\(EtcKnotName.간격.rawValue)버튼")
                 .resizable()
                 .frame(width: 44, height: 44)
             Text("간격")
-            TextField("간격(cm)을 입력해주세요.", text: $intervalTextfield)
+            TextField("간격(cm)을 입력해주세요.", text: $textFieldString)
                 .textFieldStyle(.plain)
                 .keyboardType(.numberPad)
-                .onChange(of: intervalTextfield) { oldValue, newValue in
+                .onChange(of: textFieldString) { oldValue, newValue in
                     validateIntervalTextfield(oldValue: oldValue, newValue: newValue)
+                    
+                    if case Knot.etc(let etcKnot) = knot {
+                        knot = .etc(knot: EtcKnot(id: etcKnot.id, interval: Float(textFieldString) ?? 0.0))
+                    }
                 }
         }
     }
@@ -210,16 +221,16 @@ fileprivate struct EtcKnotView: View {
     private func validateIntervalTextfield(oldValue: String, newValue: String) {
         let allowedCharacters = CharacterSet(charactersIn: "0123456789.").inverted
         if newValue.rangeOfCharacter(from: allowedCharacters) != nil || newValue.components(separatedBy: ".").count > 2 {
-            intervalTextfield = oldValue
+            textFieldString = oldValue
         } else if !newValue.isEmpty, Double(newValue) == nil {
-            intervalTextfield = String(newValue.prefix(newValue.count - 1))
+            textFieldString = String(newValue.prefix(newValue.count - 1))
         }
     }
     
     private func lassoView(lasso: String) -> some View {
         HStack {
             //FIXME: 이미지 크기
-            Image("고버튼")
+            Image("\(EtcKnotName.고.rawValue)버튼")
                 .resizable()
                 .frame(width: 44, height: 44)
             Text(lasso)
@@ -229,7 +240,7 @@ fileprivate struct EtcKnotView: View {
     private func tasselView(tassel: String) -> some View {
         HStack {
             //FIXME: 이미지 크기
-            Image("술버튼")
+            Image("\(EtcKnotName.술.rawValue)버튼")
                 .resizable()
                 .frame(width: 44, height: 44)
             Text(tassel)
@@ -245,7 +256,6 @@ fileprivate struct LoopListView: View {
         ForEach(loopList.indices, id: \.self) { index in
             HStack {
                 Spacer()
-                //                    .frame(width: 80)
                 Text("귀(cm)")
                 Image(systemName: "\(index+1).circle")
                 TextField("cm", text: $loopList[index])
