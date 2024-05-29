@@ -94,14 +94,15 @@ struct AppliedKnot: Identifiable, Hashable, Codable {
 }
 
 struct EtcKnot: Identifiable, Hashable, Codable {
-    var id = UUID()
+    var id: UUID = UUID()
     /// 기타 매듭 이름
     var tassel: String?
     var lasso: String?
     /// 간격의 값
     var interval: Float?
     
-    init(tassel: String? = nil, lasso: String? = nil, interval: Float? = nil) {
+    init(id: UUID = UUID(), tassel: String? = nil, lasso: String? = nil, interval: Float? = nil) {
+        self.id = id
         self.tassel = tassel
         self.lasso = lasso
         self.interval = interval

@@ -25,8 +25,6 @@ struct KnotImageView: View {
                             .frame(width: boundingBox.height,
                                    height: getHeight(for: knot, boundingBox: boundingBox))
                             .onAppear {
-                                print("\(knotDataManager.getKnotName(knot: knot)) bounding boxSize: \(boundingBox.size)")
-                                print("인덱스", index)
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
                                 imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
                             }
