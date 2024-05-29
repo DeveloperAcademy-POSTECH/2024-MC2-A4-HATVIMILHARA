@@ -75,7 +75,7 @@ struct PatternPartView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                VStack {
+                VStack(spacing: 0) {
                     HStack {
                         Text("그림 도안")
                             .font(.headline)
@@ -89,7 +89,6 @@ struct PatternPartView: View {
                         }
                     }
                     .padding(.horizontal, 24)
-                    .padding(.top, 12)
                     .frame(height: 60)
                     Divider()
                     ScrollView {
@@ -103,7 +102,7 @@ struct PatternPartView: View {
                     .rotationEffect(.zero)
                 
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .top) {
                         Text("글 도안")
                             .font(.headline)
@@ -113,7 +112,6 @@ struct PatternPartView: View {
                             .foregroundStyle(.red)
                     }
                     .padding(.horizontal, 24)
-                    .padding(.top, 12)
                     .frame(height: 60)
                     Divider()
                     TextPatternView(pattern: pattern)

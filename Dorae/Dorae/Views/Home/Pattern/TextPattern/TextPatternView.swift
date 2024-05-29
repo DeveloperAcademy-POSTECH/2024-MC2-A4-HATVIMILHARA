@@ -21,7 +21,7 @@ struct TextPatternView: View {
     @State private var intervalTextfield = "" // 간격
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             inputView
             Divider()
             knotListView
@@ -32,6 +32,7 @@ struct TextPatternView: View {
     private var inputView: some View {
         HStack(spacing: 0) {
             Text("끈목")
+                .font(.body)
                 .frame(width: 70)
             Spacer()
             TextField("끈목을 입력해주세요.", text: $pattern.braid)
@@ -77,11 +78,24 @@ struct TextPatternView: View {
         switch knot {
         case .basic(let basicKnot):
             BasicKnotView(pattern: pattern, knot: basicKnot)
+                .frame(height: 44)
+                .listRowInsets(.init())
+                .environment(\.defaultMinListRowHeight,0)
+                .padding(.horizontal)
         case .applied(let appliedKnot):
             AppliedKnotView(knot: appliedKnot, pattern: pattern)
+                .frame(height: 44)
+                .listRowInsets(.init())
+                .environment(\.defaultMinListRowHeight,0)
+                .padding(.horizontal)
         case .etc(let etcKnot):
             EtcKnotView(knot: etcKnot, intervalTextfield: $intervalTextfield)
+                .frame(height: 44)
+                .listRowInsets(.init())
+                .environment(\.defaultMinListRowHeight,0)
+                .padding(.horizontal)
         }
+            
     }
 }
 
@@ -119,11 +133,15 @@ fileprivate struct BasicKnotView: View {
     
     private var knotHeaderView: some View {
         HStack {
-            Image("\(knot.knotName.rawValue)버튼")
+            Image("\(knot.knotName)버튼")
+                .resizable()
+                .scaledToFit()
             Text(knot.knotName.rawValue)
         }
     }
 }
+
+
 
 fileprivate struct AppliedKnotView: View {
     let knot: AppliedKnot
@@ -169,8 +187,7 @@ fileprivate struct AppliedKnotView: View {
             HStack {
                 Image("\(knot.knotName)버튼")
                     .resizable()
-                    .frame(width: 44, height: 44)
-                    .background(.red)
+                    .scaledToFit()
                 Text(knot.knotName.rawValue)
             }
         }
@@ -196,7 +213,7 @@ fileprivate struct EtcKnotView: View {
             //FIXME: 이미지 크기
             Image("간격버튼")
                 .resizable()
-                .frame(width: 44, height: 44)
+                .scaledToFit()
             Text("간격")
             TextField("간격(cm)을 입력해주세요.", text: $intervalTextfield)
                 .textFieldStyle(.plain)
@@ -221,7 +238,7 @@ fileprivate struct EtcKnotView: View {
             //FIXME: 이미지 크기
             Image("고버튼")
                 .resizable()
-                .frame(width: 44, height: 44)
+                .scaledToFit()
             Text(lasso)
         }
     }
@@ -231,7 +248,7 @@ fileprivate struct EtcKnotView: View {
             //FIXME: 이미지 크기
             Image("술버튼")
                 .resizable()
-                .frame(width: 44, height: 44)
+                .scaledToFit()
             Text(tassel)
         }
     }
@@ -245,8 +262,9 @@ fileprivate struct LoopListView: View {
         ForEach(loopList.indices, id: \.self) { index in
             HStack {
                 Spacer()
-                //                    .frame(width: 80)
+                    .frame(width: 70)
                 Text("귀(cm)")
+                    .frame(width: 70)
                 Image(systemName: "\(index+1).circle")
                 TextField("cm", text: $loopList[index])
                     .textFieldStyle(.plain)
