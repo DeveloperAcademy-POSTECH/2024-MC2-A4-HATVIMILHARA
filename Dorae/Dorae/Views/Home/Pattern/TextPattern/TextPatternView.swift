@@ -56,7 +56,7 @@ struct TextPatternView: View {
     private var knotListView: some View {
         List {
             ForEach(Array(pattern.knotList.enumerated()), id: \.offset) { idx, knot in
-                showKnotListTest(index: idx, for: knot)
+                showKnotList(index: idx, for: knot)
             }
             .if(editMode?.wrappedValue.isEditing == true) { view in
                 view
@@ -78,15 +78,20 @@ struct TextPatternView: View {
     }
     
     @ViewBuilder
-    private func showKnotListTest(index: Int, for knot: Knot) -> some View {
-        switch knot {
-        case .basic(let basicKnot):
-            BasicKnotView(pattern: pattern, knot: basicKnot)
-        case .applied(let appliedKnot):
-            AppliedKnotView(knot: appliedKnot, pattern: pattern)
-        case .etc(let etcKnot):
-            EtcKnotView(etcknot: etcKnot,
-                        knot: $pattern.knotList[index], textFieldString: String(etcKnot.interval ?? 0.0))
+    private func showKnotList(index: Int, for knot: Knot) -> some View {
+        
+        if !pattern.knotList.isEmpty && index < pattern.knotList.count {
+            switch knot {
+            case .basic(let basicKnot):
+                BasicKnotView(pattern: pattern, knot: basicKnot)
+            case .applied(let appliedKnot):
+                AppliedKnotView(knot: appliedKnot, pattern: pattern)
+            case .etc(let etcKnot):
+                EtcKnotView(etcknot: etcKnot,
+                            knot: $pattern.knotList[index], textFieldString: String(etcKnot.interval ?? 0.0))
+            }
+        } else {
+            Text("이스터 에그")
         }
     }
 }
