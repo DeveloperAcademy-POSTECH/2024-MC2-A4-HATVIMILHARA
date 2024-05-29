@@ -18,9 +18,7 @@ struct TextPatternView: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
     @Environment(\.editMode) var editMode
-    
     @State private var braid = "" // 끈목
-    @State private var isEditMode = true
     
     var body: some View {
         VStack(alignment: .leading) {
