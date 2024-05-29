@@ -46,7 +46,7 @@ struct TextPatternView: View {
             Text("끈목")
                 .frame(width: 70)
             Spacer()
-            TextField("끈목을 입력해주세요.", text: $braid)
+            TextField("끈목을 입력해주세요.", text: $pattern.braid)
                 .textFieldStyle(.plain)
         }
         .frame(height: 44)
