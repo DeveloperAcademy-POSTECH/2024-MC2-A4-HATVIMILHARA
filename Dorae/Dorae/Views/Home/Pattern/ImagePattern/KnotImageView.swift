@@ -9,6 +9,7 @@ import SwiftUI
 
 struct KnotImageView: View {
     @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
+    @Bindable var pattern: Pattern
     @Bindable var imagePatternViewModel: ImagePatternViewModel
     
     let knot: Knot
@@ -26,11 +27,11 @@ struct KnotImageView: View {
                                    height: getHeight(for: knot, boundingBox: boundingBox))
                             .onAppear {
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
-                                imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
+                                imagePatternViewModel.checkSizeCalFinished(knotList: pattern.knotList)
                             }
-                            .onChange(of: knotDataManager.knotList) { _, _ in
+                            .onChange(of: pattern.knotList) { _, _ in
                                 setKnotSizeDict(knot: knot, boundingBox: boundingBox)
-                                imagePatternViewModel.checkSizeCalFinished(knotList: knotDataManager.knotList)
+                                imagePatternViewModel.checkSizeCalFinished(knotList: pattern.knotList)
                             }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
