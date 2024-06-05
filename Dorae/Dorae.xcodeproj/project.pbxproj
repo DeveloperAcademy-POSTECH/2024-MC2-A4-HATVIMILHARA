@@ -25,7 +25,6 @@
 		E7B5F6E22BF86CB400A1E749 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */; };
 		E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7032BFB391500A1E749 /* Pattern.swift */; };
 		E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7052BFB393A00A1E749 /* Knot.swift */; };
-		E7B5F7092BFB3B5C00A1E749 /* KnotDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F7082BFB3B5C00A1E749 /* KnotDataManager.swift */; };
 		E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F70A2BFB3C6B00A1E749 /* HomeView.swift */; };
 		E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F70C2BFB3CAA00A1E749 /* PatternView.swift */; };
 		E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */; };
@@ -57,7 +56,6 @@
 		E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E7B5F7032BFB391500A1E749 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		E7B5F7052BFB393A00A1E749 /* Knot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Knot.swift; sourceTree = "<group>"; };
-		E7B5F7082BFB3B5C00A1E749 /* KnotDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotDataManager.swift; sourceTree = "<group>"; };
 		E7B5F70A2BFB3C6B00A1E749 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E7B5F70C2BFB3CAA00A1E749 /* PatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
 		E7B5F70E2BFB3CB200A1E749 /* ImagePatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternView.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				E7549A3A2BFF86CC004D15AF /* ImagePattern */,
-				E7B5F7082BFB3B5C00A1E749 /* KnotDataManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				FF6D53242C01FC9A00452809 /* PlayerViewModel.swift in Sources */,
 				B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */,
 				E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */,
-				E7B5F7092BFB3B5C00A1E749 /* KnotDataManager.swift in Sources */,
 				B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */,
 				B51873CF2C0473ED00BEDFA2 /* Date+.swift in Sources */,
 			);

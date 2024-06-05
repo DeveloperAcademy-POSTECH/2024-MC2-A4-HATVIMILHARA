@@ -10,7 +10,25 @@ import Foundation
 @Observable
 final class ImagePatternViewModel {
     
-    // MARK: - 이미지 도안에서 쓸 데이터
+    func getKnotName(knot: Knot) -> String {
+        var knotName = ""
+        switch knot {
+        case .basic(let knot):
+            knotName = knot.knotName.rawValue
+        case .applied(let knot):
+            knotName = knot.knotName.rawValue
+        case .etc(let knot):
+            if let knot = knot.interval {
+                knotName = "간격"
+            }else if let knot = knot.tassel {
+                knotName = "술"
+            }else if let knot = knot.lasso {
+                knotName = "고"
+            }
+        }
+        return knotName
+    }
+    
     var boundingSizeDict: [Int:CGSize] = [:]
     var topSizeDict: [Int:CGSize] = [:]
     var bottomSizeDict: [Int:CGSize] = [:]

@@ -10,8 +10,7 @@ import SwiftData
 
 @main
 struct DoraeApp: App {
-    @State private var knotDataManager = KnotDataManager()
-
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Pattern.self,
@@ -30,7 +29,6 @@ struct DoraeApp: App {
         WindowGroup {
             SplashView()
         }
-        .environment(knotDataManager)
         .modelContainer(sharedModelContainer)
     }
 }

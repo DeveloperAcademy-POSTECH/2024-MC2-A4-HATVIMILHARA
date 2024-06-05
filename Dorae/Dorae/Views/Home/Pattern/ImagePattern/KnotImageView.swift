@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct KnotImageView: View {
-    @Environment(KnotDataManager.self) var knotDataManager: KnotDataManager
     @Bindable var pattern: Pattern
     @Bindable var imagePatternViewModel: ImagePatternViewModel
     
@@ -16,7 +15,7 @@ struct KnotImageView: View {
     let index: Int
     var body: some View {
         Group {
-            if let image = UIImage(named: knotDataManager.getKnotName(knot: knot)) {
+            if let image = UIImage(named: imagePatternViewModel.getKnotName(knot: knot)) {
                 let boundingBox = image.croppedBoundingBox()
                 GeometryReader { geometry in
                     VStack(spacing: 0) {
@@ -44,7 +43,7 @@ struct KnotImageView: View {
         }
     }
 
-    /// 카테고리 별로 비율을 다르게 줄 수도 있어서 일단 분기처리
+    /// 카테고리 별로 비율을 다르게 줄 수 있어서 분기처리
        private func getHeight(for knot: Knot, boundingBox: CGRect) -> CGFloat {
            switch knot {
            case .basic:
