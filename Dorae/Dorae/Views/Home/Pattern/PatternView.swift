@@ -71,6 +71,7 @@ struct PatternView: View {
 struct PatternPartView: View {
     @Bindable var pattern: Pattern
     @State private var imageReduction: Bool = false
+    @Environment(\.editMode) var editMode
     
     var body: some View {
         GeometryReader { geometry in
@@ -114,8 +115,11 @@ struct PatternPartView: View {
                     .padding(.horizontal, 24)
                     .frame(height: 60)
                     Divider()
-                    TextPatternView(pattern: pattern)
-                        .frame(width: geometry.size.width/2)
+                    Group {
+                        TextPatternView(pattern: pattern)
+                        knotListView(pattern: pattern)
+                    }
+                    .frame(width: geometry.size.width/2)
                 }
             }
         }
