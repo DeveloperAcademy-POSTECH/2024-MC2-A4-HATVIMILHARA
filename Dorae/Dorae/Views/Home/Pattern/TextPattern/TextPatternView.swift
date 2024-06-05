@@ -51,10 +51,6 @@ public struct knotListView: View {
             }
             .onDelete(perform: deleteItems)
             .onMove(perform: moveItems)
-            .deleteDisabled(editMode?.wrappedValue == .inactive)
-            .moveDisabled(editMode?.wrappedValue == .inactive)
-            
-            
         }
         .listStyle(.plain)
     }

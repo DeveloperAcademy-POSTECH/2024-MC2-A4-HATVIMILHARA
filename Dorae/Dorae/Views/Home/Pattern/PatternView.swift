@@ -114,6 +114,7 @@ struct PatternPartView: View {
                     }
                     .padding(.horizontal, 24)
                     .frame(height: 60)
+                    
                     Divider()
                     Group {
                         TextPatternView(pattern: pattern)
