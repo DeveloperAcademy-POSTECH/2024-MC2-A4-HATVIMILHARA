@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import CoreGraphics
-
 
 struct ImagePatternView: View {
     @State private var imagePatternVM = ImagePatternViewModel()
