@@ -116,10 +116,7 @@ struct PatternPartView: View {
                     .frame(height: 60)
                     
                     Divider()
-                    Group {
-                        TextPatternView(pattern: pattern)
-                        knotListView(pattern: pattern)
-                    }
+                    TextPatternView(pattern: pattern)
                     .frame(width: geometry.size.width/2)
                 }
             }

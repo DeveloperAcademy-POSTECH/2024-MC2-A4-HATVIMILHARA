@@ -16,17 +16,16 @@ import SwiftUI
 
 struct TextPatternView: View {
     @Bindable var pattern: Pattern
-    @Environment(\.modelContext) var modelContext
-    @Environment(\.editMode) var editMode
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            inputView
+            braidView
             Divider()
+            knotListView(pattern: pattern)
         }
     }
     
-    private var inputView: some View {
+    private var braidView: some View {
         HStack(spacing: 0) {
             Text("끈목")
                 .font(.body)
@@ -39,10 +38,9 @@ struct TextPatternView: View {
     }
 }
 
-public struct knotListView: View {
+private struct knotListView: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
-    @Environment(\.editMode) var editMode
     
     public var body: some View {
         List {
