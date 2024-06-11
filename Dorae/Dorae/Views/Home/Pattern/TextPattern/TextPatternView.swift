@@ -241,7 +241,6 @@ private struct knotListView: View {
         
         private func tasselView(tassel: String) -> some View {
             HStack {
-                //FIXME: 이미지 크기
                 Image("\(EtcKnotName.술.rawValue)버튼")
                     .resizable()
                     .scaledToFit()
