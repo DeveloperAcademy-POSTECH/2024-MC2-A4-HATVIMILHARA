@@ -18,7 +18,7 @@ struct HomePatternItem: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
     
-    @State private var renderedPatternImage = Image("육립매듭")
+    @State private var renderedPatternImage = Image("")
     @Environment(\.displayScale) var displayScale
     
     var body: some View {
