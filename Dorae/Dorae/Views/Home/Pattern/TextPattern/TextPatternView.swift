@@ -10,6 +10,7 @@ import SwiftUI
 struct TextPatternView: View {
     @Bindable var pattern: Pattern
     @State private var listUpdateTrigger = false
+    @State private var keyBoardResponder = KeyboardResponder()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -19,6 +20,11 @@ struct TextPatternView: View {
         }
         .onTapGesture {
             hideKeyboard()
+        }
+        .onChange(of: keyBoardResponder.isKeyboardVisible) { oldValue, newValue in
+            if !newValue {
+                listUpdateTrigger.toggle()
+            }
         }
     }
     
