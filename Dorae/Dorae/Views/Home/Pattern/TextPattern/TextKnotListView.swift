@@ -158,6 +158,7 @@ struct TextKnotListView: View {
     }
     
     fileprivate struct EtcKnotView: View {
+        @Environment(\.editMode) var editMode
         let etcknot: EtcKnot
         @Binding var knot: Knot
         @State var textFieldString: String
@@ -180,6 +181,7 @@ struct TextKnotListView: View {
                     .scaledToFit()
                 Text("간격")
                 TextField("간격(cm)을 입력해주세요.", text: $textFieldString)
+                    .disabled(editMode?.wrappedValue.isEditing == true)
                     .textFieldStyle(.plain)
                     .keyboardType(.numberPad)
                     .onChange(of: textFieldString) { oldValue, newValue in
@@ -221,6 +223,7 @@ struct TextKnotListView: View {
     }
     
     fileprivate struct LoopListView: View {
+        @Environment(\.editMode) var editMode
         @State var loopList: [String]
         var changeLoop: ([String]) -> Void
         
@@ -233,6 +236,7 @@ struct TextKnotListView: View {
                         .frame(width: 70)
                     Image(systemName: "\(index+1).circle")
                     TextField("cm", text: $loopList[index])
+                        .disabled(editMode?.wrappedValue.isEditing == true)
                         .textFieldStyle(.plain)
                 }
             }
