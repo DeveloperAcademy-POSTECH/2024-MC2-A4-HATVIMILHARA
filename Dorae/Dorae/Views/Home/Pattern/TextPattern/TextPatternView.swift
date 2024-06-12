@@ -5,23 +5,20 @@
 //  Created by Damin on 5/20/24.
 //
 
-//
-//  TextPatternView.swift
-//  Dorae
-//
-//  Created by Damin on 5/20/24.
-//
-
 import SwiftUI
 
 struct TextPatternView: View {
     @Bindable var pattern: Pattern
+    @State private var listUpdateTrigger = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             braidView
             Divider()
-            knotListView(pattern: pattern)
+            knotListView(pattern: pattern, listUpdateTrigger: $listUpdateTrigger)
+        }
+        .onTapGesture {
+            hideKeyboard()
         }
     }
     
@@ -39,8 +36,9 @@ struct TextPatternView: View {
 }
 
 private struct knotListView: View {
-    @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
+    @Bindable var pattern: Pattern
+    @Binding var listUpdateTrigger: Bool
     
     public var body: some View {
         List {
@@ -51,6 +49,7 @@ private struct knotListView: View {
             .onMove(perform: moveItems)
         }
         .listStyle(.plain)
+        .id(listUpdateTrigger) // 리스트가 바뀔 때마다 ID가 바뀌도록 설정
     }
     
     private func deleteItems(at offsets: IndexSet) {
@@ -61,6 +60,7 @@ private struct knotListView: View {
     private func moveItems(from source: IndexSet, to destination: Int) {
         pattern.knotList.move(fromOffsets: source, toOffset: destination)
         try? modelContext.save()
+        listUpdateTrigger.toggle()
     }
     
     @ViewBuilder
@@ -100,7 +100,6 @@ private struct knotListView: View {
             if let loop = knot.loop, !loop.isEmpty {
                 DisclosureGroup {
                     LoopListView(loopList: loop) { loop in
-                        // Handle loop list change
                         pattern.knotList = pattern.knotList.map { knotItem in
                             if case Knot.basic(let newBasicKnot) = knotItem {
                                 if newBasicKnot.id == knot.id {
@@ -224,14 +223,13 @@ private struct knotListView: View {
             let allowedCharacters = CharacterSet(charactersIn: "0123456789.").inverted
             if newValue.rangeOfCharacter(from: allowedCharacters) != nil || newValue.components(separatedBy: ".").count > 2 {
                 textFieldString = oldValue
-            } else if !newValue.isEmpty, Double(newValue) == nil {
+            } else if !newValue.isEmpty, Float(newValue) == nil {
                 textFieldString = String(newValue.prefix(newValue.count - 1))
             }
         }
         
         private func lassoView(lasso: String) -> some View {
             HStack {
-                //FIXME: 이미지 크기
                 Image("\(EtcKnotName.고.rawValue)버튼")
                     .resizable()
                     .scaledToFit()
