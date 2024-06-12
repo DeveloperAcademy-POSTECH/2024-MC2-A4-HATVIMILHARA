@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TextPatternView: View {
+    @Environment(\.editMode) var editMode
     @Bindable var pattern: Pattern
     @State private var listUpdateTrigger = false
     @State private var keyBoardResponder = KeyboardResponder()
@@ -18,9 +19,11 @@ struct TextPatternView: View {
             Divider()
             TextKnotListView(pattern: pattern, listUpdateTrigger: $listUpdateTrigger)
         }
-        .onTapGesture {
-            hideKeyboard()
-        }
+        .gesture(
+            editMode?.wrappedValue.isEditing == true ? nil : TapGesture().onEnded {
+                hideKeyboard()
+            }
+        )
         .onChange(of: keyBoardResponder.isKeyboardVisible) { oldValue, newValue in
             if !newValue {
                 listUpdateTrigger.toggle()
