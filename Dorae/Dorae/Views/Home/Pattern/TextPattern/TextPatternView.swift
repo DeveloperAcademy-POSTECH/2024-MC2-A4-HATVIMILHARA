@@ -202,7 +202,6 @@ private struct knotListView: View {
         
         private var intervalView: some View {
             HStack {
-                //FIXME: 이미지 크기
                 Image("\(EtcKnotName.간격.rawValue)버튼")
                     .resizable()
                     .scaledToFit()
@@ -231,7 +230,6 @@ private struct knotListView: View {
         
         private func lassoView(lasso: String) -> some View {
             HStack {
-                //FIXME: 이미지 크기
                 Image("\(EtcKnotName.고.rawValue)버튼")
                     .resizable()
                     .scaledToFit()
