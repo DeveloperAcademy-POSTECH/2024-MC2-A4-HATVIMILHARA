@@ -27,6 +27,7 @@ struct TextKnotListView: View {
     private func deleteItems(at offsets: IndexSet) {
         pattern.knotList.remove(atOffsets: offsets)
         try? modelContext.save()
+        listUpdateTrigger.toggle()
     }
     
     private func moveItems(from source: IndexSet, to destination: Int) {
