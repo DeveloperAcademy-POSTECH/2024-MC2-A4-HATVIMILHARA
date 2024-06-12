@@ -1,5 +1,5 @@
 //
-//  KnotListView.swift
+//  TextKnotListView.swift
 //  Dorae
 //
 //  Created by Damin on 6/12/24.
