@@ -13,12 +13,10 @@ struct ImagePatternView: View {
     
     var body: some View {
         VStack {
-                VStack {
-                    ForEach(Array(pattern.knotList.enumerated()), id: \.offset) { idx, knot in
-                        KnotImageView(pattern: pattern, imagePatternViewModel: imagePatternVM, knot: knot, index: idx)
-                            .offset(y: imagePatternVM.offsetYDict[idx] ?? 0)
-                    }
-                }
+            ForEach(Array(pattern.knotList.enumerated()), id: \.offset) { idx, knot in
+                KnotImageView(pattern: pattern, imagePatternViewModel: imagePatternVM, knot: knot, index: idx)
+                    .offset(y: imagePatternVM.offsetYDict[idx] ?? 0)
+            }
         }
         .padding(.top, 24)
     }
