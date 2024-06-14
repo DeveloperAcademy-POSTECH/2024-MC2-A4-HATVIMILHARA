@@ -54,7 +54,6 @@ struct PatternView: View {
                                 .padding(.trailing, -20)
                         }
                     }
-                //TODO: 프레임 크기 뗀석기
                     .frame(width: 306)
             }
         }
