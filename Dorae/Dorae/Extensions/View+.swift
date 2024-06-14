@@ -22,3 +22,9 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+// UIViewControllerRepresentable을 사용하여 키보드 숨기기 기능 추가
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}

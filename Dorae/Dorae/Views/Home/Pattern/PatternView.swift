@@ -81,12 +81,6 @@ struct PatternPartView: View {
                             .font(.headline)
                             .fontWeight(.semibold)
                         Spacer()
-                        Button {
-                            //TODO: 확대축소 기능 구현
-                            imageReduction.toggle()
-                        } label: {
-                            Image(imageReduction ? "enlargeBtn" : "reductionBtn")
-                        }
                     }
                     .padding(.horizontal, 24)
                     .frame(height: 60)
