@@ -21,7 +21,6 @@ struct KnotButtonListView: View {
                 ForEach(knotNameList, id: \.self) { knotName in
                     KnotButton(knotName: knotName)
                         .onTapGesture {
-                            // FIXME: 버튼인스턴스 수정 필요
                             var newKnot: Knot = Knot.basic(knot: 도래매듭)
                              switch selectedTab {
                              case .basicCategory:

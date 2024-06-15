@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    //TODO: 날짜에 따라서 sort해주기
     @Query(sort: \Pattern.createdAt, order: .reverse) var patternList: [Pattern]
     @Environment(\.modelContext) private var modelContext
     @State private var newPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
