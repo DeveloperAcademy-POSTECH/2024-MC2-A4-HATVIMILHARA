@@ -17,8 +17,8 @@ struct Photo: Transferable {
 struct HomePatternItem: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
-    
-    @State private var renderedPatternImage = Image("")
+
+    @State private var renderedPatternImage = Image(systemName: "tortoise")
     @Environment(\.displayScale) var displayScale
     
     var body: some View {
@@ -41,7 +41,8 @@ struct HomePatternItem: View {
                             pattern.title, 
                             image: renderedPatternImage
                         )
-                    )  
+                    )
+                    .onAppear { render() }
                 }
             Spacer()
                 .frame(height: 16)
@@ -52,10 +53,6 @@ struct HomePatternItem: View {
                 .font(.system(size: 13, weight: .regular))
                 .foregroundStyle(.white)
         }
-        .onChange(of: pattern) {
-            render()
-        }
-        .onAppear { render() }
     }
     
     @MainActor
