@@ -20,6 +20,8 @@
 		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
 		E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A382BFF50DD004D15AF /* KnotImageView.swift */; };
 		E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A3B2C006F76004D15AF /* EtcKnot.swift */; };
+		E79330E02C192E4B0070BC4D /* TextKnotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79330DF2C192E4B0070BC4D /* TextKnotListView.swift */; };
+		E79330E22C1936140070BC4D /* KeyBoardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79330E12C1936140070BC4D /* KeyBoardResponder.swift */; };
 		E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */; };
 		E7B5F6DF2BF86CB400A1E749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */; };
 		E7B5F6E22BF86CB400A1E749 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5F6E12BF86CB400A1E749 /* Preview Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		E7549A382BFF50DD004D15AF /* KnotImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotImageView.swift; sourceTree = "<group>"; };
 		E7549A3B2C006F76004D15AF /* EtcKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtcKnot.swift; sourceTree = "<group>"; };
+		E79330DF2C192E4B0070BC4D /* TextKnotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKnotListView.swift; sourceTree = "<group>"; };
+		E79330E12C1936140070BC4D /* KeyBoardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardResponder.swift; sourceTree = "<group>"; };
 		E7B5F6D52BF86CB300A1E749 /* Dorae.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorae.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5F6D82BF86CB300A1E749 /* DoraeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoraeApp.swift; sourceTree = "<group>"; };
 		E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +100,14 @@
 			path = ImagePattern;
 			sourceTree = "<group>";
 		};
+		E79330E32C1937F50070BC4D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E79330E12C1936140070BC4D /* KeyBoardResponder.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E7B5F6CC2BF86CB300A1E749 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +132,7 @@
 				E7B5F7002BFB387800A1E749 /* Views */,
 				E7B5F7022BFB388900A1E749 /* ViewModel */,
 				E7B5F7012BFB388100A1E749 /* Extensions */,
+				E79330E32C1937F50070BC4D /* Utilities */,
 				E7B5F7072BFB3B2A00A1E749 /* Resources */,
 				E7B5F6E02BF86CB400A1E749 /* Preview Content */,
 				FFB53EED2C01E1D3005923E7 /* Splash */,
@@ -205,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B5F7102BFB3CBB00A1E749 /* TextPatternView.swift */,
+				E79330DF2C192E4B0070BC4D /* TextKnotListView.swift */,
 			);
 			path = TextPattern;
 			sourceTree = "<group>";
@@ -326,6 +340,7 @@
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
 				E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */,
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
+				E79330E22C1936140070BC4D /* KeyBoardResponder.swift in Sources */,
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
 				B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */,
@@ -334,6 +349,7 @@
 				B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */,
 				E7B5F70F2BFB3CB200A1E749 /* ImagePatternView.swift in Sources */,
 				B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */,
+				E79330E02C192E4B0070BC4D /* TextKnotListView.swift in Sources */,
 				B51873CF2C0473ED00BEDFA2 /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
