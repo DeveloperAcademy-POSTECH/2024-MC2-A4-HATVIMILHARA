@@ -11,19 +11,15 @@ struct Photo: Transferable {
     static var transferRepresentation: some TransferRepresentation {
         ProxyRepresentation(exporting: \.image)
     }
-    
     public var image: Image
 }
-
 
 struct HomePatternItem: View {
     @Bindable var pattern: Pattern
     @Environment(\.modelContext) var modelContext
-    
-    //TODO: 공유 이미지 수정
-    private let photo = Photo(image: Image("육립매듭"))
-//    @State private var renderedPatternImage = Image("육립매듭")
-//    @Environment(\.displayScale) var displayScale
+
+    @State private var renderedPatternImage = Image(systemName: "tortoise")
+    @Environment(\.displayScale) var displayScale
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -40,11 +36,13 @@ struct HomePatternItem: View {
 
                     ShareLink(
                         "공유",
-                        item: photo,
+                        item: renderedPatternImage,
                         preview: SharePreview(
-                            "Share Preview", image: photo.image
+                            pattern.title, 
+                            image: renderedPatternImage
                         )
-                    )  
+                    )
+                    .onAppear { render() }
                 }
             Spacer()
                 .frame(height: 16)
@@ -55,18 +53,16 @@ struct HomePatternItem: View {
                 .font(.system(size: 13, weight: .regular))
                 .foregroundStyle(.white)
         }
-//        .onChange(of: pattern) { _ in render() }
-//        .onAppear { render() }
     }
     
-//    @MainActor
-//    func render() {
-//        let renderer = ImageRenderer(content: ImagePatternView(pattern: pattern))
-//        
-//        renderer.scale = displayScale
-//        
-//        if let uiImage = renderer.uiImage {
-//            renderedPatternImage = Image(uiImage: uiImage)
-//        }
-//    }
+    @MainActor
+    func render() {
+        let renderer = ImageRenderer(content: ImagePatternView(pattern: pattern))
+        
+        renderer.scale = displayScale
+        
+        if let uiImage = renderer.uiImage {
+            renderedPatternImage = Image(uiImage: uiImage)
+        }
+    }
 }
