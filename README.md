@@ -1,17 +1,22 @@
 # 2024-MC2-A4-HATVIMILHARA
 
-<br>
-
-
-# 💡 도래(DORAE) 앱소개
-
+<div align="center">
+  
 <img src="https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/6ab1f286-7734-4883-858f-d85987493948" width="200" height="200"/>
 
 <br>
+
+
+### 도래(DORAE)
+***글로 쓴 전통매듭 도안을 이미지 도안으로 보여주고,<br>도안의 결과물을 시각적으로 확인하며 매듭을 디자인할 수 있는 앱***
+
+</div>
+
 <br>
 
-> 글로 쓴 전통매듭 도안을 완성된 모습을 예상하기 쉽게
-이미지 도안으로 보여주는 앱
+# 💡 도래(DORAE) 앱소개
+
+> 글로 쓴 전통매듭 도안을 완성된 모습을 예상하기 쉽게 이미지 도안으로 보여주는 앱
 > 
 
 - 전통매듭공예는 취미로 즐기고 있는 사용자에게서 발견한 문제<br>→ ***매듭 도안을 글로만 작성하고 있어서 완성된 결과물을 예상하기 어렵고, 도안을 창작하기 어렵다!***
@@ -27,19 +32,21 @@
 
 # 👥 팀원소개
 
-
+<div align="center">
+  
 | 김담인(비전) | 양지영(밀루) | 허예강(라프) |
 | --- | --- | --- |
 | <div align="center">테크</div> | <div align="center">테크</div> | <div align="center">테크</div> |
-| ![미모지_비전](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/5f4a290d-472c-4476-9ba9-b761eb5a231a) | ![미모지_밀루](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/ab582f2c-333e-4d95-bf95-ccbb4ab9fd9d) | ![미모지_라프](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/fae76302-0ea7-4a16-9366-ca5a6198d5c4) |
+| ![미모지_비전](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/a92508db-08cc-4a92-89db-31c07bd68215) | ![미모지_밀루](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/a53b4f2a-5fca-44c9-a592-76de385eb221) | ![미모지_라프](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/cacfadc1-3ef7-4d67-bb7a-42fbae97f5a9) |
 | <div align="center">ekadls757@gmail.com</div> | <div align="center">sophiathedev@gmail.com</div> | <div align="center">yeggang0602@gmail.com</div> |
 
 | 이주현(트란) | 하진주(헤이즐) | 한인우(하니) |
-| --- | --- | --- |
-| <div align="center">디자인</div> | <div align="center">디자인</div> | <div align="center">디자인</div> |
-| ![미모지_트란](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/f8fa28c9-e427-45c0-952c-f0b644cfd3e5) | ![미모지_헤이즐](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/0197bc67-394f-4009-9ab2-bbacdb5913f8) | ![미모지_하니](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/3191ea8b-1928-4dd9-841e-326a3146d59e) |
-| <div align="center">younglm582302@gmail.com</div> | <div align="center">daydog1122@gmail.com</div> | <div align="center">haninwoo0628@naver.com</div> |
+|:---:|:---:|:---:|
+|디자인|디자인|디자인|
+|![미모지_트란](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/c230d40b-d4ac-4e3e-a832-7334b37af55c)|![미모지_헤이즐](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/d360c48e-ce1c-4d78-9c98-eb46dd2fdcad)|![미모지_하니](https://github.com/DeveloperAcademy-POSTECH/2024-MC2-A4-HATVIMILHARA/assets/167414750/7decdfc6-9f83-42a3-8b62-984c12596e5c)|
+|younglm582302@gmail.com|daydog1122@gmail.com|haninwoo0628@naver.com|
 
+</div>
 
 <br>
 
@@ -49,6 +56,13 @@
 **매듭버튼**을 눌러서 리스트에 글 도안을 작성하면 그 매듭에 해당하는 이미지가 **그림 도안 뷰**에 나타난다.<br>
 **글 도안 뷰**에서 리스트를 이동 및 삭제하면 **그림 도안 뷰**에 반영된다.
 
+- [매듭버튼]을 눌러 [글 도안]에 추가
+- [글 도안]에 귀 길이, 간격 길이 메모
+- [글 도안]에 해당하는 [그림 도안] 생성
+- [글 도안] 이동, 삭제
+- [그림 도안] 저장, 공유
+
+<br>
 <div align="center">
 
 | [홈화면] | [패턴뷰 첫화면] |
