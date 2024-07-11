@@ -11,6 +11,7 @@ struct PatternView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var pattern: Pattern
     @Environment(\.editMode) var editMode
+    @State var isFolding = true
     
     var body: some View {
         HStack(spacing: 0) {
@@ -46,7 +47,7 @@ struct PatternView: View {
                     .foregroundStyle(.white)
                     .opacity(editMode?.wrappedValue.isEditing == true ? 0.6 : 1)
                 
-                KnotListView(pattern: pattern)
+                KnotListView(pattern: pattern, isFolding: $isFolding)
                     .overlay {
                         if editMode?.wrappedValue.isEditing == true && !pattern.knotList.isEmpty {
                             RoundedRectangle(cornerRadius: 24)
@@ -54,7 +55,9 @@ struct PatternView: View {
                                 .padding(.trailing, -20)
                         }
                     }
-                    .frame(width: 306)
+                    .if(isFolding) { view in
+                        view.frame(width: 306)
+                    }
             }
         }
         .background(Color.background)
