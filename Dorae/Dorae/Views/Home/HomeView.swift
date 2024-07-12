@@ -14,17 +14,13 @@ struct HomeView: View {
     @State private var newPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
     
     let columns = [
-        GridItem(.flexible(), alignment: .top),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.adaptive(minimum: 200, maximum: .infinity), alignment: .top)
     ]
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, spacing: 16) {
                     NavigationLink(destination: PatternView(pattern: newPattern)) {
                         HomeNewPatternItem()
                             .padding()
@@ -34,7 +30,7 @@ struct HomeView: View {
                         modelContext.insert(newPattern)
                     })
                     
-                    ForEach(patternList, id: \.self) { pattern in
+                    ForEach(patternList) { pattern in
                         NavigationLink(destination: PatternView(pattern: pattern)) {
                             HomePatternItem(pattern: pattern)
                                 .padding()
