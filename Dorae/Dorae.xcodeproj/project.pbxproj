@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50C91912C40CEFB00B18185 /* AVPlayerViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C91902C40CEFB00B18185 /* AVPlayerViewController+.swift */; };
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B50C91902C40CEFB00B18185 /* AVPlayerViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayerViewController+.swift"; sourceTree = "<group>"; };
 		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatternItem.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				B55EE5A42BFDCBBA005A43BC /* View+.swift */,
 				E7549A362BFF50AD004D15AF /* UIImage+.swift */,
 				B51873CE2C0473ED00BEDFA2 /* Date+.swift */,
+				B50C91902C40CEFB00B18185 /* AVPlayerViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */,
 				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
+				B50C91912C40CEFB00B18185 /* AVPlayerViewController+.swift in Sources */,
 				B51873CD2C02811900BEDFA2 /* HomeNewPatternItem.swift in Sources */,
 				E7B5F7062BFB393A00A1E749 /* Knot.swift in Sources */,
 				E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */,
