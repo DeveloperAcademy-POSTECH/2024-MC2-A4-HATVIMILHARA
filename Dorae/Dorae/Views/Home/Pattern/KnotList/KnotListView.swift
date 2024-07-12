@@ -16,21 +16,25 @@ enum KnotCategory {
 struct KnotListView: View {
     @State private var selectedTab: KnotCategory = .basicCategory
     @Bindable var pattern: Pattern
-    
+    @Binding var isFolding : Bool
+
     let basicKnotNameList = BasicKnotName.allCases.map { knot in knot.rawValue }
     let appliedKnotNameList = AppliedKnotName.allCases.map { knot in knot.rawValue }
     let etcKnotNameList = EtcKnotName.allCases.map { knot in knot.rawValue }
     
     var body: some View {
         HStack(spacing: 0) {
-            switch selectedTab {
-            case .basicCategory:
-                KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: basicKnotNameList)
-            case .appliedCategory:
-                KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
-            case .etcCategory:
-                KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: etcKnotNameList)
+            if isFolding {
+                switch selectedTab {
+                case .basicCategory:
+                    KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: basicKnotNameList)
+                case .appliedCategory:
+                    KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
+                case .etcCategory:
+                    KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: etcKnotNameList)
+                }
             }
+        
             
             VStack(spacing: 0) {
                 CategoryTabButton(title: "기본", isSelected: selectedTab == .basicCategory) {
@@ -45,6 +49,15 @@ struct KnotListView: View {
                     selectedTab = .etcCategory
                 }
                 Spacer()
+                
+                Button {
+                    isFolding.toggle()
+                } label: {
+                    isFolding ? Image(systemName: "chevron.right") : Image(systemName: "chevron.left")
+                }
+                .font(.title2.bold())
+                .foregroundStyle(.white)
+                Spacer().frame(height: 50)
             }
             .padding(.top, 50)
             .background(Color.knotMenuBar)
