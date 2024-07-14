@@ -55,9 +55,7 @@ struct PatternView: View {
                                 .padding(.trailing, -20)
                         }
                     }
-                    .if(isFolding) { view in
-                        view.frame(width: 306)
-                    }
+                    .frame(width: isFolding ? 306 : nil)
             }
         }
         .background(Color.background)
