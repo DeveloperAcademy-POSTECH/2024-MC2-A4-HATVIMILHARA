@@ -19,6 +19,7 @@ struct SplashView: View {
                 if let player = viewModel.player {
                     VideoPlayerView(player: player)
                         .onAppear {
+                            viewModel.setupAudioSession()
                             player.play()
                         }
                         .edgesIgnoringSafeArea(.all)
