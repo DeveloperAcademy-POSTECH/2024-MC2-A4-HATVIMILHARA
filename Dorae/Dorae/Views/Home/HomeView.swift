@@ -11,7 +11,7 @@ import SwiftData
 struct HomeView: View {
     @Query(sort: \Pattern.createdAt, order: .reverse) var patternList: [Pattern]
     @Environment(\.modelContext) private var modelContext
-    @State private var newPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
+    @State private var newPattern: Pattern = Pattern(knotList: [], createdAt: .now, title: .localized("제목없음"), braid: "")
     
     let columns = [
         GridItem(.adaptive(minimum: 200, maximum: .infinity), alignment: .top)
@@ -26,7 +26,7 @@ struct HomeView: View {
                             .padding()
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        newPattern = Pattern(knotList: [], createdAt: .now, title: "제목없음", braid: "")
+                        newPattern = Pattern(knotList: [], createdAt: .now, title: .localized("제목없음"), braid: "")
                         modelContext.insert(newPattern)
                     })
                     

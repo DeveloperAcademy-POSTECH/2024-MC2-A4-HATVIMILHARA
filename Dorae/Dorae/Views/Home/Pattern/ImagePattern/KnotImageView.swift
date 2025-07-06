@@ -38,7 +38,7 @@ struct KnotImageView: View {
                 .frame(width: boundingBox.height)
                 .frame(height: getHeight(for: knot, boundingBox: boundingBox))
             } else {
-                Text("Image not found")
+                Text("이미지를 찾을 수 없습니다.")
             }
         }
     }

@@ -17,6 +17,9 @@
 		B51873CD2C02811900BEDFA2 /* HomeNewPatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */; };
 		B51873CF2C0473ED00BEDFA2 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CE2C0473ED00BEDFA2 /* Date+.swift */; };
 		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
+		B584C8B52E1A3BEC00EBEECE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B584C8B42E1A3BEC00EBEECE /* Localizable.xcstrings */; };
+		B584C9052E1A461900EBEECE /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B584C9042E1A461900EBEECE /* String+.swift */; };
+		B584C9072E1A48AA00EBEECE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B584C9062E1A48AA00EBEECE /* InfoPlist.xcstrings */; };
 		E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */; };
 		E7549A372BFF50AD004D15AF /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A362BFF50AD004D15AF /* UIImage+.swift */; };
 		E7549A392BFF50DD004D15AF /* KnotImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7549A382BFF50DD004D15AF /* KnotImageView.swift */; };
@@ -50,6 +53,9 @@
 		B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewPatternItem.swift; sourceTree = "<group>"; };
 		B51873CE2C0473ED00BEDFA2 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		B584C8B42E1A3BEC00EBEECE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Dorae/Utilities/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
+		B584C9042E1A461900EBEECE /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		B584C9062E1A48AA00EBEECE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		E7549A342BFF4F84004D15AF /* ImagePatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePatternViewModel.swift; sourceTree = "<group>"; };
 		E7549A362BFF50AD004D15AF /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		E7549A382BFF50DD004D15AF /* KnotImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotImageView.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				E7549A362BFF50AD004D15AF /* UIImage+.swift */,
 				B51873CE2C0473ED00BEDFA2 /* Date+.swift */,
 				B50C91902C40CEFB00B18185 /* AVPlayerViewController+.swift */,
+				B584C9042E1A461900EBEECE /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,9 +197,11 @@
 		E7B5F7072BFB3B2A00A1E749 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B584C8B42E1A3BEC00EBEECE /* Localizable.xcstrings */,
 				FF6D53282C020E4800452809 /* SplashVideo.mp4 */,
 				B50F27102BFB665500BB96F5 /* KnotList */,
 				E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */,
+				B584C9062E1A48AA00EBEECE /* InfoPlist.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -299,6 +308,7 @@
 			knownRegions = (
 				en,
 				ko,
+				ja,
 			);
 			mainGroup = E7B5F6CC2BF86CB300A1E749;
 			productRefGroup = E7B5F6D62BF86CB300A1E749 /* Products */;
@@ -316,7 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B5F6E22BF86CB400A1E749 /* Preview Assets.xcassets in Resources */,
+				B584C9072E1A48AA00EBEECE /* InfoPlist.xcstrings in Resources */,
 				FF6D53292C020E4800452809 /* SplashVideo.mp4 in Resources */,
+				B584C8B52E1A3BEC00EBEECE /* Localizable.xcstrings in Resources */,
 				E7B5F6DF2BF86CB400A1E749 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +358,7 @@
 				E7B5F7042BFB391500A1E749 /* Pattern.swift in Sources */,
 				E79330E22C1936140070BC4D /* KeyBoardResponder.swift in Sources */,
 				E7B5F70D2BFB3CAA00A1E749 /* PatternView.swift in Sources */,
+				B584C9052E1A461900EBEECE /* String+.swift in Sources */,
 				E7B5F6D92BF86CB300A1E749 /* DoraeApp.swift in Sources */,
 				B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */,
 				B51873C92C02636500BEDFA2 /* CategoryTabButton.swift in Sources */,
@@ -420,6 +433,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -476,6 +490,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

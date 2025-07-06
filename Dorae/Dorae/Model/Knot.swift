@@ -107,7 +107,7 @@ struct EtcKnot: Identifiable, Hashable, Codable {
         self.lasso = lasso
         self.interval = interval
     }
-
+    
     init(etcKnot: EtcKnot) {
         self.tassel = etcKnot.tassel
         self.lasso = etcKnot.lasso
@@ -137,6 +137,32 @@ enum BasicKnotName: String, CaseIterable, Codable {
     case 가지방석매듭
     case 딸기매듭
     case 석씨매듭
+    
+    var localizedName: String {
+        switch self {
+        case .도래매듭: return .localized("도래매듭")
+        case .귀도래매듭: return .localized("귀도래매듭")
+        case .단추매듭: return .localized("단추매듭")
+        case .가락지매듭: return .localized("가락지매듭")
+        case .생쪽매듭: return .localized("생쪽매듭")
+        case .나비매듭: return .localized("나비매듭")
+        case .거꾸로나비매듭: return .localized("거꾸로나비매듭")
+        case .두벌매화매듭: return .localized("두벌매화매듭")
+        case .세벌매화매듭: return .localized("세벌매화매듭")
+        case .두벌국화매듭: return .localized("두벌국화매듭")
+        case .세벌국화매듭: return .localized("세벌국화매듭")
+        case .네벌국화매듭: return .localized("네벌국화매듭")
+        case .다섯벌국화매듭: return .localized("다섯벌국화매듭")
+        case .병아리매듭: return .localized("병아리매듭")
+        case .잠자리매듭: return .localized("잠자리매듭")
+        case .동심결매듭: return .localized("동심결매듭")
+        case .안경매듭: return .localized("안경매듭")
+        case .장구매듭: return .localized("장구매듭")
+        case .가지방석매듭: return .localized("가지방석매듭")
+        case .딸기매듭: return .localized("딸기매듭")
+        case .석씨매듭: return .localized("석씨매듭")
+        }
+    }
 }
 
 enum AppliedKnotName: String, CaseIterable, Codable {
@@ -146,11 +172,30 @@ enum AppliedKnotName: String, CaseIterable, Codable {
     case 꽃육립매듭
     case 공작매듭
     case 스타매듭
+    
+    var localizedName: String {
+        switch self {
+        case .항아리매듭: return .localized("항아리매듭")
+        case .지게매듭: return .localized("지게매듭")
+        case .육립매듭: return .localized("육립매듭")
+        case .꽃육립매듭: return .localized("꽃육립매듭")
+        case .공작매듭: return .localized("공작매듭")
+        case .스타매듭: return .localized("스타매듭")
+        }
+    }
 }
 
 enum EtcKnotName: String, CaseIterable, Codable {
     case 고
     case 술
     case 간격
+    
+    var localizedName: String {
+        switch self {
+        case .고: return .localized("고")
+        case .술: return .localized("술")
+        case .간격: return .localized("간격")
+        }
+    }
 }
 

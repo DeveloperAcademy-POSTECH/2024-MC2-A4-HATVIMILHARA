@@ -37,15 +37,15 @@ struct KnotListView: View {
         
             
             VStack(spacing: 0) {
-                CategoryTabButton(title: "기본", isSelected: selectedTab == .basicCategory) {
+                CategoryTabButton(title: .localized("기본"), isSelected: selectedTab == .basicCategory) {
                     selectedTab = .basicCategory
                 }
                 
-                CategoryTabButton(title: "응용", isSelected: selectedTab == .appliedCategory) {
+                CategoryTabButton(title: .localized("응용"), isSelected: selectedTab == .appliedCategory) {
                     selectedTab = .appliedCategory
                 }
                 
-                CategoryTabButton(title: "기타", isSelected: selectedTab == .etcCategory) {
+                CategoryTabButton(title: .localized("기타"), isSelected: selectedTab == .etcCategory) {
                     selectedTab = .etcCategory
                 }
                 Spacer()
