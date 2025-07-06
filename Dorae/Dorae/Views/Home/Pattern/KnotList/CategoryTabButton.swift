@@ -15,7 +15,7 @@ struct CategoryTabButton: View {
     private var adaptivePadding: CGFloat {
         let locale = Locale.current.language.languageCode?.identifier ?? "ko"
         switch locale {
-        case "en": return 8   
+        case "en": return 4
         case "ja": return 14
         default: return 20
         }
