@@ -13,7 +13,10 @@ struct KnotButtonListView: View {
     @Binding var selectedTab: KnotCategory
     
     let knotNameList: [String]
-    let columns = [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)]
+    let columns = [
+        GridItem(.flexible(), spacing: 16, alignment: .top),
+        GridItem(.flexible(), spacing: 16, alignment: .top)
+    ]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
