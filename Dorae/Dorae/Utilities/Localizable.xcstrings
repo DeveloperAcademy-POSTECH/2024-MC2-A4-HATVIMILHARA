@@ -25,13 +25,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Garackji(Ring) Knot"
+            "value" : "Ring"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ガラクジ(指輪)結び"
+            "value" : "指輪結び"
           }
         }
       }
@@ -41,7 +41,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Branch Cushion Knot"
+            "value" : "Branch Cushion"
           }
         },
         "ja" : {
@@ -105,13 +105,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reverse Butterfly Knot"
+            "value" : "Reverse Butterfly"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "逆蝶結び"
+            "value" : "逆蝶"
           }
         }
       }
@@ -153,13 +153,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peacock Knot"
+            "value" : "Peacock"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "孔雀結び"
+            "value" : "孔雀"
           }
         }
       }
@@ -185,13 +185,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Guidorae Knot"
+            "value" : "Guidorae"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "グィドレ結び"
+            "value" : "グィドレ"
           }
         }
       }
@@ -265,13 +265,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Flower Hexagonal Knot"
+            "value" : "Flower Hex"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "花六立結び"
+            "value" : "花六立"
           }
         }
       }
@@ -313,13 +313,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nabi(Butterfly) Knot"
+            "value" : "Butterfly"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ナビ(蝶)結び"
+            "value" : "ナビ(蝶)"
           }
         }
       }
@@ -329,13 +329,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quadruple Chrysanthemum Knot"
+            "value" : "Quadruple Chrysan."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "四重菊花結び"
+            "value" : "四重菊花"
           }
         }
       }
@@ -345,13 +345,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quintuple Chrysanthemum Knot"
+            "value" : "Quintuple Chrysan."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "五重菊花結び"
+            "value" : "五重菊花"
           }
         }
       }
@@ -361,13 +361,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Button Knot"
+            "value" : "Button"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ボタン結び"
+            "value" : "ボタン"
           }
         }
       }
@@ -377,13 +377,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dorae Knot"
+            "value" : "Dorae"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ドレ結び"
+            "value" : "ドレ"
           }
         }
       }
@@ -409,13 +409,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Concentric Knot"
+            "value" : "Concentric"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "同心結び"
+            "value" : "同心"
           }
         }
       }
@@ -425,13 +425,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Double Chrysanthemum Knot"
+            "value" : "Double Chrysan."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "二重菊花結び"
+            "value" : "二重菊花"
           }
         }
       }
@@ -441,13 +441,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Double Plum Blossom Knot"
+            "value" : "Double Plum Blossom"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "二重梅花結び"
+            "value" : "二重梅花"
           }
         }
       }
@@ -457,13 +457,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Strawberry Knot"
+            "value" : "Strawberry"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "イチゴ結び"
+            "value" : "イチゴ"
           }
         }
       }
@@ -505,13 +505,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chick Knot"
+            "value" : "Chick"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ひよこ結び"
+            "value" : "ひよこ"
           }
         }
       }
@@ -553,13 +553,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saengjjok(Ginger) Knot"
+            "value" : "Ginger"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "センジョク(生姜)結び"
+            "value" : "生姜"
           }
         }
       }
@@ -569,13 +569,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stone Seed Knot"
+            "value" : "Stone Seed"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "石の種結び"
+            "value" : "石の種"
           }
         }
       }
@@ -585,13 +585,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Triple Chrysanthemum Knot"
+            "value" : "Triple Chrysan."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "三重菊花結び"
+            "value" : "三重菊花"
           }
         }
       }
@@ -601,13 +601,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Triple Plum Blossom Knot"
+            "value" : "Triple Plum Blossom"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "三重梅花結び"
+            "value" : "三重梅花"
           }
         }
       }
@@ -633,13 +633,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Star Knot"
+            "value" : "Star"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "スター結び"
+            "value" : "スター"
           }
         }
       }
@@ -665,13 +665,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Glasses Knot"
+            "value" : "Glasses"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "眼鏡結び"
+            "value" : "眼鏡"
           }
         }
       }
@@ -681,13 +681,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hexagonal Knot"
+            "value" : "Hexagonal"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "六立結び"
+            "value" : "六立"
           }
         }
       }
@@ -745,13 +745,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dragonfly Knot"
+            "value" : "Dragonfly"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "トンボ結び"
+            "value" : "トンボ"
           }
         }
       }
@@ -761,13 +761,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Janggu Knot"
+            "value" : "Janggu"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "チャング結び"
+            "value" : "チャング"
           }
         }
       }
@@ -793,13 +793,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jige Knot"
+            "value" : "Jige"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ジゲ(背負子)結び"
+            "value" : "ジゲ(背負子)"
           }
         }
       }
@@ -809,13 +809,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hang-ari(Jar) Knot"
+            "value" : "Hang-ari(Jar)"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ハンガリ(甕)結び"
+            "value" : "ハンガリ(甕)"
           }
         }
       }
