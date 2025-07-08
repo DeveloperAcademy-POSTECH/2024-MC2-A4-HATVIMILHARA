@@ -61,6 +61,7 @@ struct KnotListView: View {
             }
             .padding(.top, 50)
             .background(Color.knotMenuBar)
+            .fixedSize(horizontal: true, vertical: false) // 가로는 내용에 맞게, 세로는 전체 높이
         }
         .background(Color.knotMenuBG)
         .roundedCorner(24, corners: [.bottomLeft, .topLeft])

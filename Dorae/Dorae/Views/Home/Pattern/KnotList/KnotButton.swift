@@ -20,6 +20,7 @@ struct KnotButton: View {
                 .frame(height: 8)
             Text(knotName.asLocalizedKnotName)
                 .font(.caption)
+                .multilineTextAlignment(.center)
         }
     }
 }
