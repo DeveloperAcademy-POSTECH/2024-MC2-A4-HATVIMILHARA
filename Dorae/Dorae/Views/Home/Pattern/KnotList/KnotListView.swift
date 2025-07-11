@@ -11,6 +11,7 @@ enum KnotCategory {
     case basicCategory
     case appliedCategory
     case etcCategory
+    case templateCategory
 }
 
 struct KnotListView: View {
@@ -21,6 +22,8 @@ struct KnotListView: View {
     let basicKnotNameList = BasicKnotName.allCases.map { knot in knot.rawValue }
     let appliedKnotNameList = AppliedKnotName.allCases.map { knot in knot.rawValue }
     let etcKnotNameList = EtcKnotName.allCases.map { knot in knot.rawValue }
+    let templateList = Pattern.predefinedTemplates.map { $0.title } // ["진우", "루미", "조이", "미라"]
+
     
     var body: some View {
         HStack(spacing: 0) {
@@ -32,6 +35,8 @@ struct KnotListView: View {
                     KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: appliedKnotNameList)
                 case .etcCategory:
                     KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: etcKnotNameList)
+                case .templateCategory:
+                    KnotButtonListView(pattern: pattern, selectedTab: $selectedTab, knotNameList: templateList)
                 }
             }
         
@@ -47,6 +52,10 @@ struct KnotListView: View {
                 
                 CategoryTabButton(title: .localized("기타"), isSelected: selectedTab == .etcCategory) {
                     selectedTab = .etcCategory
+                }
+                
+                CategoryTabButton(title: .localized("템플릿"), isSelected: selectedTab == .templateCategory) {
+                    selectedTab = .templateCategory
                 }
                 Spacer()
                 

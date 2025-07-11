@@ -24,4 +24,53 @@ class Pattern: Identifiable {
     }
 }
 
-
+extension Pattern {
+    // TODO: 매듭 수정할것
+    static let predefinedTemplates: [Pattern] = [
+        Pattern(
+            knotList: [
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .etc(knot: EtcKnot(interval: 12)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .etc(knot: EtcKnot(interval: 12)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭))
+            ],
+            createdAt: .now,
+            title: "진우",
+            braid: ""
+        ),
+        
+        Pattern(
+            knotList: [
+                .etc(knot: EtcKnot(lasso: "고")),
+                .applied(knot: AppliedKnot(knotName: .육립매듭)),
+                .etc(knot: EtcKnot(tassel: "술"))
+            ],
+            createdAt: .now,
+            title: "루미",
+            braid: ""
+        ),
+        
+        Pattern(
+            knotList: [
+                .etc(knot: EtcKnot(lasso: "고")),
+                .applied(knot: AppliedKnot(knotName: .지게매듭)),
+                .etc(knot: EtcKnot(tassel: "술"))
+            ],
+            createdAt: .now,
+            title: "조이",
+            braid: ""
+        ),
+        
+        Pattern(
+            knotList: [
+                .etc(knot: EtcKnot(lasso: "고")),
+                .applied(knot: AppliedKnot(knotName: .항아리매듭)),
+                .etc(knot: EtcKnot(tassel: "술"))
+            ],
+            createdAt: .now,
+            title: "미라",
+            braid: ""
+        )
+    ]
+}
