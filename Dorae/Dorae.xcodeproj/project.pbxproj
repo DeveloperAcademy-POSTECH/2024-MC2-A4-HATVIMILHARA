@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C6CD4092E30DBCE00D0A24B /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5C6CD4082E30DBCE00D0A24B /* Mixpanel */; };
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6CD4092E30DBCE00D0A24B /* Mixpanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +289,9 @@
 				ko,
 			);
 			mainGroup = E7B5F6CC2BF86CB300A1E749;
+			packageReferences = (
+				5C6CD4072E30DBCE00D0A24B /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
+			);
 			productRefGroup = E7B5F6D62BF86CB300A1E749 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -544,6 +549,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C6CD4072E30DBCE00D0A24B /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C6CD4082E30DBCE00D0A24B /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C6CD4072E30DBCE00D0A24B /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E7B5F6CD2BF86CB300A1E749 /* Project object */;
 }

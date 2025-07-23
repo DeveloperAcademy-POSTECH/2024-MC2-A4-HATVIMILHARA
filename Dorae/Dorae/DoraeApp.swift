@@ -7,11 +7,17 @@
 
 import SwiftUI
 import SwiftData
+import Mixpanel
 
 @main
 struct DoraeApp: App {
     @State private var knotDataManager = KnotDataManager()
 
+    init() {
+        // Mixpanel token
+        Mixpanel.initialize(token: "c3edd3f4d7a35aa2e22274bb71f7ee68", trackAutomaticEvents: true)
+    }
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
 //            Item.self,
