@@ -25,15 +25,18 @@ class Pattern: Identifiable {
 }
 
 extension Pattern {
-    // TODO: 매듭 수정할것
     static let predefinedTemplates: [Pattern] = [
         Pattern(
             knotList: [
+                .etc(knot: EtcKnot(interval: 5)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
                 .basic(knot: BasicKnot(knotName: .생쪽매듭)),
-                .etc(knot: EtcKnot(interval: 12)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
+                .basic(knot: BasicKnot(knotName: .두벌국화매듭)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
                 .basic(knot: BasicKnot(knotName: .생쪽매듭)),
-                .etc(knot: EtcKnot(interval: 12)),
-                .basic(knot: BasicKnot(knotName: .생쪽매듭))
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
+                .etc(knot: EtcKnot(interval: 5))
             ],
             createdAt: .now,
             title: "진우",
@@ -43,7 +46,18 @@ extension Pattern {
         Pattern(
             knotList: [
                 .etc(knot: EtcKnot(lasso: "고")),
-                .applied(knot: AppliedKnot(knotName: .육립매듭)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
+                .basic(knot: BasicKnot(knotName: .두벌국화매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .basic(knot: BasicKnot(knotName: .병아리매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .applied(knot: AppliedKnot(knotName: .스타매듭)),
+                .basic(knot: BasicKnot(knotName: .세벌국화매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .basic(knot: BasicKnot(knotName: .병아리매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .basic(knot: BasicKnot(knotName: .병아리매듭)),
                 .etc(knot: EtcKnot(tassel: "술"))
             ],
             createdAt: .now,
@@ -54,7 +68,12 @@ extension Pattern {
         Pattern(
             knotList: [
                 .etc(knot: EtcKnot(lasso: "고")),
-                .applied(knot: AppliedKnot(knotName: .지게매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .basic(knot: BasicKnot(knotName: .장구매듭)),
+                .basic(knot: BasicKnot(knotName: .생쪽매듭)),
+                .basic(knot: BasicKnot(knotName: .장구매듭)),
+                .basic(knot: BasicKnot(knotName: .나비매듭)),
                 .etc(knot: EtcKnot(tassel: "술"))
             ],
             createdAt: .now,
@@ -65,7 +84,9 @@ extension Pattern {
         Pattern(
             knotList: [
                 .etc(knot: EtcKnot(lasso: "고")),
-                .applied(knot: AppliedKnot(knotName: .항아리매듭)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
+                .basic(knot: BasicKnot(knotName: .두벌국화매듭)),
+                .basic(knot: BasicKnot(knotName: .도래매듭)),
                 .etc(knot: EtcKnot(tassel: "술"))
             ],
             createdAt: .now,
