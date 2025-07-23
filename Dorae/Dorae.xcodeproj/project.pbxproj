@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CEAC7D42E23C43A005FB7C6 /* WebLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAC7D32E23C433005FB7C6 /* WebLink.swift */; };
 		B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27112BFB666C00BB96F5 /* BasicKnot.swift */; };
 		B50F27142BFB668400BB96F5 /* AppliedKnot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27132BFB668400BB96F5 /* AppliedKnot.swift */; };
 		B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CEAC7D32E23C433005FB7C6 /* WebLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLink.swift; sourceTree = "<group>"; };
 		B50F27112BFB666C00BB96F5 /* BasicKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicKnot.swift; sourceTree = "<group>"; };
 		B50F27132BFB668400BB96F5 /* AppliedKnot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedKnot.swift; sourceTree = "<group>"; };
 		B50F27192BFCAE7A00BB96F5 /* HomePatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePatternItem.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		E7B5F7072BFB3B2A00A1E749 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5CEAC7D32E23C433005FB7C6 /* WebLink.swift */,
 				FF6D53282C020E4800452809 /* SplashVideo.mp4 */,
 				B50F27102BFB665500BB96F5 /* KnotList */,
 				E7B5F6DE2BF86CB400A1E749 /* Assets.xcassets */,
@@ -320,6 +323,7 @@
 				B50F27122BFB666C00BB96F5 /* BasicKnot.swift in Sources */,
 				E7B5F7192BFB3F5A00A1E749 /* Color+.swift in Sources */,
 				B50F271A2BFCAE7A00BB96F5 /* HomePatternItem.swift in Sources */,
+				5CEAC7D42E23C43A005FB7C6 /* WebLink.swift in Sources */,
 				E7B5F7132BFB3CC900A1E749 /* KnotListView.swift in Sources */,
 				E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
