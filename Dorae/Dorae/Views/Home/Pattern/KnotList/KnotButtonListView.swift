@@ -25,7 +25,7 @@ struct KnotButtonListView: View {
                     ForEach(knotNameList, id: \.self) { knotName in
                         KnotButton(knotName: knotName)
                             .onTapGesture {
-                                var newKnot: Knot = Knot.basic(knot: 도래매듭)
+                                var newKnot: Knot? = nil
                                 switch selectedTab {
                                 case .basicCategory:
                                     basicKnotCollection.forEach { basicKnot in
@@ -56,8 +56,10 @@ struct KnotButtonListView: View {
                                         try? modelContext.save()
                                     }
                                 }
-                                pattern.knotList.append(newKnot)
-                                try? modelContext.save()
+                                if let newKnot = newKnot {
+                                    pattern.knotList.append(newKnot)
+                                    try? modelContext.save()
+                                }
                             }
                     }
                 }
