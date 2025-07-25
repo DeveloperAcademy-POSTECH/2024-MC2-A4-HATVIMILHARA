@@ -55,7 +55,7 @@ private struct NewPatternButtonView: View {
     @Binding var tempPattern: Pattern
     @Environment(\.modelContext) private var modelContext
     @Environment(KnotDataManager.self) private var knotDataManager
-
+    
     var body: some View {
         NavigationLink(destination: PatternView(pattern: tempPattern)) {
             HomeNewPatternItem()
@@ -86,20 +86,18 @@ private struct PatternLinkView: View {
 
 private struct InfoButton: View {
     let openURL: OpenURLAction
-
+    
     var body: some View {
         Button {
             let languageCode = Locale.preferredLanguages.first ?? "en"
             
             let url: URL? = {
-                if languageCode.hasPrefix("ja") {
-                    print("일본 사람: \(languageCode)")
+                switch languageCode {
+                case _ where languageCode.hasPrefix("ja"):
                     return WebLinks.jaInfoNotion
-                } else if languageCode.hasPrefix("ko") {
-                    print("한국 사람: \(languageCode)")
+                case _ where languageCode.hasPrefix("ko"):
                     return WebLinks.krInfoNotion
-                } else {
-                    print("그 외: \(languageCode)")
+                default:
                     return WebLinks.enInfoNotion
                 }
             }()
@@ -107,7 +105,6 @@ private struct InfoButton: View {
             if let url {
                 openURL(url)
             }
-            
         } label: {
             Image(systemName: "info.circle")
                 .foregroundStyle(.black)
