@@ -804,6 +804,22 @@
         }
       }
     },
+    "템플릿" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Template"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "型"
+          }
+        }
+      }
+    },
     "항아리매듭" : {
       "localizations" : {
         "en" : {
