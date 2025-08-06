@@ -17,6 +17,7 @@
 		B51873CB2C02639A00BEDFA2 /* KnotButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CA2C02639A00BEDFA2 /* KnotButton.swift */; };
 		B51873CD2C02811900BEDFA2 /* HomeNewPatternItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */; };
 		B51873CF2C0473ED00BEDFA2 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51873CE2C0473ED00BEDFA2 /* Date+.swift */; };
+		B5340E852E4388170029C85E /* KnotFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5340E842E4388170029C85E /* KnotFactory.swift */; };
 		B55EE5A52BFDCBBA005A43BC /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55EE5A42BFDCBBA005A43BC /* View+.swift */; };
 		B584C8B52E1A3BEC00EBEECE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B584C8B42E1A3BEC00EBEECE /* Localizable.xcstrings */; };
 		B584C9052E1A461900EBEECE /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B584C9042E1A461900EBEECE /* String+.swift */; };
@@ -54,6 +55,7 @@
 		B51873CA2C02639A00BEDFA2 /* KnotButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotButton.swift; sourceTree = "<group>"; };
 		B51873CC2C02811900BEDFA2 /* HomeNewPatternItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewPatternItem.swift; sourceTree = "<group>"; };
 		B51873CE2C0473ED00BEDFA2 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		B5340E842E4388170029C85E /* KnotFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnotFactory.swift; sourceTree = "<group>"; };
 		B55EE5A42BFDCBBA005A43BC /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		B584C8B42E1A3BEC00EBEECE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Dorae/Utilities/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
 		B584C9042E1A461900EBEECE /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				B51873C62C02630500BEDFA2 /* KnotButtonListView.swift */,
 				B51873C82C02636500BEDFA2 /* CategoryTabButton.swift */,
 				B51873CA2C02639A00BEDFA2 /* KnotButton.swift */,
+				B5340E842E4388170029C85E /* KnotFactory.swift */,
 			);
 			path = KnotList;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				E7549A3C2C006F76004D15AF /* EtcKnot.swift in Sources */,
 				E7B5F70B2BFB3C6B00A1E749 /* HomeView.swift in Sources */,
 				B51873C72C02630500BEDFA2 /* KnotButtonListView.swift in Sources */,
+				B5340E852E4388170029C85E /* KnotFactory.swift in Sources */,
 				E7549A352BFF4F84004D15AF /* ImagePatternViewModel.swift in Sources */,
 				B50C91912C40CEFB00B18185 /* AVPlayerViewController+.swift in Sources */,
 				B51873CD2C02811900BEDFA2 /* HomeNewPatternItem.swift in Sources */,
