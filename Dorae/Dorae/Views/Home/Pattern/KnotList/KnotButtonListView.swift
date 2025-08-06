@@ -25,41 +25,7 @@ struct KnotButtonListView: View {
                     ForEach(knotNameList, id: \.self) { knotName in
                         KnotButton(knotName: knotName)
                             .onTapGesture {
-                                var newKnot: Knot? = nil
-                                switch selectedTab {
-                                case .basicCategory:
-                                    basicKnotCollection.forEach { basicKnot in
-                                        if knotName == basicKnot.knotName.rawValue {
-                                            let newBasicKnot = BasicKnot(basicKnot: basicKnot)
-                                            newKnot = Knot.basic(knot: newBasicKnot)
-                                        }
-                                    }
-                                case .appliedCategory:
-                                    appliedKnotCollection.forEach { appliedKnot in
-                                        if knotName == appliedKnot.knotName.rawValue {
-                                            let newAppliedKnot = AppliedKnot(appliedKnot: appliedKnot)
-                                            newKnot = Knot.applied(knot: newAppliedKnot)
-                                        }
-                                    }
-                                case .etcCategory:
-                                    if knotName == EtcKnotName.고.rawValue {
-                                        newKnot = Knot.etc(knot: EtcKnot(lasso: knotName))
-                                    } else if knotName == EtcKnotName.술.rawValue {
-                                        newKnot = Knot.etc(knot: EtcKnot(tassel:  knotName))
-                                    } else {
-                                        newKnot = Knot.etc(knot: EtcKnot(interval:  0.0))
-                                    }
-                                case .templateCategory:
-                                    if let templatePattern = Pattern.predefinedTemplates.first(where: { $0.title == knotName }) {
-                                        // 템플릿 패턴의 매듭들을 현재 패턴에 추가
-                                        pattern.knotList.append(contentsOf: templatePattern.knotList)
-                                        try? modelContext.save()
-                                    }
-                                }
-                                if let newKnot = newKnot {
-                                    pattern.knotList.append(newKnot)
-                                    try? modelContext.save()
-                                }
+                                addKnot(name: knotName)
                             }
                     }
                 }
@@ -68,5 +34,17 @@ struct KnotButtonListView: View {
             }
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    private func addKnot(name: String) {
+        if selectedTab == .templateCategory {
+            let knotList = KnotFactory.createKnotList(templateName: name)
+            pattern.knotList.append(contentsOf: knotList)
+        }
+        
+        else if let knot = KnotFactory.createKnot(name: name, category: selectedTab) {
+            pattern.knotList.append(knot)
+        }
+        try? modelContext.save()
     }
 }
