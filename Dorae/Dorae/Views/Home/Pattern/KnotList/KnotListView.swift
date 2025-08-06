@@ -56,6 +56,7 @@ struct KnotListView: View {
                 
                 CategoryTabButton(title: .localized("템플릿"), isSelected: selectedTab == .templateCategory) {
                     selectedTab = .templateCategory
+                    MixpanelService.shared.trackTemplateButton(category: "템플릿")
                 }
                 Spacer()
                 

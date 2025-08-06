@@ -51,6 +51,8 @@ struct KnotButtonListView: View {
                                     }
                                 case .templateCategory:
                                     if let templatePattern = Pattern.predefinedTemplates.first(where: { $0.title == knotName }) {
+                                        MixpanelService.shared.trackTemplateButton(category: knotName)
+                                        
                                         // 템플릿 패턴의 매듭들을 현재 패턴에 추가
                                         pattern.knotList.append(contentsOf: templatePattern.knotList)
                                         try? modelContext.save()
