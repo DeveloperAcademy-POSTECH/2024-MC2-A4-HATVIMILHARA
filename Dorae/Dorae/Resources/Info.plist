@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>MixpanelKEY</key>
-	<string>3d4de4045c6ddbb0a05e7f650b94c73a</string>
+	<string>$(MIXPANEL_KEY)</string>
 </dict>
 </plist>
