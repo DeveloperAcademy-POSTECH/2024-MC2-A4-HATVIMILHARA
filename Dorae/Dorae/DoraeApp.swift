@@ -12,6 +12,8 @@ import SwiftData
 struct DoraeApp: App {
     
     var sharedModelContainer: ModelContainer = {
+        @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+        
         let schema = Schema([
             Pattern.self,
         ])

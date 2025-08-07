@@ -38,6 +38,8 @@ struct KnotButtonListView: View {
     
     private func addKnot(name: String) {
         if selectedTab == .templateCategory {
+            MixpanelService.shared.trackTemplateButton(category: name)
+            
             let knotList = KnotFactory.createKnotList(templateName: name)
             pattern.knotList.append(contentsOf: knotList)
         }
