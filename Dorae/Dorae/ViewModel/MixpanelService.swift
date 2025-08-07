@@ -13,17 +13,9 @@ final class MixpanelService {
 
     private init() {}
 
-    func trackShareButton() {
-        Mixpanel.mainInstance().track(event: "ShareButtonClicked")
-    }
-
-    func trackZoomButton() {
-        Mixpanel.mainInstance().track(event: "ZoomButtonClicked")
-    }
-
     func trackTemplateButton(category: String) {
         Mixpanel.mainInstance().track(event: "TemplateButtonClicked", properties: [
-            "templat": category
+            "template": category
         ])
     }
 }

@@ -10,6 +10,7 @@
 		5C2193242E4363F200408B8C /* MixpanelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2193232E4363E400408B8C /* MixpanelService.swift */; };
 		5C2193262E43645000408B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2193252E43644200408B8C /* AppDelegate.swift */; };
 		5C2193292E4364BB00408B8C /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5C2193282E4364BB00408B8C /* Mixpanel */; };
+		5C407BBD2E44AD8700D64F44 /* PrivateKeys.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */; };
 		5C8411E82E43588A007CD2A5 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8411E72E435882007CD2A5 /* PrivateKey.swift */; };
 		5CFA05562E338E6100C80B50 /* WebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFA05552E338E6100C80B50 /* WebLinks.swift */; };
 		B50C91912C40CEFB00B18185 /* AVPlayerViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C91902C40CEFB00B18185 /* AVPlayerViewController+.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		5C2193232E4363E400408B8C /* MixpanelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelService.swift; sourceTree = "<group>"; };
 		5C2193252E43644200408B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PrivateKeys.xcconfig; sourceTree = "<group>"; };
 		5C8411E72E435882007CD2A5 /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		5C8411E92E435AF3007CD2A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CFA05552E338E6100C80B50 /* WebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinks.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				B584C9062E1A48AA00EBEECE /* InfoPlist.xcstrings */,
 				5C8411E92E435AF3007CD2A5 /* Info.plist */,
 				5CFA05552E338E6100C80B50 /* WebLinks.swift */,
+				5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				B584C9072E1A48AA00EBEECE /* InfoPlist.xcstrings in Resources */,
 				FF6D53292C020E4800452809 /* SplashVideo.mp4 in Resources */,
 				B584C8B52E1A3BEC00EBEECE /* Localizable.xcstrings in Resources */,
+				5C407BBD2E44AD8700D64F44 /* PrivateKeys.xcconfig in Resources */,
 				E7B5F6DF2BF86CB400A1E749 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +407,7 @@
 /* Begin XCBuildConfiguration section */
 		E7B5F6E32BF86CB400A1E749 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -467,6 +472,7 @@
 		};
 		E7B5F6E42BF86CB400A1E749 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -524,6 +530,7 @@
 		};
 		E7B5F6E62BF86CB400A1E749 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -560,6 +567,7 @@
 		};
 		E7B5F6E72BF86CB400A1E749 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C407BBC2E44AD8700D64F44 /* PrivateKeys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
