@@ -24,7 +24,7 @@ struct SplashView: View {
                         }
                         .edgesIgnoringSafeArea(.all)
                 } else {
-                    Text("Splash video not found")
+                    Text("스플래시 비디오를 찾을 수 없습니다.")
                         .foregroundColor(.red)
                         .edgesIgnoringSafeArea(.all)
                 }

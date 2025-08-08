@@ -12,13 +12,24 @@ struct CategoryTabButton: View {
     var isSelected: Bool
     var action: () -> Void
     
+    private var adaptivePadding: CGFloat {
+        let locale = Locale.current.language.languageCode?.identifier ?? "ko"
+        switch locale {
+        case "en": return 4
+        case "ja": return 14
+        default: return 20
+        }
+    }
+    
     var body: some View {
         Button(action: action) {
             Text(title)
                 .font(.title2.bold())
+                .padding(.horizontal, adaptivePadding)
+                .padding(.vertical, 20)
                 .foregroundColor(isSelected ? Color.knotMenuBar: .white)
+                .frame(maxWidth: .infinity)
         }
-        .padding(20)
         .background(isSelected ? Color.knotMenuBG: Color.knotMenuBar)
     }
 }

@@ -12,8 +12,7 @@ struct HomeNewPatternItem: View {
         VStack(spacing: 0) {
             Image(systemName: "plus")
                 .padding(.bottom, 12)
-            Text("새 매듭 도안")
-            Text("생성하기")
+            Text("새 매듭 도안\n생성하기")
         }
         .frame(width: 160, height: 180)
             .clipShape(

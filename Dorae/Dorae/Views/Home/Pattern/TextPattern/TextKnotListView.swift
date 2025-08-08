@@ -101,7 +101,7 @@ struct TextKnotListView: View {
                 Image("\(knot.knotName)버튼")
                     .resizable()
                     .scaledToFit()
-                Text(knot.knotName.rawValue)
+                Text(knot.knotName.localizedName)
             }
         }
     }
@@ -151,7 +151,7 @@ struct TextKnotListView: View {
                     Image("\(knot.knotName)버튼")
                         .resizable()
                         .scaledToFit()
-                    Text(knot.knotName.rawValue)
+                    Text(knot.knotName.localizedName)
                 }
             }
         }
@@ -208,7 +208,7 @@ struct TextKnotListView: View {
                 Image("\(EtcKnotName.고.rawValue)버튼")
                     .resizable()
                     .scaledToFit()
-                Text(lasso)
+                Text(EtcKnotName.고.localizedName)
             }
         }
         
@@ -217,7 +217,7 @@ struct TextKnotListView: View {
                 Image("\(EtcKnotName.술.rawValue)버튼")
                     .resizable()
                     .scaledToFit()
-                Text(tassel)
+                Text(EtcKnotName.술.localizedName)
             }
         }
     }
